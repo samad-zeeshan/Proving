@@ -1,0 +1,16 @@
+{
+  "warden": {
+    "repo": "samad-zeeshan/Warden",
+    "sha": "e9c52577b75be96287d0d0aef65165e2ab764eb8",
+    "local": "../Change-Gate",
+    "env": "PROVING_WARDEN_ROOT",
+    "import_path": "src"
+  },
+  "parley": {
+    "repo": "samad-zeeshan/Parley",
+    "sha": "d5c7a2070d231b1e5d543e6cb467f9c3ea2314a2",
+    "local": "../Majlis",
+    "env": "PROVING_PARLEY_ROOT",
+    "import_path": "."
+  }
+}

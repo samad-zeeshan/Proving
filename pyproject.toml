@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "proving"
+version = "0.1.0"
+description = "Screen an AI agent on synthetic customers and simulated tools before it meets a real one."
+requires-python = ">=3.12,<3.13"
+license = { text = "MIT" }
+authors = [{ name = "Samad Zeeshan" }]
+dependencies = [
+    "pyyaml>=6.0",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+speech = ["faster-whisper>=1.1", "piper-tts>=1.8.0"]
+
+[project.scripts]
+proving = "proving.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["proving*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = [
+    "clients: needs the Warden and Parley checkouts named in clients.json",
+]
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
