@@ -45,6 +45,14 @@ class ErrorFactory:
 
 
 @dataclass
+class Annotated:
+    """A live answer plus facts about the call, such as token counts, kept in the envelope's meta."""
+
+    value: Any
+    meta: dict
+
+
+@dataclass
 class Envelope:
     step: int
     kind: str
@@ -132,7 +140,11 @@ class Proxy:
         env.source = "synth" if fn is synth and synth is not None and kind == "tool" else "live"
         t0 = self.clock()
         try:
-            env.out = jsonable(fn())
+            got = fn()
+            if isinstance(got, Annotated):
+                env.meta.update(jsonable(got.meta))
+                got = got.value
+            env.out = jsonable(got)
         except Exception as exc:
             env.ms = round((self.clock() - t0) * 1000, 3)
             env.error = {"type": f"{type(exc).__module__}.{type(exc).__qualname__}", "message": str(exc)}
@@ -146,7 +158,8 @@ class Proxy:
         # Before the cut the answer comes from the record, but the backend still has to see the call,
         # or a hold made at step 2 would not exist when the live code confirms it at step 5.
         try:
-            got, err = jsonable(fn()), None
+            got, err = fn(), None
+            got = jsonable(got.value if isinstance(got, Annotated) else got)
         except Exception as exc:  # noqa: BLE001 - compared with the recorded error below
             got, err = None, f"{type(exc).__module__}.{type(exc).__qualname__}"
         want_err = env.error["type"] if env.error else None

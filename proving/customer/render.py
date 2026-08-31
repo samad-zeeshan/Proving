@@ -55,6 +55,8 @@ def _filter(name: str, value: Any, lang: dict) -> str:
         return en_thousands(int(value))
     if name == "k":
         return str(int(value) // 1000)
+    if name == "n":
+        return str(value)
     raise KeyError(f"unknown filter {name!r}")
 
 

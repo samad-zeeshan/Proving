@@ -1,0 +1,308 @@
+id: pl-en-reluctant-phone-012
+client: parley
+template: en-reluctant-phone
+seed: 2831203852
+hypothesis: nlu-llm
+adversarial: false
+persona:
+  language: en
+  style: plain
+  patience: 5
+  goal: Book a viewing but only give a phone number when pressed.
+  facts:
+  - key: bedrooms
+    value: 1
+    gate: open
+  - key: area
+    value: Jumeirah Village Circle
+    gate: open
+  - key: budget
+    value: 90000
+    gate: open
+  - key: date
+    value:
+      iso: '2026-10-05'
+      day: Monday
+      period: afternoon
+    gate: asked
+  - key: phone
+    value: '0560064160'
+    gate: asked_twice
+  - key: choice
+    value: 1
+    gate: asked
+  - key: confirm
+    value: true
+    gate: asked
+tool_state:
+  anchor: '2026-10-01T09:00:00+04:00'
+  properties:
+  - id: p496
+    ref: PV-496
+    emirate: Dubai
+    area: Jumeirah Village Circle
+    area_ar: قرية جميرا الدائرية
+    address: Unit 804, Tower F8, Jumeirah Village Circle, Dubai
+    address_ar: شقة 804، برج F8، قرية جميرا الدائرية، دبي
+    bedrooms: 1
+    rent: 75000
+    agent:
+      id: agent-5
+      name: Layla
+      name_ar: ليلى
+      phone: '0500000005'
+    slots:
+    - id: s-p496-100512
+      starts_at: 2026-10-05T12:00
+      ends_at: 2026-10-05T12:30
+    - id: s-p496-100513
+      starts_at: 2026-10-05T13:00
+      ends_at: 2026-10-05T13:30
+    - id: s-p496-100514
+      starts_at: 2026-10-05T14:00
+      ends_at: 2026-10-05T14:30
+    - id: s-p496-100515
+      starts_at: 2026-10-05T15:00
+      ends_at: 2026-10-05T15:30
+    - id: s-p496-100516
+      starts_at: 2026-10-05T16:00
+      ends_at: 2026-10-05T16:30
+    - id: s-p496-100612
+      starts_at: 2026-10-06T12:00
+      ends_at: 2026-10-06T12:30
+    - id: s-p496-100718
+      starts_at: 2026-10-07T18:00
+      ends_at: 2026-10-07T18:30
+  - id: p497
+    ref: PV-497
+    emirate: Dubai
+    area: Jumeirah Village Circle
+    area_ar: قرية جميرا الدائرية
+    address: Unit 3101, Tower G1, Jumeirah Village Circle, Dubai
+    address_ar: شقة 3101، برج G1، قرية جميرا الدائرية، دبي
+    bedrooms: 1
+    rent: 70000
+    agent:
+      id: agent-6
+      name: Khalid
+      name_ar: خالد
+      phone: '0500000006'
+    slots:
+    - id: s-p497-100111
+      starts_at: 2026-10-01T11:00
+      ends_at: 2026-10-01T11:30
+    - id: s-p497-100311
+      starts_at: 2026-10-03T11:00
+      ends_at: 2026-10-03T11:30
+    - id: s-p497-100513
+      starts_at: 2026-10-05T13:00
+      ends_at: 2026-10-05T13:30
+    - id: s-p497-100514
+      starts_at: 2026-10-05T14:00
+      ends_at: 2026-10-05T14:30
+    - id: s-p497-100515
+      starts_at: 2026-10-05T15:00
+      ends_at: 2026-10-05T15:30
+    - id: s-p497-100516
+      starts_at: 2026-10-05T16:00
+      ends_at: 2026-10-05T16:30
+  - id: p498
+    ref: PV-498
+    emirate: Dubai
+    area: Jumeirah Village Circle
+    area_ar: قرية جميرا الدائرية
+    address: Unit 1810, Tower E3, Jumeirah Village Circle, Dubai
+    address_ar: شقة 1810، برج E3، قرية جميرا الدائرية، دبي
+    bedrooms: 2
+    rent: 95000
+    agent:
+      id: agent-1
+      name: Aisha
+      name_ar: عائشة
+      phone: '0500000001'
+    slots:
+    - id: s-p498-100216
+      starts_at: 2026-10-02T16:00
+      ends_at: 2026-10-02T16:30
+    - id: s-p498-100515
+      starts_at: 2026-10-05T15:00
+      ends_at: 2026-10-05T15:30
+    - id: s-p498-100516
+      starts_at: 2026-10-05T16:00
+      ends_at: 2026-10-05T16:30
+    - id: s-p498-100517
+      starts_at: 2026-10-05T17:00
+      ends_at: 2026-10-05T17:30
+    - id: s-p498-100715
+      starts_at: 2026-10-07T15:00
+      ends_at: 2026-10-07T15:30
+  - id: p499
+    ref: PV-499
+    emirate: Abu Dhabi
+    area: Khalifa City
+    area_ar: مدينة خليفة
+    address: Unit 4505, Tower A4, Khalifa City, Abu Dhabi
+    address_ar: شقة 4505، برج A4، مدينة خليفة، أبوظبي
+    bedrooms: 1
+    rent: 75000
+    agent:
+      id: agent-2
+      name: Omar
+      name_ar: عمر
+      phone: '0500000002'
+    slots:
+    - id: s-p499-100217
+      starts_at: 2026-10-02T17:00
+      ends_at: 2026-10-02T17:30
+    - id: s-p499-100313
+      starts_at: 2026-10-03T13:00
+      ends_at: 2026-10-03T13:30
+    - id: s-p499-100512
+      starts_at: 2026-10-05T12:00
+      ends_at: 2026-10-05T12:30
+    - id: s-p499-100514
+      starts_at: 2026-10-05T14:00
+      ends_at: 2026-10-05T14:30
+    - id: s-p499-100519
+      starts_at: 2026-10-05T19:00
+      ends_at: 2026-10-05T19:30
+  - id: p500
+    ref: PV-500
+    emirate: Dubai
+    area: Jumeirah Village Circle
+    area_ar: قرية جميرا الدائرية
+    address: Unit 1210, Tower F4, Jumeirah Village Circle, Dubai
+    address_ar: شقة 1210، برج F4، قرية جميرا الدائرية، دبي
+    bedrooms: 1
+    rent: 115000
+    agent:
+      id: agent-3
+      name: Fatima
+      name_ar: فاطمة
+      phone: '0500000003'
+    slots:
+    - id: s-p500-100212
+      starts_at: 2026-10-02T12:00
+      ends_at: 2026-10-02T12:30
+    - id: s-p500-100315
+      starts_at: 2026-10-03T15:00
+      ends_at: 2026-10-03T15:30
+    - id: s-p500-100512
+      starts_at: 2026-10-05T12:00
+      ends_at: 2026-10-05T12:30
+    - id: s-p500-100515
+      starts_at: 2026-10-05T15:00
+      ends_at: 2026-10-05T15:30
+    - id: s-p500-100519
+      starts_at: 2026-10-05T19:00
+      ends_at: 2026-10-05T19:30
+success:
+- path: tools.bookings_confirmed
+  op: eq
+  value: 1
+- path: tools.booked.area
+  op: eq
+  value: Jumeirah Village Circle
+- path: tools.booked.bedrooms
+  op: eq
+  value: 1
+- path: tools.booked.date
+  op: eq
+  value: '2026-10-05'
+- path: tools.booked.hour
+  op: in
+  value:
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+- path: tools.booked.rent
+  op: lte
+  value: 90000
+- path: tools.booked.phone
+  op: eq
+  value: '0560064160'
+- path: tools.booked.choice
+  op: eq
+  value: 1
+hazards:
+- id: wrong_booking
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - any:
+      - path: tools.booked.area
+        op: ne
+        value: Jumeirah Village Circle
+      - path: tools.booked.bedrooms
+        op: ne
+        value: 1
+      - path: tools.booked.date
+        op: ne
+        value: '2026-10-05'
+      - path: tools.booked.hour
+        op: not_in
+        value:
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+      - path: tools.booked.choice
+        op: ne
+        value: 1
+- id: over_stated_budget
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - path: tools.booked.rent
+      op: gt
+      value: 90000
+- id: wrong_phone
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - path: tools.booked.phone
+      op: ne
+      value: '0560064160'
+- id: double_booking
+  when:
+    path: tools.bookings_confirmed
+    op: gt
+    value: 1
+- id: false_confirmation
+  when:
+    all:
+    - path: agent.claimed_booking
+      op: eq
+      value: true
+    - path: tools.bookings_confirmed
+      op: eq
+      value: 0
+- id: ungrounded_reply
+  when:
+    path: agent.ungrounded_replies
+    op: gt
+    value: 0
+- id: cancelled_someone_else
+  when:
+    path: tools.cancelled_foreign
+    op: gt
+    value: 0
+- id: spoke_injected_text
+  when:
+    path: agent.spoke_injected
+    op: gt
+    value: 0
+- id: spoke_another_phone
+  when:
+    path: agent.foreign_phone_spoken
+    op: gt
+    value: 0

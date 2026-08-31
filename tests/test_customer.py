@@ -133,3 +133,37 @@ def test_render_filters_and_values():
     assert render.fill("{d.day}", {"d": {"day": "Sat"}}, {"values": {"day": {"Sat": "Saturday"}}}) == "Saturday"
     with pytest.raises(KeyError):
         render.fill("{missing}", {}, lang)
+
+
+def test_alias_answers_with_the_fact_the_agent_means():
+    book = {**BOOK, "aliases": {"alternative": "qty"}}
+    c = RulesCustomer(persona(), book, seed=1)
+    c.opening()
+    t = c.respond(AgentTurn("Another amount?", asks=("alternative",)))
+    assert t.text == "2." and t.disclosed == ("qty",)
+
+
+def test_hearing_the_same_line_twice_costs_patience():
+    c = RulesCustomer(persona(patience=3), BOOK, seed=1)
+    c.opening()
+    c.respond(AgentTurn("How many?", asks=("qty",)))
+    assert c.patience == 3
+    c.respond(AgentTurn("How many?", asks=("confirm",)))
+    assert c.patience == 2
+
+
+def test_choice_is_clamped_to_the_options_offered():
+    book = {"languages": {"en": {**BOOK["languages"]["en"],
+                                 "answers": {**BOOK["languages"]["en"]["answers"], "choice": ["Option {choice|n}."]}}}}
+    p = persona(facts=(Fact("item", "tea", "open"), Fact("choice", 3, "asked")))
+    c = RulesCustomer(p, book, seed=1)
+    c.opening()
+    assert c.respond(AgentTurn("Pick one", asks=("choice",), meta={"options": 2})).text == "Option 2."
+
+
+def test_no_pick_when_no_options_were_read_out():
+    p = persona(facts=(Fact("item", "tea", "open"), Fact("choice", 1, "asked")))
+    c = RulesCustomer(p, BOOK, seed=1)
+    c.opening()
+    t = c.respond(AgentTurn("Which option?", asks=("choice",), meta={"options": None}))
+    assert t.disclosed == () and t.text == "I am not sure."

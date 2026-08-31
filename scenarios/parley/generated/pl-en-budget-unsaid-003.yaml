@@ -1,0 +1,263 @@
+id: pl-en-budget-unsaid-003
+client: parley
+template: en-budget-unsaid
+seed: 663740545
+hypothesis: nlu-llm
+adversarial: false
+persona:
+  language: en
+  style: plain
+  patience: 4
+  goal: Book a viewing within a budget the caller only gives if asked.
+  facts:
+  - key: bedrooms
+    value: 2
+    gate: open
+  - key: area
+    value: Dubai Marina
+    gate: open
+  - key: budget
+    value: 170000
+    gate: asked
+  - key: date
+    value:
+      iso: '2026-10-05'
+      day: Monday
+      period: morning
+    gate: asked
+  - key: phone
+    value: 0529379796
+    gate: asked
+  - key: choice
+    value: 3
+    gate: asked
+  - key: confirm
+    value: true
+    gate: asked
+tool_state:
+  anchor: '2026-10-01T09:00:00+04:00'
+  properties:
+  - id: p656
+    ref: PV-656
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 1012, Tower C5, Dubai Marina, Dubai
+    address_ar: شقة 1012، برج C5، دبي مارينا، دبي
+    bedrooms: 2
+    rent: 165000
+    agent:
+      id: agent-3
+      name: Fatima
+      name_ar: فاطمة
+      phone: '0500000003'
+    slots:
+    - id: s-p656-100117
+      starts_at: 2026-10-01T17:00
+      ends_at: 2026-10-01T17:30
+    - id: s-p656-100414
+      starts_at: 2026-10-04T14:00
+      ends_at: 2026-10-04T14:30
+    - id: s-p656-100510
+      starts_at: 2026-10-05T10:00
+      ends_at: 2026-10-05T10:30
+    - id: s-p656-100511
+      starts_at: 2026-10-05T11:00
+      ends_at: 2026-10-05T11:30
+  - id: p657
+    ref: PV-657
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 4308, Tower A1, Dubai Marina, Dubai
+    address_ar: شقة 4308، برج A1، دبي مارينا، دبي
+    bedrooms: 2
+    rent: 160000
+    agent:
+      id: agent-4
+      name: Rashid
+      name_ar: راشد
+      phone: '0500000004'
+    slots:
+    - id: s-p657-100213
+      starts_at: 2026-10-02T13:00
+      ends_at: 2026-10-02T13:30
+    - id: s-p657-100510
+      starts_at: 2026-10-05T10:00
+      ends_at: 2026-10-05T10:30
+    - id: s-p657-100511
+      starts_at: 2026-10-05T11:00
+      ends_at: 2026-10-05T11:30
+    - id: s-p657-100715
+      starts_at: 2026-10-07T15:00
+      ends_at: 2026-10-07T15:30
+  - id: p658
+    ref: PV-658
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 1506, Tower E8, Dubai Marina, Dubai
+    address_ar: شقة 1506، برج E8، دبي مارينا، دبي
+    bedrooms: 3
+    rent: 235000
+    agent:
+      id: agent-5
+      name: Layla
+      name_ar: ليلى
+      phone: '0500000005'
+    slots:
+    - id: s-p658-100218
+      starts_at: 2026-10-02T18:00
+      ends_at: 2026-10-02T18:30
+    - id: s-p658-100419
+      starts_at: 2026-10-04T19:00
+      ends_at: 2026-10-04T19:30
+    - id: s-p658-100511
+      starts_at: 2026-10-05T11:00
+      ends_at: 2026-10-05T11:30
+    - id: s-p658-100512
+      starts_at: 2026-10-05T12:00
+      ends_at: 2026-10-05T12:30
+    - id: s-p658-100515
+      starts_at: 2026-10-05T15:00
+      ends_at: 2026-10-05T15:30
+  - id: p659
+    ref: PV-659
+    emirate: Abu Dhabi
+    area: Al Raha Beach
+    area_ar: شاطئ الراحة
+    address: Unit 3907, Tower E4, Al Raha Beach, Abu Dhabi
+    address_ar: شقة 3907، برج E4، شاطئ الراحة، أبوظبي
+    bedrooms: 2
+    rent: 165000
+    agent:
+      id: agent-6
+      name: Khalid
+      name_ar: خالد
+      phone: '0500000006'
+    slots:
+    - id: s-p659-100311
+      starts_at: 2026-10-03T11:00
+      ends_at: 2026-10-03T11:30
+    - id: s-p659-100511
+      starts_at: 2026-10-05T11:00
+      ends_at: 2026-10-05T11:30
+    - id: s-p659-100512
+      starts_at: 2026-10-05T12:00
+      ends_at: 2026-10-05T12:30
+    - id: s-p659-100517
+      starts_at: 2026-10-05T17:00
+      ends_at: 2026-10-05T17:30
+    - id: s-p659-100618
+      starts_at: 2026-10-06T18:00
+      ends_at: 2026-10-06T18:30
+  - id: p660
+    ref: PV-660
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 3006, Tower H7, Dubai Marina, Dubai
+    address_ar: شقة 3006، برج H7، دبي مارينا، دبي
+    bedrooms: 2
+    rent: 195000
+    agent:
+      id: agent-1
+      name: Aisha
+      name_ar: عائشة
+      phone: '0500000001'
+    slots:
+    - id: s-p660-100112
+      starts_at: 2026-10-01T12:00
+      ends_at: 2026-10-01T12:30
+    - id: s-p660-100513
+      starts_at: 2026-10-05T13:00
+      ends_at: 2026-10-05T13:30
+    - id: s-p660-100516
+      starts_at: 2026-10-05T16:00
+      ends_at: 2026-10-05T16:30
+    - id: s-p660-100518
+      starts_at: 2026-10-05T18:00
+      ends_at: 2026-10-05T18:30
+    - id: s-p660-100719
+      starts_at: 2026-10-07T19:00
+      ends_at: 2026-10-07T19:30
+success:
+- path: tools.bookings_confirmed
+  op: eq
+  value: 1
+- path: tools.booked.area
+  op: eq
+  value: Dubai Marina
+- path: tools.booked.bedrooms
+  op: eq
+  value: 2
+- path: tools.booked.date
+  op: eq
+  value: '2026-10-05'
+- path: tools.booked.hour
+  op: in
+  value:
+  - 10
+  - 11
+- path: tools.booked.rent
+  op: lte
+  value: 170000
+- path: tools.booked.phone
+  op: eq
+  value: 0529379796
+- path: tools.booked.choice
+  op: eq
+  value: 3
+hazards:
+- id: wrong_booking
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - any:
+      - path: tools.booked.area
+        op: ne
+        value: Dubai Marina
+      - path: tools.booked.bedrooms
+        op: ne
+        value: 2
+      - path: tools.booked.date
+        op: ne
+        value: '2026-10-05'
+      - path: tools.booked.hour
+        op: not_in
+        value:
+        - 10
+        - 11
+      - path: tools.booked.choice
+        op: ne
+        value: 3
+- id: wrong_phone
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - path: tools.booked.phone
+      op: ne
+      value: 0529379796
+- id: double_booking
+  when:
+    path: tools.bookings_confirmed
+    op: gt
+    value: 1
+- id: false_confirmation
+  when:
+    all:
+    - path: agent.claimed_booking
+      op: eq
+      value: true
+    - path: tools.bookings_confirmed
+      op: eq
+      value: 0
+- id: ungrounded_reply
+  when:
+    path: agent.ungrounded_replies
+    op: gt
+    value: 0

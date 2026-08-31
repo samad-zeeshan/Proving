@@ -1,0 +1,132 @@
+# How a Parley caller says things, per language. Written for this project; every name and number is
+# synthetic. Lines follow the shapes Parley's own scripted callers use, so a correct agent can parse them.
+aliases:
+  alternative: date
+languages:
+  en:
+    greet: ["Hi,", "Hello,", "Good morning,"]
+    open: ["I would like to book a viewing", "I want to book a viewing", "I am looking to see a flat"]
+    stop: "."
+    clauses:
+      bedrooms: ["for {bedrooms} flat", "for {bedrooms} apartment"]
+      area: ["in {area}"]
+      budget: ["with a budget of {budget|thousands} dirhams", "for up to {budget|thousands} a year"]
+      date: ["on {date.day} {date.period}"]
+    answers:
+      area: ["In {area}.", "{area}, please.", "I am looking in {area}."]
+      bedrooms: ["{bedrooms} flat.", "I need {bedrooms} place."]
+      budget: ["My budget is {budget|thousands} dirhams a year.", "Up to {budget|thousands}."]
+      date: ["{date.day} {date.period}.", "On {date.day} in the {date.period}."]
+      alternative: ["Then {alternative.day} {alternative.period}.", "What about {alternative.day} in the {alternative.period}?"]
+      phone: ["My number is {phone|digits}.", "It is {phone|digits}."]
+      choice: ["The {choice} one, please.", "Option {choice|n}."]
+      confirm: ["Yes, please confirm.", "Yes, go ahead.", "That works, book it."]
+    deflect: ["Why do you need that?", "Do you really need my number?"]
+    refuse: ["I would rather not say."]
+    unknown: ["Sorry, I am not sure."]
+    hangup: ["This is taking too long, bye.", "Forget it, I will call another agency."]
+    done: ["Thank you, bye.", "Great, thanks."]
+    nudge: ["Hello?"]
+    values:
+      bedrooms: {0: a studio, 1: a one bedroom, 2: a two bedroom, 3: a three bedroom}
+      choice: {1: first, 2: second, 3: third}
+
+  ar-gulf:
+    greet: ["السلام عليكم،", "هلا،", "مرحبا،"]
+    open: ["أبي أحجز معاينة", "أبغي أحجز معاينة"]
+    stop: ""
+    clauses:
+      bedrooms: ["ل{bedrooms}"]
+      area: ["في {area}"]
+      budget: ["والميزانية {budget|k} ألف درهم"]
+      date: ["يوم {date.day} {date.period}"]
+    answers:
+      area: ["في {area}", "أبي في {area}"]
+      bedrooms: ["{bedrooms}", "أبي {bedrooms}"]
+      budget: ["الميزانية {budget|k} ألف درهم", "ميزانيتي {budget|k} ألف"]
+      date: ["يوم {date.day} {date.period}"]
+      alternative: ["طيب يوم {alternative.day} {alternative.period}"]
+      phone: ["رقمي {phone|digits}", "{phone|digits}"]
+      choice: ["{choice}", "{choice} زين"]
+      confirm: ["خلاص تمام أكد الحجز", "زين أكد", "إيه أكد الحجز"]
+    deflect: ["ليش تبي رقمي؟"]
+    refuse: ["ما أبي أقول"]
+    unknown: ["ما أدري والله"]
+    hangup: ["خلاص ما أبي، مع السلامة"]
+    done: ["مشكور، مع السلامة"]
+    nudge: ["ألو؟"]
+    values:
+      bedrooms: {0: ستوديو, 1: شقة غرفة وحدة, 2: شقة غرفتين, 3: شقة ثلاث غرف}
+      choice: {1: الأول, 2: الثاني, 3: الثالث}
+      digit: [صفر, واحد, اثنين, ثلاثة, أربعة, خمسة, ستة, سبعة, ثمانية, تسعة]
+      day: {Monday: الاثنين, Tuesday: الثلاثاء, Wednesday: الأربعاء, Thursday: الخميس, Friday: الجمعة, Saturday: السبت, Sunday: الأحد}
+      area: &area_ar
+        Dubai Marina: دبي مارينا
+        Jumeirah Lake Towers: أبراج بحيرات جميرا
+        Downtown Dubai: وسط مدينة دبي
+        Business Bay: الخليج التجاري
+        Al Barsha: البرشاء
+        Jumeirah Village Circle: قرية جميرا الدائرية
+        Al Reem Island: جزيرة الريم
+        Khalifa City: مدينة خليفة
+        Al Raha Beach: شاطئ الراحة
+        Saadiyat Island: جزيرة السعديات
+
+  ar-msa:
+    greet: ["السلام عليكم،", "مرحبا،"]
+    open: ["أريد حجز موعد لمعاينة", "أود حجز موعد لمعاينة"]
+    stop: ""
+    clauses:
+      bedrooms: ["شقة من {bedrooms}"]
+      area: ["في {area}"]
+      budget: ["بميزانية {budget|k} ألف درهم"]
+      date: ["يوم {date.day} {date.period}"]
+    answers:
+      area: ["في {area} من فضلك", "أبحث في {area}"]
+      bedrooms: ["شقة من {bedrooms}", "أحتاج شقة من {bedrooms}"]
+      budget: ["ميزانيتي {budget|k} ألف درهم سنويا"]
+      date: ["يوم {date.day} {date.period}"]
+      alternative: ["إذن يوم {alternative.day} {alternative.period}"]
+      phone: ["رقم هاتفي {phone|digits}", "{phone|digits}"]
+      choice: ["الخيار {choice} من فضلك", "{choice} من فضلك"]
+      confirm: ["نعم أؤكد الحجز", "نعم من فضلك"]
+    deflect: ["لماذا تحتاج رقمي؟"]
+    refuse: ["أفضل ألا أقول"]
+    unknown: ["لست متأكدا"]
+    hangup: ["لا بأس، سأتصل لاحقا"]
+    done: ["شكرا لك"]
+    nudge: ["هل تسمعني؟"]
+    values:
+      bedrooms: {0: ستوديو, 1: غرفة واحدة, 2: غرفتين, 3: ثلاث غرف نوم}
+      choice: {1: الأول, 2: الثاني, 3: الثالث}
+      digit: [صفر, واحد, اثنين, ثلاثة, أربعة, خمسة, ستة, سبعة, ثمانية, تسعة]
+      day: {Monday: الاثنين, Tuesday: الثلاثاء, Wednesday: الأربعاء, Thursday: الخميس, Friday: الجمعة, Saturday: السبت, Sunday: الأحد}
+      area: *area_ar
+
+  mixed:
+    greet: ["Hi,", "مرحبا،", "Hello,"]
+    open: ["أبي أحجز viewing", "I want أحجز معاينة"]
+    stop: ""
+    clauses:
+      bedrooms: ["{bedrooms} bedroom"]
+      area: ["في {area}"]
+      budget: ["والميزانية {budget|k} ألف"]
+      date: ["يوم {date.day} in the {date.period}"]
+    answers:
+      area: ["في {area}", "{area} please"]
+      bedrooms: ["{bedrooms} bedroom", "أبي {bedrooms} bedroom"]
+      budget: ["الميزانية {budget|k} ألف", "budget {budget|k} ألف"]
+      date: ["{date.day} in the {date.period}", "يوم {date.day} in the {date.period}"]
+      alternative: ["OK then {alternative.day} in the {alternative.period}"]
+      phone: ["My number is {phone|digits}.", "It is {phone|digits}."]
+      choice: ["OK, {choice}", "{choice} please"]
+      confirm: ["تمام confirm the booking", "yes أكد الحجز"]
+    deflect: ["ليش you need my number?"]
+    refuse: ["ما أبي أقول"]
+    unknown: ["I am not sure والله"]
+    hangup: ["خلاص forget it, bye"]
+    done: ["Thanks, مع السلامة"]
+    nudge: ["Hello?"]
+    values:
+      bedrooms: {0: studio, 1: one, 2: two, 3: three}
+      choice: {1: الأول, 2: الثاني, 3: الثالث}

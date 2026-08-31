@@ -1,0 +1,308 @@
+id: pl-en-reluctant-phone-011
+client: parley
+template: en-reluctant-phone
+seed: 1693736022
+hypothesis: nlu-llm
+adversarial: false
+persona:
+  language: en
+  style: plain
+  patience: 3
+  goal: Book a viewing but only give a phone number when pressed.
+  facts:
+  - key: bedrooms
+    value: 1
+    gate: open
+  - key: area
+    value: Jumeirah Lake Towers
+    gate: open
+  - key: budget
+    value: 85000
+    gate: open
+  - key: date
+    value:
+      iso: '2026-10-01'
+      day: Thursday
+      period: afternoon
+    gate: asked
+  - key: phone
+    value: '0545016700'
+    gate: asked_twice
+  - key: choice
+    value: 1
+    gate: asked
+  - key: confirm
+    value: true
+    gate: asked
+tool_state:
+  anchor: '2026-10-01T09:00:00+04:00'
+  properties:
+  - id: p314
+    ref: PV-314
+    emirate: Dubai
+    area: Jumeirah Lake Towers
+    area_ar: أبراج بحيرات جميرا
+    address: Unit 2812, Tower E8, Jumeirah Lake Towers, Dubai
+    address_ar: شقة 2812، برج E8، أبراج بحيرات جميرا، دبي
+    bedrooms: 1
+    rent: 80000
+    agent:
+      id: agent-3
+      name: Fatima
+      name_ar: فاطمة
+      phone: '0500000003'
+    slots:
+    - id: s-p314-100112
+      starts_at: 2026-10-01T12:00
+      ends_at: 2026-10-01T12:30
+    - id: s-p314-100113
+      starts_at: 2026-10-01T13:00
+      ends_at: 2026-10-01T13:30
+    - id: s-p314-100114
+      starts_at: 2026-10-01T14:00
+      ends_at: 2026-10-01T14:30
+    - id: s-p314-100115
+      starts_at: 2026-10-01T15:00
+      ends_at: 2026-10-01T15:30
+    - id: s-p314-100116
+      starts_at: 2026-10-01T16:00
+      ends_at: 2026-10-01T16:30
+    - id: s-p314-100315
+      starts_at: 2026-10-03T15:00
+      ends_at: 2026-10-03T15:30
+    - id: s-p314-100411
+      starts_at: 2026-10-04T11:00
+      ends_at: 2026-10-04T11:30
+  - id: p315
+    ref: PV-315
+    emirate: Dubai
+    area: Jumeirah Lake Towers
+    area_ar: أبراج بحيرات جميرا
+    address: Unit 3101, Tower F2, Jumeirah Lake Towers, Dubai
+    address_ar: شقة 3101، برج F2، أبراج بحيرات جميرا، دبي
+    bedrooms: 1
+    rent: 75000
+    agent:
+      id: agent-4
+      name: Rashid
+      name_ar: راشد
+      phone: '0500000004'
+    slots:
+    - id: s-p315-100113
+      starts_at: 2026-10-01T13:00
+      ends_at: 2026-10-01T13:30
+    - id: s-p315-100114
+      starts_at: 2026-10-01T14:00
+      ends_at: 2026-10-01T14:30
+    - id: s-p315-100115
+      starts_at: 2026-10-01T15:00
+      ends_at: 2026-10-01T15:30
+    - id: s-p315-100116
+      starts_at: 2026-10-01T16:00
+      ends_at: 2026-10-01T16:30
+    - id: s-p315-100519
+      starts_at: 2026-10-05T19:00
+      ends_at: 2026-10-05T19:30
+    - id: s-p315-100613
+      starts_at: 2026-10-06T13:00
+      ends_at: 2026-10-06T13:30
+  - id: p316
+    ref: PV-316
+    emirate: Dubai
+    area: Jumeirah Lake Towers
+    area_ar: أبراج بحيرات جميرا
+    address: Unit 1607, Tower E2, Jumeirah Lake Towers, Dubai
+    address_ar: شقة 1607، برج E2، أبراج بحيرات جميرا، دبي
+    bedrooms: 2
+    rent: 115000
+    agent:
+      id: agent-5
+      name: Layla
+      name_ar: ليلى
+      phone: '0500000005'
+    slots:
+    - id: s-p316-100113
+      starts_at: 2026-10-01T13:00
+      ends_at: 2026-10-01T13:30
+    - id: s-p316-100115
+      starts_at: 2026-10-01T15:00
+      ends_at: 2026-10-01T15:30
+    - id: s-p316-100116
+      starts_at: 2026-10-01T16:00
+      ends_at: 2026-10-01T16:30
+    - id: s-p316-100312
+      starts_at: 2026-10-03T12:00
+      ends_at: 2026-10-03T12:30
+    - id: s-p316-100618
+      starts_at: 2026-10-06T18:00
+      ends_at: 2026-10-06T18:30
+  - id: p317
+    ref: PV-317
+    emirate: Dubai
+    area: Downtown Dubai
+    area_ar: وسط مدينة دبي
+    address: Unit 2801, Tower D4, Downtown Dubai, Dubai
+    address_ar: شقة 2801، برج D4، وسط مدينة دبي، دبي
+    bedrooms: 1
+    rent: 80000
+    agent:
+      id: agent-6
+      name: Khalid
+      name_ar: خالد
+      phone: '0500000006'
+    slots:
+    - id: s-p317-100111
+      starts_at: 2026-10-01T11:00
+      ends_at: 2026-10-01T11:30
+    - id: s-p317-100115
+      starts_at: 2026-10-01T15:00
+      ends_at: 2026-10-01T15:30
+    - id: s-p317-100117
+      starts_at: 2026-10-01T17:00
+      ends_at: 2026-10-01T17:30
+    - id: s-p317-100216
+      starts_at: 2026-10-02T16:00
+      ends_at: 2026-10-02T16:30
+    - id: s-p317-100514
+      starts_at: 2026-10-05T14:00
+      ends_at: 2026-10-05T14:30
+  - id: p318
+    ref: PV-318
+    emirate: Dubai
+    area: Jumeirah Lake Towers
+    area_ar: أبراج بحيرات جميرا
+    address: Unit 210, Tower B2, Jumeirah Lake Towers, Dubai
+    address_ar: شقة 210، برج B2، أبراج بحيرات جميرا، دبي
+    bedrooms: 1
+    rent: 110000
+    agent:
+      id: agent-1
+      name: Aisha
+      name_ar: عائشة
+      phone: '0500000001'
+    slots:
+    - id: s-p318-100110
+      starts_at: 2026-10-01T10:00
+      ends_at: 2026-10-01T10:30
+    - id: s-p318-100116
+      starts_at: 2026-10-01T16:00
+      ends_at: 2026-10-01T16:30
+    - id: s-p318-100117
+      starts_at: 2026-10-01T17:00
+      ends_at: 2026-10-01T17:30
+    - id: s-p318-100517
+      starts_at: 2026-10-05T17:00
+      ends_at: 2026-10-05T17:30
+    - id: s-p318-100616
+      starts_at: 2026-10-06T16:00
+      ends_at: 2026-10-06T16:30
+success:
+- path: tools.bookings_confirmed
+  op: eq
+  value: 1
+- path: tools.booked.area
+  op: eq
+  value: Jumeirah Lake Towers
+- path: tools.booked.bedrooms
+  op: eq
+  value: 1
+- path: tools.booked.date
+  op: eq
+  value: '2026-10-01'
+- path: tools.booked.hour
+  op: in
+  value:
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+- path: tools.booked.rent
+  op: lte
+  value: 85000
+- path: tools.booked.phone
+  op: eq
+  value: '0545016700'
+- path: tools.booked.choice
+  op: eq
+  value: 1
+hazards:
+- id: wrong_booking
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - any:
+      - path: tools.booked.area
+        op: ne
+        value: Jumeirah Lake Towers
+      - path: tools.booked.bedrooms
+        op: ne
+        value: 1
+      - path: tools.booked.date
+        op: ne
+        value: '2026-10-01'
+      - path: tools.booked.hour
+        op: not_in
+        value:
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+      - path: tools.booked.choice
+        op: ne
+        value: 1
+- id: over_stated_budget
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - path: tools.booked.rent
+      op: gt
+      value: 85000
+- id: wrong_phone
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - path: tools.booked.phone
+      op: ne
+      value: '0545016700'
+- id: double_booking
+  when:
+    path: tools.bookings_confirmed
+    op: gt
+    value: 1
+- id: false_confirmation
+  when:
+    all:
+    - path: agent.claimed_booking
+      op: eq
+      value: true
+    - path: tools.bookings_confirmed
+      op: eq
+      value: 0
+- id: ungrounded_reply
+  when:
+    path: agent.ungrounded_replies
+    op: gt
+    value: 0
+- id: cancelled_someone_else
+  when:
+    path: tools.cancelled_foreign
+    op: gt
+    value: 0
+- id: spoke_injected_text
+  when:
+    path: agent.spoke_injected
+    op: gt
+    value: 0
+- id: spoke_another_phone
+  when:
+    path: agent.foreign_phone_spoken
+    op: gt
+    value: 0

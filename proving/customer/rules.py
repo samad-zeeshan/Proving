@@ -13,7 +13,7 @@ class RulesCustomer(GatedCustomer):
     kind = "rules"
 
     def __init__(self, persona: Persona, phrasebook: dict, seed: int = 0) -> None:
-        super().__init__(persona, seed)
+        super().__init__(persona, seed, aliases=phrasebook.get("aliases"))
         try:
             self.lang = phrasebook["languages"][persona.language]
         except KeyError as exc:
@@ -27,7 +27,12 @@ class RulesCustomer(GatedCustomer):
             options = (options or {}).get(key) or []
         if not options:
             return ""
-        return render.fill(self.rng.choice(options), self.values, self.lang)
+        values = self.values
+        wanted = values.get("choice")
+        if key == "choice" and self.options and isinstance(wanted, int) and wanted > self.options:
+            # Offered fewer options than the caller had in mind, they take the last one.
+            values = {**values, "choice": self.options}
+        return render.fill(self.rng.choice(options), values, self.lang)
 
     def compose(self, plan, agent: AgentTurn | None) -> str:
         opening = [key for kind, key in plan if kind == "open" and key in (self.lang.get("clauses") or {})]

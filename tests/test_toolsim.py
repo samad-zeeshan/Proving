@@ -149,3 +149,12 @@ def test_trajectory_file_round_trip(tmp_path):
     assert back == runs
     steps = [px.Envelope.from_dict(d) for d in back[0]["steps"]]
     assert steps == rec.log
+
+
+def test_annotated_meta_is_kept_and_served():
+    rec = px.Proxy()
+    got = rec.call("model", "nlu", {"u": "hi"}, live=lambda: px.Annotated("ok", {"usage": {"prompt_tokens": 9}}))
+    assert got == "ok" and rec.log[0].meta["usage"] == {"prompt_tokens": 9}
+    rep = px.Proxy(replay=rec.log)
+    assert rep.call("model", "nlu", {"u": "hi"}, live=lambda: None) == "ok"
+    assert rep.log[0].meta["usage"] == {"prompt_tokens": 9}

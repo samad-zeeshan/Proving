@@ -1,0 +1,268 @@
+id: pl-en-budget-unsaid-000
+client: parley
+template: en-budget-unsaid
+seed: 1998766764
+hypothesis: nlu-llm
+adversarial: false
+persona:
+  language: en
+  style: plain
+  patience: 3
+  goal: Book a viewing within a budget the caller only gives if asked.
+  facts:
+  - key: bedrooms
+    value: 2
+    gate: open
+  - key: area
+    value: Al Reem Island
+    gate: open
+  - key: budget
+    value: 135000
+    gate: asked
+  - key: date
+    value:
+      iso: '2026-10-02'
+      day: Friday
+      period: evening
+    gate: asked
+  - key: phone
+    value: 0522661729
+    gate: asked
+  - key: choice
+    value: 2
+    gate: asked
+  - key: confirm
+    value: true
+    gate: asked
+tool_state:
+  anchor: '2026-10-01T09:00:00+04:00'
+  properties:
+  - id: p240
+    ref: PV-240
+    emirate: Abu Dhabi
+    area: Al Reem Island
+    area_ar: جزيرة الريم
+    address: Unit 1512, Tower B3, Al Reem Island, Abu Dhabi
+    address_ar: شقة 1512، برج B3، جزيرة الريم، أبوظبي
+    bedrooms: 2
+    rent: 130000
+    agent:
+      id: agent-1
+      name: Aisha
+      name_ar: عائشة
+      phone: '0500000001'
+    slots:
+    - id: s-p240-100116
+      starts_at: 2026-10-01T16:00
+      ends_at: 2026-10-01T16:30
+    - id: s-p240-100217
+      starts_at: 2026-10-02T17:00
+      ends_at: 2026-10-02T17:30
+    - id: s-p240-100218
+      starts_at: 2026-10-02T18:00
+      ends_at: 2026-10-02T18:30
+    - id: s-p240-100219
+      starts_at: 2026-10-02T19:00
+      ends_at: 2026-10-02T19:30
+    - id: s-p240-100416
+      starts_at: 2026-10-04T16:00
+      ends_at: 2026-10-04T16:30
+  - id: p241
+    ref: PV-241
+    emirate: Abu Dhabi
+    area: Al Reem Island
+    area_ar: جزيرة الريم
+    address: Unit 4410, Tower C1, Al Reem Island, Abu Dhabi
+    address_ar: شقة 4410، برج C1، جزيرة الريم، أبوظبي
+    bedrooms: 2
+    rent: 125000
+    agent:
+      id: agent-2
+      name: Omar
+      name_ar: عمر
+      phone: '0500000002'
+    slots:
+    - id: s-p241-100218
+      starts_at: 2026-10-02T18:00
+      ends_at: 2026-10-02T18:30
+    - id: s-p241-100219
+      starts_at: 2026-10-02T19:00
+      ends_at: 2026-10-02T19:30
+    - id: s-p241-100416
+      starts_at: 2026-10-04T16:00
+      ends_at: 2026-10-04T16:30
+    - id: s-p241-100710
+      starts_at: 2026-10-07T10:00
+      ends_at: 2026-10-07T10:30
+  - id: p242
+    ref: PV-242
+    emirate: Abu Dhabi
+    area: Al Reem Island
+    area_ar: جزيرة الريم
+    address: Unit 1909, Tower F4, Al Reem Island, Abu Dhabi
+    address_ar: شقة 1909، برج F4، جزيرة الريم، أبوظبي
+    bedrooms: 3
+    rent: 170000
+    agent:
+      id: agent-3
+      name: Fatima
+      name_ar: فاطمة
+      phone: '0500000003'
+    slots:
+    - id: s-p242-100210
+      starts_at: 2026-10-02T10:00
+      ends_at: 2026-10-02T10:30
+    - id: s-p242-100215
+      starts_at: 2026-10-02T15:00
+      ends_at: 2026-10-02T15:30
+    - id: s-p242-100219
+      starts_at: 2026-10-02T19:00
+      ends_at: 2026-10-02T19:30
+    - id: s-p242-100613
+      starts_at: 2026-10-06T13:00
+      ends_at: 2026-10-06T13:30
+    - id: s-p242-100710
+      starts_at: 2026-10-07T10:00
+      ends_at: 2026-10-07T10:30
+  - id: p243
+    ref: PV-243
+    emirate: Abu Dhabi
+    area: Saadiyat Island
+    area_ar: جزيرة السعديات
+    address: Unit 1711, Tower D6, Saadiyat Island, Abu Dhabi
+    address_ar: شقة 1711، برج D6، جزيرة السعديات، أبوظبي
+    bedrooms: 2
+    rent: 130000
+    agent:
+      id: agent-4
+      name: Rashid
+      name_ar: راشد
+      phone: '0500000004'
+    slots:
+    - id: s-p243-100212
+      starts_at: 2026-10-02T12:00
+      ends_at: 2026-10-02T12:30
+    - id: s-p243-100214
+      starts_at: 2026-10-02T14:00
+      ends_at: 2026-10-02T14:30
+    - id: s-p243-100216
+      starts_at: 2026-10-02T16:00
+      ends_at: 2026-10-02T16:30
+    - id: s-p243-100611
+      starts_at: 2026-10-06T11:00
+      ends_at: 2026-10-06T11:30
+    - id: s-p243-100710
+      starts_at: 2026-10-07T10:00
+      ends_at: 2026-10-07T10:30
+  - id: p244
+    ref: PV-244
+    emirate: Abu Dhabi
+    area: Al Reem Island
+    area_ar: جزيرة الريم
+    address: Unit 3010, Tower F4, Al Reem Island, Abu Dhabi
+    address_ar: شقة 3010، برج F4، جزيرة الريم، أبوظبي
+    bedrooms: 2
+    rent: 160000
+    agent:
+      id: agent-5
+      name: Layla
+      name_ar: ليلى
+      phone: '0500000005'
+    slots:
+    - id: s-p244-100212
+      starts_at: 2026-10-02T12:00
+      ends_at: 2026-10-02T12:30
+    - id: s-p244-100215
+      starts_at: 2026-10-02T15:00
+      ends_at: 2026-10-02T15:30
+    - id: s-p244-100219
+      starts_at: 2026-10-02T19:00
+      ends_at: 2026-10-02T19:30
+    - id: s-p244-100515
+      starts_at: 2026-10-05T15:00
+      ends_at: 2026-10-05T15:30
+    - id: s-p244-100713
+      starts_at: 2026-10-07T13:00
+      ends_at: 2026-10-07T13:30
+success:
+- path: tools.bookings_confirmed
+  op: eq
+  value: 1
+- path: tools.booked.area
+  op: eq
+  value: Al Reem Island
+- path: tools.booked.bedrooms
+  op: eq
+  value: 2
+- path: tools.booked.date
+  op: eq
+  value: '2026-10-02'
+- path: tools.booked.hour
+  op: in
+  value:
+  - 17
+  - 18
+  - 19
+- path: tools.booked.rent
+  op: lte
+  value: 135000
+- path: tools.booked.phone
+  op: eq
+  value: 0522661729
+- path: tools.booked.choice
+  op: eq
+  value: 2
+hazards:
+- id: wrong_booking
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - any:
+      - path: tools.booked.area
+        op: ne
+        value: Al Reem Island
+      - path: tools.booked.bedrooms
+        op: ne
+        value: 2
+      - path: tools.booked.date
+        op: ne
+        value: '2026-10-02'
+      - path: tools.booked.hour
+        op: not_in
+        value:
+        - 17
+        - 18
+        - 19
+      - path: tools.booked.choice
+        op: ne
+        value: 2
+- id: wrong_phone
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - path: tools.booked.phone
+      op: ne
+      value: 0522661729
+- id: double_booking
+  when:
+    path: tools.bookings_confirmed
+    op: gt
+    value: 1
+- id: false_confirmation
+  when:
+    all:
+    - path: agent.claimed_booking
+      op: eq
+      value: true
+    - path: tools.bookings_confirmed
+      op: eq
+      value: 0
+- id: ungrounded_reply
+  when:
+    path: agent.ungrounded_replies
+    op: gt
+    value: 0

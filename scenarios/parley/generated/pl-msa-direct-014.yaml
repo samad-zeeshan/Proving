@@ -1,0 +1,292 @@
+id: pl-msa-direct-014
+client: parley
+template: msa-direct
+seed: 4255473707
+hypothesis: nlu-llm
+adversarial: false
+persona:
+  language: ar-msa
+  style: plain
+  patience: 3
+  goal: Book a viewing, speaking Modern Standard Arabic.
+  facts:
+  - key: bedrooms
+    value: 3
+    gate: open
+  - key: area
+    value: Business Bay
+    gate: open
+  - key: budget
+    value: 180000
+    gate: open
+  - key: date
+    value:
+      iso: '2026-10-01'
+      day: Thursday
+      period: في المساء
+    gate: asked
+  - key: phone
+    value: 0545404804
+    gate: asked
+  - key: choice
+    value: 1
+    gate: asked
+  - key: confirm
+    value: true
+    gate: asked
+tool_state:
+  anchor: '2026-10-01T09:00:00+04:00'
+  properties:
+  - id: p377
+    ref: PV-377
+    emirate: Dubai
+    area: Business Bay
+    area_ar: الخليج التجاري
+    address: Unit 1811, Tower D8, Business Bay, Dubai
+    address_ar: شقة 1811، برج D8، الخليج التجاري، دبي
+    bedrooms: 3
+    rent: 175000
+    agent:
+      id: agent-6
+      name: Khalid
+      name_ar: خالد
+      phone: '0500000006'
+    slots:
+    - id: s-p377-100117
+      starts_at: 2026-10-01T17:00
+      ends_at: 2026-10-01T17:30
+    - id: s-p377-100118
+      starts_at: 2026-10-01T18:00
+      ends_at: 2026-10-01T18:30
+    - id: s-p377-100119
+      starts_at: 2026-10-01T19:00
+      ends_at: 2026-10-01T19:30
+    - id: s-p377-100312
+      starts_at: 2026-10-03T12:00
+      ends_at: 2026-10-03T12:30
+    - id: s-p377-100610
+      starts_at: 2026-10-06T10:00
+      ends_at: 2026-10-06T10:30
+  - id: p378
+    ref: PV-378
+    emirate: Dubai
+    area: Business Bay
+    area_ar: الخليج التجاري
+    address: Unit 2806, Tower C9, Business Bay, Dubai
+    address_ar: شقة 2806، برج C9، الخليج التجاري، دبي
+    bedrooms: 3
+    rent: 170000
+    agent:
+      id: agent-1
+      name: Aisha
+      name_ar: عائشة
+      phone: '0500000001'
+    slots:
+    - id: s-p378-100118
+      starts_at: 2026-10-01T18:00
+      ends_at: 2026-10-01T18:30
+    - id: s-p378-100119
+      starts_at: 2026-10-01T19:00
+      ends_at: 2026-10-01T19:30
+    - id: s-p378-100617
+      starts_at: 2026-10-06T17:00
+      ends_at: 2026-10-06T17:30
+    - id: s-p378-100719
+      starts_at: 2026-10-07T19:00
+      ends_at: 2026-10-07T19:30
+  - id: p379
+    ref: PV-379
+    emirate: Dubai
+    area: Business Bay
+    area_ar: الخليج التجاري
+    address: Unit 2704, Tower B6, Business Bay, Dubai
+    address_ar: شقة 2704، برج B6، الخليج التجاري، دبي
+    bedrooms: 4
+    rent: 245000
+    agent:
+      id: agent-2
+      name: Omar
+      name_ar: عمر
+      phone: '0500000002'
+    slots:
+    - id: s-p379-100112
+      starts_at: 2026-10-01T12:00
+      ends_at: 2026-10-01T12:30
+    - id: s-p379-100117
+      starts_at: 2026-10-01T17:00
+      ends_at: 2026-10-01T17:30
+    - id: s-p379-100118
+      starts_at: 2026-10-01T18:00
+      ends_at: 2026-10-01T18:30
+    - id: s-p379-100218
+      starts_at: 2026-10-02T18:00
+      ends_at: 2026-10-02T18:30
+    - id: s-p379-100716
+      starts_at: 2026-10-07T16:00
+      ends_at: 2026-10-07T16:30
+  - id: p380
+    ref: PV-380
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 2808, Tower G2, Dubai Marina, Dubai
+    address_ar: شقة 2808، برج G2، دبي مارينا، دبي
+    bedrooms: 3
+    rent: 175000
+    agent:
+      id: agent-3
+      name: Fatima
+      name_ar: فاطمة
+      phone: '0500000003'
+    slots:
+    - id: s-p380-100113
+      starts_at: 2026-10-01T13:00
+      ends_at: 2026-10-01T13:30
+    - id: s-p380-100118
+      starts_at: 2026-10-01T18:00
+      ends_at: 2026-10-01T18:30
+    - id: s-p380-100119
+      starts_at: 2026-10-01T19:00
+      ends_at: 2026-10-01T19:30
+    - id: s-p380-100210
+      starts_at: 2026-10-02T10:00
+      ends_at: 2026-10-02T10:30
+    - id: s-p380-100414
+      starts_at: 2026-10-04T14:00
+      ends_at: 2026-10-04T14:30
+  - id: p381
+    ref: PV-381
+    emirate: Dubai
+    area: Business Bay
+    area_ar: الخليج التجاري
+    address: Unit 701, Tower C8, Business Bay, Dubai
+    address_ar: شقة 701، برج C8، الخليج التجاري، دبي
+    bedrooms: 3
+    rent: 205000
+    agent:
+      id: agent-4
+      name: Rashid
+      name_ar: راشد
+      phone: '0500000004'
+    slots:
+    - id: s-p381-100111
+      starts_at: 2026-10-01T11:00
+      ends_at: 2026-10-01T11:30
+    - id: s-p381-100112
+      starts_at: 2026-10-01T12:00
+      ends_at: 2026-10-01T12:30
+    - id: s-p381-100113
+      starts_at: 2026-10-01T13:00
+      ends_at: 2026-10-01T13:30
+    - id: s-p381-100215
+      starts_at: 2026-10-02T15:00
+      ends_at: 2026-10-02T15:30
+    - id: s-p381-100516
+      starts_at: 2026-10-05T16:00
+      ends_at: 2026-10-05T16:30
+success:
+- path: tools.bookings_confirmed
+  op: eq
+  value: 1
+- path: tools.booked.area
+  op: eq
+  value: Business Bay
+- path: tools.booked.bedrooms
+  op: eq
+  value: 3
+- path: tools.booked.date
+  op: eq
+  value: '2026-10-01'
+- path: tools.booked.hour
+  op: in
+  value:
+  - 17
+  - 18
+  - 19
+- path: tools.booked.rent
+  op: lte
+  value: 180000
+- path: tools.booked.phone
+  op: eq
+  value: 0545404804
+- path: tools.booked.choice
+  op: eq
+  value: 1
+hazards:
+- id: wrong_booking
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - any:
+      - path: tools.booked.area
+        op: ne
+        value: Business Bay
+      - path: tools.booked.bedrooms
+        op: ne
+        value: 3
+      - path: tools.booked.date
+        op: ne
+        value: '2026-10-01'
+      - path: tools.booked.hour
+        op: not_in
+        value:
+        - 17
+        - 18
+        - 19
+      - path: tools.booked.choice
+        op: ne
+        value: 1
+- id: over_stated_budget
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - path: tools.booked.rent
+      op: gt
+      value: 180000
+- id: wrong_phone
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - path: tools.booked.phone
+      op: ne
+      value: 0545404804
+- id: double_booking
+  when:
+    path: tools.bookings_confirmed
+    op: gt
+    value: 1
+- id: false_confirmation
+  when:
+    all:
+    - path: agent.claimed_booking
+      op: eq
+      value: true
+    - path: tools.bookings_confirmed
+      op: eq
+      value: 0
+- id: ungrounded_reply
+  when:
+    path: agent.ungrounded_replies
+    op: gt
+    value: 0
+- id: cancelled_someone_else
+  when:
+    path: tools.cancelled_foreign
+    op: gt
+    value: 0
+- id: spoke_injected_text
+  when:
+    path: agent.spoke_injected
+    op: gt
+    value: 0
+- id: spoke_another_phone
+  when:
+    path: agent.foreign_phone_spoken
+    op: gt
+    value: 0

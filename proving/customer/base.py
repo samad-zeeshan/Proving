@@ -36,13 +36,15 @@ class GatedCustomer:
 
     kind = "base"
 
-    def __init__(self, persona: Persona, seed: int = 0) -> None:
+    def __init__(self, persona: Persona, seed: int = 0, aliases: dict | None = None) -> None:
         self.persona = persona
         self.seed = seed
-        self.gate = DisclosureGate(persona)
+        self.gate = DisclosureGate(persona, aliases)
         self.patience = persona.patience
         self.turn = 0
         self.last_text = ""
+        self.last_agent = ""
+        self.options: int | None = None
         attack = persona.attack or {}
         self._attack_lines = list(attack.get("lines") or [])
         self._attack_when = attack.get("when", "open")
@@ -66,16 +68,25 @@ class GatedCustomer:
         cost = 1 if agent.friction else 0
         if not agent.asks and not agent.friction:
             cost = 1  # the agent stalled without asking anything
-        cost += sum(1 for k in agent.asks if self.gate.already_said(k))
+        # Hearing the same line twice is going in circles, whatever the agent thinks it asked.
+        if agent.text == self.last_agent and not agent.friction:
+            cost += 1
+        self.last_agent = agent.text
+        self.options = agent.meta.get("options")
+        cost += sum(1 for k in agent.asks if self.gate.already_said(self.gate.resolve(k)))
         # Impatient customers pay double for the same friction, the style PersonaForge calls low tolerance.
         if self.persona.style == "impatient":
             cost *= 2
         self.patience -= cost
         if self.patience <= 0:
             return self._finish([("hangup", "")], (), agent, hang_up=True, reason="patience")
-        decisions = self.gate.observe(agent.asks)
+        asks = agent.asks
+        if "options" in agent.meta and not agent.meta["options"]:
+            # Asked to pick an option when none was read out: the caller cannot answer that.
+            asks = tuple(k for k in asks if k != "choice")
+        decisions = self.gate.observe(asks)
         plan = [(d, k) for k, d in decisions.items()]
-        for k in agent.asks:
+        for k in asks:
             plan += self._attack(k)
         if not plan:
             plan = [("nudge", "")]

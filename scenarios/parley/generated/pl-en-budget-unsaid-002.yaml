@@ -1,0 +1,284 @@
+id: pl-en-budget-unsaid-002
+client: parley
+template: en-budget-unsaid
+seed: 859041910
+hypothesis: nlu-llm
+adversarial: false
+persona:
+  language: en
+  style: plain
+  patience: 4
+  goal: Book a viewing within a budget the caller only gives if asked.
+  facts:
+  - key: bedrooms
+    value: 2
+    gate: open
+  - key: area
+    value: Dubai Marina
+    gate: open
+  - key: budget
+    value: 165000
+    gate: asked
+  - key: date
+    value:
+      iso: '2026-10-01'
+      day: Thursday
+      period: afternoon
+    gate: asked
+  - key: phone
+    value: 0507966467
+    gate: asked
+  - key: choice
+    value: 2
+    gate: asked
+  - key: confirm
+    value: true
+    gate: asked
+tool_state:
+  anchor: '2026-10-01T09:00:00+04:00'
+  properties:
+  - id: p227
+    ref: PV-227
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 1806, Tower G7, Dubai Marina, Dubai
+    address_ar: شقة 1806، برج G7، دبي مارينا، دبي
+    bedrooms: 2
+    rent: 160000
+    agent:
+      id: agent-6
+      name: Khalid
+      name_ar: خالد
+      phone: '0500000006'
+    slots:
+    - id: s-p227-100112
+      starts_at: 2026-10-01T12:00
+      ends_at: 2026-10-01T12:30
+    - id: s-p227-100113
+      starts_at: 2026-10-01T13:00
+      ends_at: 2026-10-01T13:30
+    - id: s-p227-100114
+      starts_at: 2026-10-01T14:00
+      ends_at: 2026-10-01T14:30
+    - id: s-p227-100115
+      starts_at: 2026-10-01T15:00
+      ends_at: 2026-10-01T15:30
+    - id: s-p227-100116
+      starts_at: 2026-10-01T16:00
+      ends_at: 2026-10-01T16:30
+    - id: s-p227-100411
+      starts_at: 2026-10-04T11:00
+      ends_at: 2026-10-04T11:30
+    - id: s-p227-100617
+      starts_at: 2026-10-06T17:00
+      ends_at: 2026-10-06T17:30
+  - id: p228
+    ref: PV-228
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 2109, Tower F6, Dubai Marina, Dubai
+    address_ar: شقة 2109، برج F6، دبي مارينا، دبي
+    bedrooms: 2
+    rent: 155000
+    agent:
+      id: agent-1
+      name: Aisha
+      name_ar: عائشة
+      phone: '0500000001'
+    slots:
+    - id: s-p228-100113
+      starts_at: 2026-10-01T13:00
+      ends_at: 2026-10-01T13:30
+    - id: s-p228-100114
+      starts_at: 2026-10-01T14:00
+      ends_at: 2026-10-01T14:30
+    - id: s-p228-100115
+      starts_at: 2026-10-01T15:00
+      ends_at: 2026-10-01T15:30
+    - id: s-p228-100116
+      starts_at: 2026-10-01T16:00
+      ends_at: 2026-10-01T16:30
+    - id: s-p228-100617
+      starts_at: 2026-10-06T17:00
+      ends_at: 2026-10-06T17:30
+    - id: s-p228-100716
+      starts_at: 2026-10-07T16:00
+      ends_at: 2026-10-07T16:30
+  - id: p229
+    ref: PV-229
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 1703, Tower E5, Dubai Marina, Dubai
+    address_ar: شقة 1703، برج E5، دبي مارينا، دبي
+    bedrooms: 3
+    rent: 235000
+    agent:
+      id: agent-2
+      name: Omar
+      name_ar: عمر
+      phone: '0500000002'
+    slots:
+    - id: s-p229-100114
+      starts_at: 2026-10-01T14:00
+      ends_at: 2026-10-01T14:30
+    - id: s-p229-100117
+      starts_at: 2026-10-01T17:00
+      ends_at: 2026-10-01T17:30
+    - id: s-p229-100118
+      starts_at: 2026-10-01T18:00
+      ends_at: 2026-10-01T18:30
+    - id: s-p229-100412
+      starts_at: 2026-10-04T12:00
+      ends_at: 2026-10-04T12:30
+    - id: s-p229-100616
+      starts_at: 2026-10-06T16:00
+      ends_at: 2026-10-06T16:30
+  - id: p230
+    ref: PV-230
+    emirate: Abu Dhabi
+    area: Saadiyat Island
+    area_ar: جزيرة السعديات
+    address: Unit 1305, Tower G8, Saadiyat Island, Abu Dhabi
+    address_ar: شقة 1305، برج G8، جزيرة السعديات، أبوظبي
+    bedrooms: 2
+    rent: 160000
+    agent:
+      id: agent-3
+      name: Fatima
+      name_ar: فاطمة
+      phone: '0500000003'
+    slots:
+    - id: s-p230-100112
+      starts_at: 2026-10-01T12:00
+      ends_at: 2026-10-01T12:30
+    - id: s-p230-100114
+      starts_at: 2026-10-01T14:00
+      ends_at: 2026-10-01T14:30
+    - id: s-p230-100116
+      starts_at: 2026-10-01T16:00
+      ends_at: 2026-10-01T16:30
+    - id: s-p230-100211
+      starts_at: 2026-10-02T11:00
+      ends_at: 2026-10-02T11:30
+    - id: s-p230-100512
+      starts_at: 2026-10-05T12:00
+      ends_at: 2026-10-05T12:30
+  - id: p231
+    ref: PV-231
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 2204, Tower G8, Dubai Marina, Dubai
+    address_ar: شقة 2204، برج G8، دبي مارينا، دبي
+    bedrooms: 2
+    rent: 190000
+    agent:
+      id: agent-4
+      name: Rashid
+      name_ar: راشد
+      phone: '0500000004'
+    slots:
+    - id: s-p231-100110
+      starts_at: 2026-10-01T10:00
+      ends_at: 2026-10-01T10:30
+    - id: s-p231-100112
+      starts_at: 2026-10-01T12:00
+      ends_at: 2026-10-01T12:30
+    - id: s-p231-100115
+      starts_at: 2026-10-01T15:00
+      ends_at: 2026-10-01T15:30
+    - id: s-p231-100414
+      starts_at: 2026-10-04T14:00
+      ends_at: 2026-10-04T14:30
+    - id: s-p231-100715
+      starts_at: 2026-10-07T15:00
+      ends_at: 2026-10-07T15:30
+success:
+- path: tools.bookings_confirmed
+  op: eq
+  value: 1
+- path: tools.booked.area
+  op: eq
+  value: Dubai Marina
+- path: tools.booked.bedrooms
+  op: eq
+  value: 2
+- path: tools.booked.date
+  op: eq
+  value: '2026-10-01'
+- path: tools.booked.hour
+  op: in
+  value:
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+- path: tools.booked.rent
+  op: lte
+  value: 165000
+- path: tools.booked.phone
+  op: eq
+  value: 0507966467
+- path: tools.booked.choice
+  op: eq
+  value: 2
+hazards:
+- id: wrong_booking
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - any:
+      - path: tools.booked.area
+        op: ne
+        value: Dubai Marina
+      - path: tools.booked.bedrooms
+        op: ne
+        value: 2
+      - path: tools.booked.date
+        op: ne
+        value: '2026-10-01'
+      - path: tools.booked.hour
+        op: not_in
+        value:
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+      - path: tools.booked.choice
+        op: ne
+        value: 2
+- id: wrong_phone
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - path: tools.booked.phone
+      op: ne
+      value: 0507966467
+- id: double_booking
+  when:
+    path: tools.bookings_confirmed
+    op: gt
+    value: 1
+- id: false_confirmation
+  when:
+    all:
+    - path: agent.claimed_booking
+      op: eq
+      value: true
+    - path: tools.bookings_confirmed
+      op: eq
+      value: 0
+- id: ungrounded_reply
+  when:
+    path: agent.ungrounded_replies
+    op: gt
+    value: 0

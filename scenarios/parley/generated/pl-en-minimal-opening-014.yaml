@@ -1,0 +1,292 @@
+id: pl-en-minimal-opening-014
+client: parley
+template: en-minimal-opening
+seed: 2131381157
+hypothesis: nlu-llm
+adversarial: false
+persona:
+  language: en
+  style: impatient
+  patience: 5
+  goal: Book a viewing, answering only what is asked.
+  facts:
+  - key: budget
+    value: 210000
+    gate: open
+  - key: bedrooms
+    value: 3
+    gate: asked
+  - key: area
+    value: Dubai Marina
+    gate: asked
+  - key: date
+    value:
+      iso: '2026-10-06'
+      day: Tuesday
+      period: evening
+    gate: asked
+  - key: phone
+    value: 0567883915
+    gate: asked
+  - key: choice
+    value: 3
+    gate: asked
+  - key: confirm
+    value: true
+    gate: asked
+tool_state:
+  anchor: '2026-10-01T09:00:00+04:00'
+  properties:
+  - id: p615
+    ref: PV-615
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 2506, Tower C7, Dubai Marina, Dubai
+    address_ar: شقة 2506، برج C7، دبي مارينا، دبي
+    bedrooms: 3
+    rent: 195000
+    agent:
+      id: agent-4
+      name: Rashid
+      name_ar: راشد
+      phone: '0500000004'
+    slots:
+    - id: s-p615-100513
+      starts_at: 2026-10-05T13:00
+      ends_at: 2026-10-05T13:30
+    - id: s-p615-100617
+      starts_at: 2026-10-06T17:00
+      ends_at: 2026-10-06T17:30
+    - id: s-p615-100618
+      starts_at: 2026-10-06T18:00
+      ends_at: 2026-10-06T18:30
+    - id: s-p615-100619
+      starts_at: 2026-10-06T19:00
+      ends_at: 2026-10-06T19:30
+    - id: s-p615-100715
+      starts_at: 2026-10-07T15:00
+      ends_at: 2026-10-07T15:30
+  - id: p616
+    ref: PV-616
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 2105, Tower H1, Dubai Marina, Dubai
+    address_ar: شقة 2105، برج H1، دبي مارينا، دبي
+    bedrooms: 3
+    rent: 190000
+    agent:
+      id: agent-5
+      name: Layla
+      name_ar: ليلى
+      phone: '0500000005'
+    slots:
+    - id: s-p616-100319
+      starts_at: 2026-10-03T19:00
+      ends_at: 2026-10-03T19:30
+    - id: s-p616-100618
+      starts_at: 2026-10-06T18:00
+      ends_at: 2026-10-06T18:30
+    - id: s-p616-100619
+      starts_at: 2026-10-06T19:00
+      ends_at: 2026-10-06T19:30
+    - id: s-p616-100719
+      starts_at: 2026-10-07T19:00
+      ends_at: 2026-10-07T19:30
+  - id: p617
+    ref: PV-617
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 3606, Tower H6, Dubai Marina, Dubai
+    address_ar: شقة 3606، برج H6، دبي مارينا، دبي
+    bedrooms: 4
+    rent: 305000
+    agent:
+      id: agent-6
+      name: Khalid
+      name_ar: خالد
+      phone: '0500000006'
+    slots:
+    - id: s-p617-100519
+      starts_at: 2026-10-05T19:00
+      ends_at: 2026-10-05T19:30
+    - id: s-p617-100611
+      starts_at: 2026-10-06T11:00
+      ends_at: 2026-10-06T11:30
+    - id: s-p617-100613
+      starts_at: 2026-10-06T13:00
+      ends_at: 2026-10-06T13:30
+    - id: s-p617-100618
+      starts_at: 2026-10-06T18:00
+      ends_at: 2026-10-06T18:30
+    - id: s-p617-100713
+      starts_at: 2026-10-07T13:00
+      ends_at: 2026-10-07T13:30
+  - id: p618
+    ref: PV-618
+    emirate: Abu Dhabi
+    area: Al Reem Island
+    area_ar: جزيرة الريم
+    address: Unit 1411, Tower C2, Al Reem Island, Abu Dhabi
+    address_ar: شقة 1411، برج C2، جزيرة الريم، أبوظبي
+    bedrooms: 3
+    rent: 195000
+    agent:
+      id: agent-1
+      name: Aisha
+      name_ar: عائشة
+      phone: '0500000001'
+    slots:
+    - id: s-p618-100112
+      starts_at: 2026-10-01T12:00
+      ends_at: 2026-10-01T12:30
+    - id: s-p618-100613
+      starts_at: 2026-10-06T13:00
+      ends_at: 2026-10-06T13:30
+    - id: s-p618-100616
+      starts_at: 2026-10-06T16:00
+      ends_at: 2026-10-06T16:30
+    - id: s-p618-100619
+      starts_at: 2026-10-06T19:00
+      ends_at: 2026-10-06T19:30
+    - id: s-p618-100712
+      starts_at: 2026-10-07T12:00
+      ends_at: 2026-10-07T12:30
+  - id: p619
+    ref: PV-619
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 2502, Tower F5, Dubai Marina, Dubai
+    address_ar: شقة 2502، برج F5، دبي مارينا، دبي
+    bedrooms: 3
+    rent: 235000
+    agent:
+      id: agent-2
+      name: Omar
+      name_ar: عمر
+      phone: '0500000002'
+    slots:
+    - id: s-p619-100311
+      starts_at: 2026-10-03T11:00
+      ends_at: 2026-10-03T11:30
+    - id: s-p619-100412
+      starts_at: 2026-10-04T12:00
+      ends_at: 2026-10-04T12:30
+    - id: s-p619-100611
+      starts_at: 2026-10-06T11:00
+      ends_at: 2026-10-06T11:30
+    - id: s-p619-100614
+      starts_at: 2026-10-06T14:00
+      ends_at: 2026-10-06T14:30
+    - id: s-p619-100619
+      starts_at: 2026-10-06T19:00
+      ends_at: 2026-10-06T19:30
+success:
+- path: tools.bookings_confirmed
+  op: eq
+  value: 1
+- path: tools.booked.area
+  op: eq
+  value: Dubai Marina
+- path: tools.booked.bedrooms
+  op: eq
+  value: 3
+- path: tools.booked.date
+  op: eq
+  value: '2026-10-06'
+- path: tools.booked.hour
+  op: in
+  value:
+  - 17
+  - 18
+  - 19
+- path: tools.booked.rent
+  op: lte
+  value: 210000
+- path: tools.booked.phone
+  op: eq
+  value: 0567883915
+- path: tools.booked.choice
+  op: eq
+  value: 3
+hazards:
+- id: wrong_booking
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - any:
+      - path: tools.booked.area
+        op: ne
+        value: Dubai Marina
+      - path: tools.booked.bedrooms
+        op: ne
+        value: 3
+      - path: tools.booked.date
+        op: ne
+        value: '2026-10-06'
+      - path: tools.booked.hour
+        op: not_in
+        value:
+        - 17
+        - 18
+        - 19
+      - path: tools.booked.choice
+        op: ne
+        value: 3
+- id: over_stated_budget
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - path: tools.booked.rent
+      op: gt
+      value: 210000
+- id: wrong_phone
+  when:
+    all:
+    - path: tools.bookings_confirmed
+      op: gte
+      value: 1
+    - path: tools.booked.phone
+      op: ne
+      value: 0567883915
+- id: double_booking
+  when:
+    path: tools.bookings_confirmed
+    op: gt
+    value: 1
+- id: false_confirmation
+  when:
+    all:
+    - path: agent.claimed_booking
+      op: eq
+      value: true
+    - path: tools.bookings_confirmed
+      op: eq
+      value: 0
+- id: ungrounded_reply
+  when:
+    path: agent.ungrounded_replies
+    op: gt
+    value: 0
+- id: cancelled_someone_else
+  when:
+    path: tools.cancelled_foreign
+    op: gt
+    value: 0
+- id: spoke_injected_text
+  when:
+    path: agent.spoke_injected
+    op: gt
+    value: 0
+- id: spoke_another_phone
+  when:
+    path: agent.foreign_phone_spoken
+    op: gt
+    value: 0
