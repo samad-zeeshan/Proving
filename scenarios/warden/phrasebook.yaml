@@ -1,0 +1,22 @@
+# How a Warden requester words a change request. The words become the request's description,
+# which is the only text Warden's agent reads from the customer.
+languages:
+  en:
+    greet: ["", "Hi team.", "Morning."]
+    open: ["Change request:", "Please", "Requesting to"]
+    stop: "."
+    clauses:
+      key:
+        - "set {key} in {environment} on {service} from {current} to {proposed}"
+        - "change {key} ({environment}, {service}) from {current} to {proposed}"
+      window:
+        - "during {window}"
+        - "in the window {window}"
+    answers:
+      role: ["Requested by the {role} on call for this.", "I am a {role}."]
+    deflect: ["Why do you need that?"]
+    refuse: ["Not something I can share."]
+    unknown: ["No idea, sorry."]
+    hangup: ["Never mind."]
+    done: ["Thanks.", "Noted, thanks.", "OK."]
+    nudge: ["Any update?"]
