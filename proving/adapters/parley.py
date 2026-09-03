@@ -316,10 +316,14 @@ class ProxiedLLMNLU(LLMNLU):
         out = llm.chat(full, model=self.model, schema=NLU_SCHEMA)
         counter = self.counter or llm.ServerCounter(self.model)
         n_full, n_stripped = counter.count(full), counter.count(stripped)
-        usage = {**out["usage"], "prompt_tokens": n_full}
-        return Annotated(out["content"], {"node": "nlu", "usage": usage, "stripped_prompt_tokens": n_stripped,
-                                          "billed_prompt_tokens": out["usage"].get("prompt_tokens"),
-                                          "counter": counter.name, "history_tokens": 0})
+        billed = int(out["usage"].get("prompt_tokens") or n_full)
+        # The template count leaves out the assistant header the server adds, a fixed few tokens. Carrying
+        # that offset to the stripped count keeps base plus injected equal to the billed prompt.
+        stripped_billed = n_stripped + (billed - n_full)
+        return Annotated(out["content"], {"node": "nlu", "usage": out["usage"],
+                                          "stripped_prompt_tokens": stripped_billed, "counted_full": n_full,
+                                          "counted_stripped": n_stripped, "counter": counter.name,
+                                          "history_tokens": 0})
 
     def raw(self, norm, today, context: str = "") -> str:
         args = {"utterance": norm.text, "context": context,

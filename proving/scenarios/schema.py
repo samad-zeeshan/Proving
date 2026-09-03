@@ -144,11 +144,16 @@ def _plain(obj: Any) -> Any:
 
 
 def dump(s: Scenario) -> str:
-    return yaml.safe_dump(to_dict(s), sort_keys=False, allow_unicode=True, width=110)
+    # Flow style for leaf lists and maps keeps an inventory of slots readable and a tenth of the size.
+    return yaml.safe_dump(to_dict(s), sort_keys=False, allow_unicode=True, width=110, default_flow_style=None)
+
+
+# The C loader reads the two thousand scenario files about ten times faster when libyaml is present.
+_LOADER = getattr(yaml, "CSafeLoader", yaml.SafeLoader)
 
 
 def load(path: Path) -> Scenario:
-    return from_dict(yaml.safe_load(Path(path).read_text(encoding="utf-8")))
+    return from_dict(yaml.load(Path(path).read_text(encoding="utf-8"), Loader=_LOADER))
 
 
 def load_dir(directory: Path) -> list[Scenario]:

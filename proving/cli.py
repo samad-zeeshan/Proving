@@ -6,6 +6,7 @@ This file is where adapters are loaded by name. Nothing else in the core imports
 from __future__ import annotations
 
 import argparse
+import functools
 import sys
 from pathlib import Path
 
@@ -21,8 +22,13 @@ def _adapter(name: str):
     return adapters.load(name)
 
 
+@functools.lru_cache(maxsize=None)
+def _load_all(client: str) -> tuple[schema.Scenario, ...]:
+    return tuple(schema.load_dir(SCENARIOS / client / "generated"))
+
+
 def scenario_set(client: str, which: str = "all") -> list[schema.Scenario]:
-    loaded = schema.load_dir(SCENARIOS / client / "generated")
+    loaded = list(_load_all(client))
     if which == "all":
         return loaded
     if which == "smoke":

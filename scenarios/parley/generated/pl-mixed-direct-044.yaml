@@ -1,0 +1,156 @@
+id: pl-mixed-direct-044
+client: parley
+template: mixed-direct
+seed: 161785090
+hypothesis: nlu-llm
+adversarial: false
+persona:
+  language: mixed
+  style: plain
+  patience: 5
+  goal: Book a viewing, switching between Arabic and English.
+  facts:
+  - {key: bedrooms, value: 0, gate: open}
+  - {key: area, value: Al Raha Beach, gate: open}
+  - {key: budget, value: 110000, gate: open}
+  - key: date
+    value: {iso: '2026-10-05', day: Monday, period: afternoon}
+    gate: asked
+  - {key: phone, value: 0503598536, gate: asked}
+  - {key: choice, value: 2, gate: asked}
+  - {key: confirm, value: true, gate: asked}
+tool_state:
+  anchor: '2026-10-01T09:00:00+04:00'
+  properties:
+  - id: p634
+    ref: PV-634
+    emirate: Abu Dhabi
+    area: Al Raha Beach
+    area_ar: شاطئ الراحة
+    address: Unit 3410, Tower A2, Al Raha Beach, Abu Dhabi
+    address_ar: شقة 3410، برج A2، شاطئ الراحة، أبوظبي
+    bedrooms: 0
+    rent: 70000
+    agent: {id: agent-5, name: Layla, name_ar: ليلى, phone: '0500000005'}
+    slots:
+    - {id: s-p634-100315, starts_at: '2026-10-03T15:00', ends_at: '2026-10-03T15:30'}
+    - {id: s-p634-100512, starts_at: '2026-10-05T12:00', ends_at: '2026-10-05T12:30'}
+    - {id: s-p634-100513, starts_at: '2026-10-05T13:00', ends_at: '2026-10-05T13:30'}
+    - {id: s-p634-100514, starts_at: '2026-10-05T14:00', ends_at: '2026-10-05T14:30'}
+    - {id: s-p634-100515, starts_at: '2026-10-05T15:00', ends_at: '2026-10-05T15:30'}
+    - {id: s-p634-100516, starts_at: '2026-10-05T16:00', ends_at: '2026-10-05T16:30'}
+    - {id: s-p634-100613, starts_at: '2026-10-06T13:00', ends_at: '2026-10-06T13:30'}
+  - id: p635
+    ref: PV-635
+    emirate: Abu Dhabi
+    area: Al Raha Beach
+    area_ar: شاطئ الراحة
+    address: Unit 2803, Tower E7, Al Raha Beach, Abu Dhabi
+    address_ar: شقة 2803، برج E7، شاطئ الراحة، أبوظبي
+    bedrooms: 0
+    rent: 65000
+    agent: {id: agent-6, name: Khalid, name_ar: خالد, phone: '0500000006'}
+    slots:
+    - {id: s-p635-100211, starts_at: '2026-10-02T11:00', ends_at: '2026-10-02T11:30'}
+    - {id: s-p635-100513, starts_at: '2026-10-05T13:00', ends_at: '2026-10-05T13:30'}
+    - {id: s-p635-100514, starts_at: '2026-10-05T14:00', ends_at: '2026-10-05T14:30'}
+    - {id: s-p635-100515, starts_at: '2026-10-05T15:00', ends_at: '2026-10-05T15:30'}
+    - {id: s-p635-100516, starts_at: '2026-10-05T16:00', ends_at: '2026-10-05T16:30'}
+    - {id: s-p635-100712, starts_at: '2026-10-07T12:00', ends_at: '2026-10-07T12:30'}
+  - id: p636
+    ref: PV-636
+    emirate: Abu Dhabi
+    area: Al Raha Beach
+    area_ar: شاطئ الراحة
+    address: Unit 1711, Tower E3, Al Raha Beach, Abu Dhabi
+    address_ar: شقة 1711، برج E3، شاطئ الراحة، أبوظبي
+    bedrooms: 1
+    rent: 120000
+    agent: {id: agent-1, name: Aisha, name_ar: عائشة, phone: '0500000001'}
+    slots:
+    - {id: s-p636-100216, starts_at: '2026-10-02T16:00', ends_at: '2026-10-02T16:30'}
+    - {id: s-p636-100511, starts_at: '2026-10-05T11:00', ends_at: '2026-10-05T11:30'}
+    - {id: s-p636-100513, starts_at: '2026-10-05T13:00', ends_at: '2026-10-05T13:30'}
+    - {id: s-p636-100518, starts_at: '2026-10-05T18:00', ends_at: '2026-10-05T18:30'}
+    - {id: s-p636-100618, starts_at: '2026-10-06T18:00', ends_at: '2026-10-06T18:30'}
+  - id: p637
+    ref: PV-637
+    emirate: Dubai
+    area: Jumeirah Village Circle
+    area_ar: قرية جميرا الدائرية
+    address: Unit 3606, Tower G6, Jumeirah Village Circle, Dubai
+    address_ar: شقة 3606، برج G6، قرية جميرا الدائرية، دبي
+    bedrooms: 0
+    rent: 70000
+    agent: {id: agent-2, name: Omar, name_ar: عمر, phone: '0500000002'}
+    slots:
+    - {id: s-p637-100216, starts_at: '2026-10-02T16:00', ends_at: '2026-10-02T16:30'}
+    - {id: s-p637-100514, starts_at: '2026-10-05T14:00', ends_at: '2026-10-05T14:30'}
+    - {id: s-p637-100518, starts_at: '2026-10-05T18:00', ends_at: '2026-10-05T18:30'}
+    - {id: s-p637-100519, starts_at: '2026-10-05T19:00', ends_at: '2026-10-05T19:30'}
+    - {id: s-p637-100618, starts_at: '2026-10-06T18:00', ends_at: '2026-10-06T18:30'}
+  - id: p638
+    ref: PV-638
+    emirate: Abu Dhabi
+    area: Al Raha Beach
+    area_ar: شاطئ الراحة
+    address: Unit 211, Tower D5, Al Raha Beach, Abu Dhabi
+    address_ar: شقة 211، برج D5، شاطئ الراحة، أبوظبي
+    bedrooms: 0
+    rent: 135000
+    agent: {id: agent-3, name: Fatima, name_ar: فاطمة, phone: '0500000003'}
+    slots:
+    - {id: s-p638-100119, starts_at: '2026-10-01T19:00', ends_at: '2026-10-01T19:30'}
+    - {id: s-p638-100512, starts_at: '2026-10-05T12:00', ends_at: '2026-10-05T12:30'}
+    - {id: s-p638-100513, starts_at: '2026-10-05T13:00', ends_at: '2026-10-05T13:30'}
+    - {id: s-p638-100515, starts_at: '2026-10-05T15:00', ends_at: '2026-10-05T15:30'}
+    - {id: s-p638-100614, starts_at: '2026-10-06T14:00', ends_at: '2026-10-06T14:30'}
+success:
+- {path: tools.bookings_confirmed, op: eq, value: 1}
+- {path: tools.booked.area, op: eq, value: Al Raha Beach}
+- {path: tools.booked.bedrooms, op: eq, value: 0}
+- {path: tools.booked.date, op: eq, value: '2026-10-05'}
+- path: tools.booked.hour
+  op: in
+  value: [12, 13, 14, 15, 16]
+- {path: tools.booked.rent, op: lte, value: 110000}
+- {path: tools.booked.phone, op: eq, value: 0503598536}
+- {path: tools.booked.choice, op: eq, value: 2}
+hazards:
+- id: wrong_booking
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - any:
+      - {path: tools.booked.area, op: ne, value: Al Raha Beach}
+      - {path: tools.booked.bedrooms, op: ne, value: 0}
+      - {path: tools.booked.date, op: ne, value: '2026-10-05'}
+      - path: tools.booked.hour
+        op: not_in
+        value: [12, 13, 14, 15, 16]
+      - {path: tools.booked.choice, op: ne, value: 2}
+- id: over_stated_budget
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - {path: tools.booked.rent, op: gt, value: 110000}
+- id: wrong_phone
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - {path: tools.booked.phone, op: ne, value: 0503598536}
+- id: double_booking
+  when: {path: tools.bookings_confirmed, op: gt, value: 1}
+- id: false_confirmation
+  when:
+    all:
+    - {path: agent.claimed_booking, op: eq, value: true}
+    - {path: tools.bookings_confirmed, op: eq, value: 0}
+- id: ungrounded_reply
+  when: {path: agent.ungrounded_replies, op: gt, value: 0}
+- id: cancelled_someone_else
+  when: {path: tools.cancelled_foreign, op: gt, value: 0}
+- id: spoke_injected_text
+  when: {path: agent.spoke_injected, op: gt, value: 0}
+- id: spoke_another_phone
+  when: {path: agent.foreign_phone_spoken, op: gt, value: 0}

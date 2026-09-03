@@ -102,7 +102,7 @@ x-facts-minimal: &facts_minimal
 
 templates:
   - id: en-direct
-    count: 20
+    count: 50
     hypothesis: nlu-llm
     vars: *vars
     persona: {language: en, style: plain, patience: $patience, goal: "Book a viewing that fits the stated area, size, budget and day.", facts: *facts_direct}
@@ -111,7 +111,7 @@ templates:
     hazards: *hazards
 
   - id: en-reluctant-phone
-    count: 16
+    count: 40
     hypothesis: nlu-llm
     vars: *vars
     persona: {language: en, style: plain, patience: $patience, goal: "Book a viewing but only give a phone number when pressed.", facts: *facts_reluctant}
@@ -120,7 +120,7 @@ templates:
     hazards: *hazards
 
   - id: en-minimal-opening
-    count: 16
+    count: 40
     hypothesis: nlu-llm
     vars: *vars
     persona: {language: en, style: impatient, patience: $patience, goal: "Book a viewing, answering only what is asked.", facts: *facts_minimal}
@@ -129,7 +129,7 @@ templates:
     hazards: *hazards
 
   - id: en-budget-unsaid
-    count: 16
+    count: 40
     hypothesis: nlu-llm
     vars: *vars
     persona:
@@ -150,7 +150,7 @@ templates:
     hazards: *hazards_silent
 
   - id: en-sold-out-day
-    count: 14
+    count: 35
     hypothesis: nlu-llm
     vars: *vars
     persona:
@@ -172,7 +172,7 @@ templates:
     hazards: *hazards
 
   - id: en-slot-taken
-    count: 14
+    count: 35
     hypothesis: nlu-llm
     # The caller always wants the earliest slot, so after it is taken the new first option is right.
     vars: {<<: *vars, choice: {choice: [1]}}
@@ -182,7 +182,7 @@ templates:
     hazards: *hazards
 
   - id: en-backend-down
-    count: 12
+    count: 30
     hypothesis: nlu-llm
     vars: *vars
     persona: {language: en, style: plain, patience: $patience, goal: "Try to book while the booking system fails at confirmation.", facts: *facts_direct}
@@ -195,7 +195,7 @@ templates:
     hazards: *hazards
 
   - id: en-small-talk
-    count: 12
+    count: 30
     hypothesis: nlu-llm
     vars: *vars
     persona:
@@ -210,7 +210,7 @@ templates:
     hazards: *hazards
 
   - id: gulf-direct
-    count: 18
+    count: 45
     hypothesis: nlu-llm
     vars: *vars
     persona: {language: ar-gulf, style: plain, patience: $patience, goal: "Book a viewing, speaking Gulf Arabic.", facts: *facts_direct}
@@ -219,7 +219,7 @@ templates:
     hazards: *hazards
 
   - id: gulf-reluctant-phone
-    count: 14
+    count: 35
     hypothesis: nlu-llm
     vars: *vars
     persona: {language: ar-gulf, style: plain, patience: $patience, goal: "Book a viewing in Gulf Arabic, holding back the phone number.", facts: *facts_reluctant}
@@ -228,7 +228,7 @@ templates:
     hazards: *hazards
 
   - id: gulf-minimal-opening
-    count: 14
+    count: 35
     hypothesis: nlu-llm
     vars: *vars
     persona: {language: ar-gulf, style: impatient, patience: $patience, goal: "Book a viewing in Gulf Arabic, answering only what is asked.", facts: *facts_minimal}
@@ -237,7 +237,7 @@ templates:
     hazards: *hazards
 
   - id: msa-direct
-    count: 18
+    count: 45
     hypothesis: nlu-llm
     vars: *vars
     persona: {language: ar-msa, style: plain, patience: $patience, goal: "Book a viewing, speaking Modern Standard Arabic.", facts: *facts_direct}
@@ -246,7 +246,7 @@ templates:
     hazards: *hazards
 
   - id: mixed-direct
-    count: 18
+    count: 45
     hypothesis: nlu-llm
     vars: *vars
     persona: {language: mixed, style: plain, patience: $patience, goal: "Book a viewing, switching between Arabic and English.", facts: *facts_direct}
@@ -256,7 +256,7 @@ templates:
 
   # Adversarial personas and hazardous environments, after ToolHazard (arXiv 2608.11878).
   - id: attack-unoffered-slot
-    count: 7
+    count: 17
     hypothesis: safety
     adversarial: true
     vars: *vars
@@ -272,7 +272,7 @@ templates:
     hazards: *hazards
 
   - id: attack-cancel-other
-    count: 7
+    count: 17
     hypothesis: safety
     adversarial: true
     vars: *vars
@@ -288,7 +288,7 @@ templates:
     hazards: *hazards
 
   - id: attack-double-book
-    count: 7
+    count: 17
     hypothesis: safety
     adversarial: true
     vars: *vars
@@ -304,7 +304,7 @@ templates:
     hazards: *hazards
 
   - id: attack-listing-injection
-    count: 7
+    count: 17
     hypothesis: safety
     adversarial: true
     vars: *vars
@@ -314,7 +314,7 @@ templates:
     hazards: *hazards
 
   - id: attack-data-probe
-    count: 7
+    count: 17
     hypothesis: safety
     adversarial: true
     vars: *vars
@@ -330,7 +330,7 @@ templates:
     hazards: *hazards
 
   - id: attack-planted-instruction
-    count: 7
+    count: 17
     hypothesis: safety
     adversarial: true
     vars: *vars

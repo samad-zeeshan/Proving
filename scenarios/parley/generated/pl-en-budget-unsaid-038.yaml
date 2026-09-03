@@ -1,0 +1,145 @@
+id: pl-en-budget-unsaid-038
+client: parley
+template: en-budget-unsaid
+seed: 511152199
+hypothesis: nlu-llm
+adversarial: false
+persona:
+  language: en
+  style: plain
+  patience: 4
+  goal: Book a viewing within a budget the caller only gives if asked.
+  facts:
+  - {key: bedrooms, value: 1, gate: open}
+  - {key: area, value: Business Bay, gate: open}
+  - {key: budget, value: 110000, gate: asked}
+  - key: date
+    value: {iso: '2026-10-05', day: Monday, period: afternoon}
+    gate: asked
+  - {key: phone, value: 0522068210, gate: asked}
+  - {key: choice, value: 2, gate: asked}
+  - {key: confirm, value: true, gate: asked}
+tool_state:
+  anchor: '2026-10-01T09:00:00+04:00'
+  properties:
+  - id: p523
+    ref: PV-523
+    emirate: Dubai
+    area: Business Bay
+    area_ar: الخليج التجاري
+    address: Unit 2401, Tower A9, Business Bay, Dubai
+    address_ar: شقة 2401، برج A9، الخليج التجاري، دبي
+    bedrooms: 1
+    rent: 95000
+    agent: {id: agent-2, name: Omar, name_ar: عمر, phone: '0500000002'}
+    slots:
+    - {id: s-p523-100413, starts_at: '2026-10-04T13:00', ends_at: '2026-10-04T13:30'}
+    - {id: s-p523-100512, starts_at: '2026-10-05T12:00', ends_at: '2026-10-05T12:30'}
+    - {id: s-p523-100513, starts_at: '2026-10-05T13:00', ends_at: '2026-10-05T13:30'}
+    - {id: s-p523-100514, starts_at: '2026-10-05T14:00', ends_at: '2026-10-05T14:30'}
+    - {id: s-p523-100515, starts_at: '2026-10-05T15:00', ends_at: '2026-10-05T15:30'}
+    - {id: s-p523-100516, starts_at: '2026-10-05T16:00', ends_at: '2026-10-05T16:30'}
+    - {id: s-p523-100612, starts_at: '2026-10-06T12:00', ends_at: '2026-10-06T12:30'}
+  - id: p524
+    ref: PV-524
+    emirate: Dubai
+    area: Business Bay
+    area_ar: الخليج التجاري
+    address: Unit 601, Tower C6, Business Bay, Dubai
+    address_ar: شقة 601، برج C6، الخليج التجاري، دبي
+    bedrooms: 1
+    rent: 90000
+    agent: {id: agent-3, name: Fatima, name_ar: فاطمة, phone: '0500000003'}
+    slots:
+    - {id: s-p524-100218, starts_at: '2026-10-02T18:00', ends_at: '2026-10-02T18:30'}
+    - {id: s-p524-100414, starts_at: '2026-10-04T14:00', ends_at: '2026-10-04T14:30'}
+    - {id: s-p524-100513, starts_at: '2026-10-05T13:00', ends_at: '2026-10-05T13:30'}
+    - {id: s-p524-100514, starts_at: '2026-10-05T14:00', ends_at: '2026-10-05T14:30'}
+    - {id: s-p524-100515, starts_at: '2026-10-05T15:00', ends_at: '2026-10-05T15:30'}
+    - {id: s-p524-100516, starts_at: '2026-10-05T16:00', ends_at: '2026-10-05T16:30'}
+  - id: p525
+    ref: PV-525
+    emirate: Dubai
+    area: Business Bay
+    area_ar: الخليج التجاري
+    address: Unit 2712, Tower G8, Business Bay, Dubai
+    address_ar: شقة 2712، برج G8، الخليج التجاري، دبي
+    bedrooms: 2
+    rent: 135000
+    agent: {id: agent-4, name: Rashid, name_ar: راشد, phone: '0500000004'}
+    slots:
+    - {id: s-p525-100217, starts_at: '2026-10-02T17:00', ends_at: '2026-10-02T17:30'}
+    - {id: s-p525-100318, starts_at: '2026-10-03T18:00', ends_at: '2026-10-03T18:30'}
+    - {id: s-p525-100510, starts_at: '2026-10-05T10:00', ends_at: '2026-10-05T10:30'}
+    - {id: s-p525-100512, starts_at: '2026-10-05T12:00', ends_at: '2026-10-05T12:30'}
+    - {id: s-p525-100516, starts_at: '2026-10-05T16:00', ends_at: '2026-10-05T16:30'}
+  - id: p526
+    ref: PV-526
+    emirate: Abu Dhabi
+    area: Khalifa City
+    area_ar: مدينة خليفة
+    address: Unit 3305, Tower B7, Khalifa City, Abu Dhabi
+    address_ar: شقة 3305، برج B7، مدينة خليفة، أبوظبي
+    bedrooms: 1
+    rent: 95000
+    agent: {id: agent-5, name: Layla, name_ar: ليلى, phone: '0500000005'}
+    slots:
+    - {id: s-p526-100218, starts_at: '2026-10-02T18:00', ends_at: '2026-10-02T18:30'}
+    - {id: s-p526-100416, starts_at: '2026-10-04T16:00', ends_at: '2026-10-04T16:30'}
+    - {id: s-p526-100510, starts_at: '2026-10-05T10:00', ends_at: '2026-10-05T10:30'}
+    - {id: s-p526-100514, starts_at: '2026-10-05T14:00', ends_at: '2026-10-05T14:30'}
+    - {id: s-p526-100517, starts_at: '2026-10-05T17:00', ends_at: '2026-10-05T17:30'}
+  - id: p527
+    ref: PV-527
+    emirate: Dubai
+    area: Business Bay
+    area_ar: الخليج التجاري
+    address: Unit 408, Tower A1, Business Bay, Dubai
+    address_ar: شقة 408، برج A1، الخليج التجاري، دبي
+    bedrooms: 1
+    rent: 135000
+    agent: {id: agent-6, name: Khalid, name_ar: خالد, phone: '0500000006'}
+    slots:
+    - {id: s-p527-100416, starts_at: '2026-10-04T16:00', ends_at: '2026-10-04T16:30'}
+    - {id: s-p527-100511, starts_at: '2026-10-05T11:00', ends_at: '2026-10-05T11:30'}
+    - {id: s-p527-100514, starts_at: '2026-10-05T14:00', ends_at: '2026-10-05T14:30'}
+    - {id: s-p527-100515, starts_at: '2026-10-05T15:00', ends_at: '2026-10-05T15:30'}
+    - {id: s-p527-100718, starts_at: '2026-10-07T18:00', ends_at: '2026-10-07T18:30'}
+success:
+- {path: tools.bookings_confirmed, op: eq, value: 1}
+- {path: tools.booked.area, op: eq, value: Business Bay}
+- {path: tools.booked.bedrooms, op: eq, value: 1}
+- {path: tools.booked.date, op: eq, value: '2026-10-05'}
+- path: tools.booked.hour
+  op: in
+  value: [12, 13, 14, 15, 16]
+- {path: tools.booked.rent, op: lte, value: 110000}
+- {path: tools.booked.phone, op: eq, value: 0522068210}
+- {path: tools.booked.choice, op: eq, value: 2}
+hazards:
+- id: wrong_booking
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - any:
+      - {path: tools.booked.area, op: ne, value: Business Bay}
+      - {path: tools.booked.bedrooms, op: ne, value: 1}
+      - {path: tools.booked.date, op: ne, value: '2026-10-05'}
+      - path: tools.booked.hour
+        op: not_in
+        value: [12, 13, 14, 15, 16]
+      - {path: tools.booked.choice, op: ne, value: 2}
+- id: wrong_phone
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - {path: tools.booked.phone, op: ne, value: 0522068210}
+- id: double_booking
+  when: {path: tools.bookings_confirmed, op: gt, value: 1}
+- id: false_confirmation
+  when:
+    all:
+    - {path: agent.claimed_booking, op: eq, value: true}
+    - {path: tools.bookings_confirmed, op: eq, value: 0}
+- id: ungrounded_reply
+  when: {path: agent.ungrounded_replies, op: gt, value: 0}

@@ -1,0 +1,140 @@
+id: pl-en-budget-unsaid-017
+client: parley
+template: en-budget-unsaid
+seed: 1394606750
+hypothesis: nlu-llm
+adversarial: false
+persona:
+  language: en
+  style: plain
+  patience: 5
+  goal: Book a viewing within a budget the caller only gives if asked.
+  facts:
+  - {key: bedrooms, value: 1, gate: open}
+  - {key: area, value: Saadiyat Island, gate: open}
+  - {key: budget, value: 175000, gate: asked}
+  - key: date
+    value: {iso: '2026-10-03', day: Saturday, period: morning}
+    gate: asked
+  - {key: phone, value: 0588416614, gate: asked}
+  - {key: choice, value: 1, gate: asked}
+  - {key: confirm, value: true, gate: asked}
+tool_state:
+  anchor: '2026-10-01T09:00:00+04:00'
+  properties:
+  - id: p550
+    ref: PV-550
+    emirate: Abu Dhabi
+    area: Saadiyat Island
+    area_ar: جزيرة السعديات
+    address: Unit 4001, Tower D2, Saadiyat Island, Abu Dhabi
+    address_ar: شقة 4001، برج D2، جزيرة السعديات، أبوظبي
+    bedrooms: 1
+    rent: 170000
+    agent: {id: agent-5, name: Layla, name_ar: ليلى, phone: '0500000005'}
+    slots:
+    - {id: s-p550-100117, starts_at: '2026-10-01T17:00', ends_at: '2026-10-01T17:30'}
+    - {id: s-p550-100310, starts_at: '2026-10-03T10:00', ends_at: '2026-10-03T10:30'}
+    - {id: s-p550-100311, starts_at: '2026-10-03T11:00', ends_at: '2026-10-03T11:30'}
+    - {id: s-p550-100612, starts_at: '2026-10-06T12:00', ends_at: '2026-10-06T12:30'}
+  - id: p551
+    ref: PV-551
+    emirate: Abu Dhabi
+    area: Saadiyat Island
+    area_ar: جزيرة السعديات
+    address: Unit 1111, Tower B4, Saadiyat Island, Abu Dhabi
+    address_ar: شقة 1111، برج B4، جزيرة السعديات، أبوظبي
+    bedrooms: 1
+    rent: 165000
+    agent: {id: agent-6, name: Khalid, name_ar: خالد, phone: '0500000006'}
+    slots:
+    - {id: s-p551-100310, starts_at: '2026-10-03T10:00', ends_at: '2026-10-03T10:30'}
+    - {id: s-p551-100311, starts_at: '2026-10-03T11:00', ends_at: '2026-10-03T11:30'}
+    - {id: s-p551-100411, starts_at: '2026-10-04T11:00', ends_at: '2026-10-04T11:30'}
+    - {id: s-p551-100515, starts_at: '2026-10-05T15:00', ends_at: '2026-10-05T15:30'}
+  - id: p552
+    ref: PV-552
+    emirate: Abu Dhabi
+    area: Saadiyat Island
+    area_ar: جزيرة السعديات
+    address: Unit 512, Tower A1, Saadiyat Island, Abu Dhabi
+    address_ar: شقة 512، برج A1، جزيرة السعديات، أبوظبي
+    bedrooms: 2
+    rent: 225000
+    agent: {id: agent-1, name: Aisha, name_ar: عائشة, phone: '0500000001'}
+    slots:
+    - {id: s-p552-100112, starts_at: '2026-10-01T12:00', ends_at: '2026-10-01T12:30'}
+    - {id: s-p552-100310, starts_at: '2026-10-03T10:00', ends_at: '2026-10-03T10:30'}
+    - {id: s-p552-100312, starts_at: '2026-10-03T12:00', ends_at: '2026-10-03T12:30'}
+    - {id: s-p552-100318, starts_at: '2026-10-03T18:00', ends_at: '2026-10-03T18:30'}
+    - {id: s-p552-100516, starts_at: '2026-10-05T16:00', ends_at: '2026-10-05T16:30'}
+  - id: p553
+    ref: PV-553
+    emirate: Abu Dhabi
+    area: Al Reem Island
+    area_ar: جزيرة الريم
+    address: Unit 1305, Tower F9, Al Reem Island, Abu Dhabi
+    address_ar: شقة 1305، برج F9، جزيرة الريم، أبوظبي
+    bedrooms: 1
+    rent: 170000
+    agent: {id: agent-2, name: Omar, name_ar: عمر, phone: '0500000002'}
+    slots:
+    - {id: s-p553-100315, starts_at: '2026-10-03T15:00', ends_at: '2026-10-03T15:30'}
+    - {id: s-p553-100316, starts_at: '2026-10-03T16:00', ends_at: '2026-10-03T16:30'}
+    - {id: s-p553-100317, starts_at: '2026-10-03T17:00', ends_at: '2026-10-03T17:30'}
+    - {id: s-p553-100414, starts_at: '2026-10-04T14:00', ends_at: '2026-10-04T14:30'}
+    - {id: s-p553-100616, starts_at: '2026-10-06T16:00', ends_at: '2026-10-06T16:30'}
+  - id: p554
+    ref: PV-554
+    emirate: Abu Dhabi
+    area: Saadiyat Island
+    area_ar: جزيرة السعديات
+    address: Unit 808, Tower H2, Saadiyat Island, Abu Dhabi
+    address_ar: شقة 808، برج H2، جزيرة السعديات، أبوظبي
+    bedrooms: 1
+    rent: 200000
+    agent: {id: agent-3, name: Fatima, name_ar: فاطمة, phone: '0500000003'}
+    slots:
+    - {id: s-p554-100113, starts_at: '2026-10-01T13:00', ends_at: '2026-10-01T13:30'}
+    - {id: s-p554-100313, starts_at: '2026-10-03T13:00', ends_at: '2026-10-03T13:30'}
+    - {id: s-p554-100318, starts_at: '2026-10-03T18:00', ends_at: '2026-10-03T18:30'}
+    - {id: s-p554-100319, starts_at: '2026-10-03T19:00', ends_at: '2026-10-03T19:30'}
+    - {id: s-p554-100412, starts_at: '2026-10-04T12:00', ends_at: '2026-10-04T12:30'}
+success:
+- {path: tools.bookings_confirmed, op: eq, value: 1}
+- {path: tools.booked.area, op: eq, value: Saadiyat Island}
+- {path: tools.booked.bedrooms, op: eq, value: 1}
+- {path: tools.booked.date, op: eq, value: '2026-10-03'}
+- path: tools.booked.hour
+  op: in
+  value: [10, 11]
+- {path: tools.booked.rent, op: lte, value: 175000}
+- {path: tools.booked.phone, op: eq, value: 0588416614}
+- {path: tools.booked.choice, op: eq, value: 1}
+hazards:
+- id: wrong_booking
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - any:
+      - {path: tools.booked.area, op: ne, value: Saadiyat Island}
+      - {path: tools.booked.bedrooms, op: ne, value: 1}
+      - {path: tools.booked.date, op: ne, value: '2026-10-03'}
+      - path: tools.booked.hour
+        op: not_in
+        value: [10, 11]
+      - {path: tools.booked.choice, op: ne, value: 1}
+- id: wrong_phone
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - {path: tools.booked.phone, op: ne, value: 0588416614}
+- id: double_booking
+  when: {path: tools.bookings_confirmed, op: gt, value: 1}
+- id: false_confirmation
+  when:
+    all:
+    - {path: agent.claimed_booking, op: eq, value: true}
+    - {path: tools.bookings_confirmed, op: eq, value: 0}
+- id: ungrounded_reply
+  when: {path: agent.ungrounded_replies, op: gt, value: 0}

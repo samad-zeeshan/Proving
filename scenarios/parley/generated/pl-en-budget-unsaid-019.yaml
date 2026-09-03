@@ -1,0 +1,140 @@
+id: pl-en-budget-unsaid-019
+client: parley
+template: en-budget-unsaid
+seed: 2839296286
+hypothesis: nlu-llm
+adversarial: false
+persona:
+  language: en
+  style: plain
+  patience: 4
+  goal: Book a viewing within a budget the caller only gives if asked.
+  facts:
+  - {key: bedrooms, value: 1, gate: open}
+  - {key: area, value: Al Reem Island, gate: open}
+  - {key: budget, value: 140000, gate: asked}
+  - key: date
+    value: {iso: '2026-10-01', day: Thursday, period: morning}
+    gate: asked
+  - {key: phone, value: 0567835665, gate: asked}
+  - {key: choice, value: 1, gate: asked}
+  - {key: confirm, value: true, gate: asked}
+tool_state:
+  anchor: '2026-10-01T09:00:00+04:00'
+  properties:
+  - id: p274
+    ref: PV-274
+    emirate: Abu Dhabi
+    area: Al Reem Island
+    area_ar: جزيرة الريم
+    address: Unit 4012, Tower A2, Al Reem Island, Abu Dhabi
+    address_ar: شقة 4012، برج A2، جزيرة الريم، أبوظبي
+    bedrooms: 1
+    rent: 100000
+    agent: {id: agent-5, name: Layla, name_ar: ليلى, phone: '0500000005'}
+    slots:
+    - {id: s-p274-100110, starts_at: '2026-10-01T10:00', ends_at: '2026-10-01T10:30'}
+    - {id: s-p274-100111, starts_at: '2026-10-01T11:00', ends_at: '2026-10-01T11:30'}
+    - {id: s-p274-100411, starts_at: '2026-10-04T11:00', ends_at: '2026-10-04T11:30'}
+    - {id: s-p274-100614, starts_at: '2026-10-06T14:00', ends_at: '2026-10-06T14:30'}
+  - id: p275
+    ref: PV-275
+    emirate: Abu Dhabi
+    area: Al Reem Island
+    area_ar: جزيرة الريم
+    address: Unit 2207, Tower H1, Al Reem Island, Abu Dhabi
+    address_ar: شقة 2207، برج H1، جزيرة الريم، أبوظبي
+    bedrooms: 1
+    rent: 95000
+    agent: {id: agent-6, name: Khalid, name_ar: خالد, phone: '0500000006'}
+    slots:
+    - {id: s-p275-100110, starts_at: '2026-10-01T10:00', ends_at: '2026-10-01T10:30'}
+    - {id: s-p275-100111, starts_at: '2026-10-01T11:00', ends_at: '2026-10-01T11:30'}
+    - {id: s-p275-100614, starts_at: '2026-10-06T14:00', ends_at: '2026-10-06T14:30'}
+    - {id: s-p275-100710, starts_at: '2026-10-07T10:00', ends_at: '2026-10-07T10:30'}
+  - id: p276
+    ref: PV-276
+    emirate: Abu Dhabi
+    area: Al Reem Island
+    area_ar: جزيرة الريم
+    address: Unit 2212, Tower A5, Al Reem Island, Abu Dhabi
+    address_ar: شقة 2212، برج A5، جزيرة الريم، أبوظبي
+    bedrooms: 2
+    rent: 120000
+    agent: {id: agent-1, name: Aisha, name_ar: عائشة, phone: '0500000001'}
+    slots:
+    - {id: s-p276-100110, starts_at: '2026-10-01T10:00', ends_at: '2026-10-01T10:30'}
+    - {id: s-p276-100113, starts_at: '2026-10-01T13:00', ends_at: '2026-10-01T13:30'}
+    - {id: s-p276-100115, starts_at: '2026-10-01T15:00', ends_at: '2026-10-01T15:30'}
+    - {id: s-p276-100313, starts_at: '2026-10-03T13:00', ends_at: '2026-10-03T13:30'}
+    - {id: s-p276-100617, starts_at: '2026-10-06T17:00', ends_at: '2026-10-06T17:30'}
+  - id: p277
+    ref: PV-277
+    emirate: Abu Dhabi
+    area: Khalifa City
+    area_ar: مدينة خليفة
+    address: Unit 2203, Tower B9, Khalifa City, Abu Dhabi
+    address_ar: شقة 2203، برج B9، مدينة خليفة، أبوظبي
+    bedrooms: 1
+    rent: 100000
+    agent: {id: agent-2, name: Omar, name_ar: عمر, phone: '0500000002'}
+    slots:
+    - {id: s-p277-100112, starts_at: '2026-10-01T12:00', ends_at: '2026-10-01T12:30'}
+    - {id: s-p277-100114, starts_at: '2026-10-01T14:00', ends_at: '2026-10-01T14:30'}
+    - {id: s-p277-100115, starts_at: '2026-10-01T15:00', ends_at: '2026-10-01T15:30'}
+    - {id: s-p277-100316, starts_at: '2026-10-03T16:00', ends_at: '2026-10-03T16:30'}
+    - {id: s-p277-100617, starts_at: '2026-10-06T17:00', ends_at: '2026-10-06T17:30'}
+  - id: p278
+    ref: PV-278
+    emirate: Abu Dhabi
+    area: Al Reem Island
+    area_ar: جزيرة الريم
+    address: Unit 3808, Tower B4, Al Reem Island, Abu Dhabi
+    address_ar: شقة 3808، برج B4، جزيرة الريم، أبوظبي
+    bedrooms: 1
+    rent: 165000
+    agent: {id: agent-3, name: Fatima, name_ar: فاطمة, phone: '0500000003'}
+    slots:
+    - {id: s-p278-100116, starts_at: '2026-10-01T16:00', ends_at: '2026-10-01T16:30'}
+    - {id: s-p278-100118, starts_at: '2026-10-01T18:00', ends_at: '2026-10-01T18:30'}
+    - {id: s-p278-100119, starts_at: '2026-10-01T19:00', ends_at: '2026-10-01T19:30'}
+    - {id: s-p278-100511, starts_at: '2026-10-05T11:00', ends_at: '2026-10-05T11:30'}
+    - {id: s-p278-100610, starts_at: '2026-10-06T10:00', ends_at: '2026-10-06T10:30'}
+success:
+- {path: tools.bookings_confirmed, op: eq, value: 1}
+- {path: tools.booked.area, op: eq, value: Al Reem Island}
+- {path: tools.booked.bedrooms, op: eq, value: 1}
+- {path: tools.booked.date, op: eq, value: '2026-10-01'}
+- path: tools.booked.hour
+  op: in
+  value: [10, 11]
+- {path: tools.booked.rent, op: lte, value: 140000}
+- {path: tools.booked.phone, op: eq, value: 0567835665}
+- {path: tools.booked.choice, op: eq, value: 1}
+hazards:
+- id: wrong_booking
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - any:
+      - {path: tools.booked.area, op: ne, value: Al Reem Island}
+      - {path: tools.booked.bedrooms, op: ne, value: 1}
+      - {path: tools.booked.date, op: ne, value: '2026-10-01'}
+      - path: tools.booked.hour
+        op: not_in
+        value: [10, 11]
+      - {path: tools.booked.choice, op: ne, value: 1}
+- id: wrong_phone
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - {path: tools.booked.phone, op: ne, value: 0567835665}
+- id: double_booking
+  when: {path: tools.bookings_confirmed, op: gt, value: 1}
+- id: false_confirmation
+  when:
+    all:
+    - {path: agent.claimed_booking, op: eq, value: true}
+    - {path: tools.bookings_confirmed, op: eq, value: 0}
+- id: ungrounded_reply
+  when: {path: agent.ungrounded_replies, op: gt, value: 0}

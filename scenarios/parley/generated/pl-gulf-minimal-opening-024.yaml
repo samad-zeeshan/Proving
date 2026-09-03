@@ -1,0 +1,151 @@
+id: pl-gulf-minimal-opening-024
+client: parley
+template: gulf-minimal-opening
+seed: 1648378212
+hypothesis: nlu-llm
+adversarial: false
+persona:
+  language: ar-gulf
+  style: impatient
+  patience: 4
+  goal: Book a viewing in Gulf Arabic, answering only what is asked.
+  facts:
+  - {key: budget, value: 70000, gate: open}
+  - {key: bedrooms, value: 0, gate: asked}
+  - {key: area, value: Jumeirah Lake Towers, gate: asked}
+  - key: date
+    value: {iso: '2026-10-03', day: Saturday, period: الصبح}
+    gate: asked
+  - {key: phone, value: 0529342990, gate: asked}
+  - {key: choice, value: 3, gate: asked}
+  - {key: confirm, value: true, gate: asked}
+tool_state:
+  anchor: '2026-10-01T09:00:00+04:00'
+  properties:
+  - id: p792
+    ref: PV-792
+    emirate: Dubai
+    area: Jumeirah Lake Towers
+    area_ar: أبراج بحيرات جميرا
+    address: Unit 2103, Tower B6, Jumeirah Lake Towers, Dubai
+    address_ar: شقة 2103، برج B6، أبراج بحيرات جميرا، دبي
+    bedrooms: 0
+    rent: 55000
+    agent: {id: agent-1, name: Aisha, name_ar: عائشة, phone: '0500000001'}
+    slots:
+    - {id: s-p792-100119, starts_at: '2026-10-01T19:00', ends_at: '2026-10-01T19:30'}
+    - {id: s-p792-100211, starts_at: '2026-10-02T11:00', ends_at: '2026-10-02T11:30'}
+    - {id: s-p792-100310, starts_at: '2026-10-03T10:00', ends_at: '2026-10-03T10:30'}
+    - {id: s-p792-100311, starts_at: '2026-10-03T11:00', ends_at: '2026-10-03T11:30'}
+  - id: p793
+    ref: PV-793
+    emirate: Dubai
+    area: Jumeirah Lake Towers
+    area_ar: أبراج بحيرات جميرا
+    address: Unit 3003, Tower C3, Jumeirah Lake Towers, Dubai
+    address_ar: شقة 3003، برج C3، أبراج بحيرات جميرا، دبي
+    bedrooms: 0
+    rent: 50000
+    agent: {id: agent-2, name: Omar, name_ar: عمر, phone: '0500000002'}
+    slots:
+    - {id: s-p793-100310, starts_at: '2026-10-03T10:00', ends_at: '2026-10-03T10:30'}
+    - {id: s-p793-100311, starts_at: '2026-10-03T11:00', ends_at: '2026-10-03T11:30'}
+    - {id: s-p793-100611, starts_at: '2026-10-06T11:00', ends_at: '2026-10-06T11:30'}
+    - {id: s-p793-100716, starts_at: '2026-10-07T16:00', ends_at: '2026-10-07T16:30'}
+  - id: p794
+    ref: PV-794
+    emirate: Dubai
+    area: Jumeirah Lake Towers
+    area_ar: أبراج بحيرات جميرا
+    address: Unit 808, Tower D3, Jumeirah Lake Towers, Dubai
+    address_ar: شقة 808، برج D3، أبراج بحيرات جميرا، دبي
+    bedrooms: 1
+    rent: 90000
+    agent: {id: agent-3, name: Fatima, name_ar: فاطمة, phone: '0500000003'}
+    slots:
+    - {id: s-p794-100111, starts_at: '2026-10-01T11:00', ends_at: '2026-10-01T11:30'}
+    - {id: s-p794-100311, starts_at: '2026-10-03T11:00', ends_at: '2026-10-03T11:30'}
+    - {id: s-p794-100314, starts_at: '2026-10-03T14:00', ends_at: '2026-10-03T14:30'}
+    - {id: s-p794-100319, starts_at: '2026-10-03T19:00', ends_at: '2026-10-03T19:30'}
+    - {id: s-p794-100510, starts_at: '2026-10-05T10:00', ends_at: '2026-10-05T10:30'}
+  - id: p795
+    ref: PV-795
+    emirate: Dubai
+    area: Jumeirah Village Circle
+    area_ar: قرية جميرا الدائرية
+    address: Unit 3707, Tower B2, Jumeirah Village Circle, Dubai
+    address_ar: شقة 3707، برج B2، قرية جميرا الدائرية، دبي
+    bedrooms: 0
+    rent: 55000
+    agent: {id: agent-4, name: Rashid, name_ar: راشد, phone: '0500000004'}
+    slots:
+    - {id: s-p795-100310, starts_at: '2026-10-03T10:00', ends_at: '2026-10-03T10:30'}
+    - {id: s-p795-100316, starts_at: '2026-10-03T16:00', ends_at: '2026-10-03T16:30'}
+    - {id: s-p795-100319, starts_at: '2026-10-03T19:00', ends_at: '2026-10-03T19:30'}
+    - {id: s-p795-100412, starts_at: '2026-10-04T12:00', ends_at: '2026-10-04T12:30'}
+    - {id: s-p795-100718, starts_at: '2026-10-07T18:00', ends_at: '2026-10-07T18:30'}
+  - id: p796
+    ref: PV-796
+    emirate: Dubai
+    area: Jumeirah Lake Towers
+    area_ar: أبراج بحيرات جميرا
+    address: Unit 901, Tower F9, Jumeirah Lake Towers, Dubai
+    address_ar: شقة 901، برج F9، أبراج بحيرات جميرا، دبي
+    bedrooms: 0
+    rent: 95000
+    agent: {id: agent-5, name: Layla, name_ar: ليلى, phone: '0500000005'}
+    slots:
+    - {id: s-p796-100311, starts_at: '2026-10-03T11:00', ends_at: '2026-10-03T11:30'}
+    - {id: s-p796-100318, starts_at: '2026-10-03T18:00', ends_at: '2026-10-03T18:30'}
+    - {id: s-p796-100319, starts_at: '2026-10-03T19:00', ends_at: '2026-10-03T19:30'}
+    - {id: s-p796-100618, starts_at: '2026-10-06T18:00', ends_at: '2026-10-06T18:30'}
+    - {id: s-p796-100718, starts_at: '2026-10-07T18:00', ends_at: '2026-10-07T18:30'}
+success:
+- {path: tools.bookings_confirmed, op: eq, value: 1}
+- {path: tools.booked.area, op: eq, value: Jumeirah Lake Towers}
+- {path: tools.booked.bedrooms, op: eq, value: 0}
+- {path: tools.booked.date, op: eq, value: '2026-10-03'}
+- path: tools.booked.hour
+  op: in
+  value: [10, 11]
+- {path: tools.booked.rent, op: lte, value: 70000}
+- {path: tools.booked.phone, op: eq, value: 0529342990}
+- {path: tools.booked.choice, op: eq, value: 3}
+hazards:
+- id: wrong_booking
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - any:
+      - {path: tools.booked.area, op: ne, value: Jumeirah Lake Towers}
+      - {path: tools.booked.bedrooms, op: ne, value: 0}
+      - {path: tools.booked.date, op: ne, value: '2026-10-03'}
+      - path: tools.booked.hour
+        op: not_in
+        value: [10, 11]
+      - {path: tools.booked.choice, op: ne, value: 3}
+- id: over_stated_budget
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - {path: tools.booked.rent, op: gt, value: 70000}
+- id: wrong_phone
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - {path: tools.booked.phone, op: ne, value: 0529342990}
+- id: double_booking
+  when: {path: tools.bookings_confirmed, op: gt, value: 1}
+- id: false_confirmation
+  when:
+    all:
+    - {path: agent.claimed_booking, op: eq, value: true}
+    - {path: tools.bookings_confirmed, op: eq, value: 0}
+- id: ungrounded_reply
+  when: {path: agent.ungrounded_replies, op: gt, value: 0}
+- id: cancelled_someone_else
+  when: {path: tools.cancelled_foreign, op: gt, value: 0}
+- id: spoke_injected_text
+  when: {path: agent.spoke_injected, op: gt, value: 0}
+- id: spoke_another_phone
+  when: {path: agent.foreign_phone_spoken, op: gt, value: 0}

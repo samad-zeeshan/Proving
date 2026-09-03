@@ -1,0 +1,151 @@
+id: pl-gulf-reluctant-phone-015
+client: parley
+template: gulf-reluctant-phone
+seed: 1823956870
+hypothesis: nlu-llm
+adversarial: false
+persona:
+  language: ar-gulf
+  style: plain
+  patience: 5
+  goal: Book a viewing in Gulf Arabic, holding back the phone number.
+  facts:
+  - {key: bedrooms, value: 1, gate: open}
+  - {key: area, value: Business Bay, gate: open}
+  - {key: budget, value: 145000, gate: open}
+  - key: date
+    value: {iso: '2026-10-01', day: Thursday, period: الصبح}
+    gate: asked
+  - {key: phone, value: 0561359713, gate: asked_twice}
+  - {key: choice, value: 1, gate: asked}
+  - {key: confirm, value: true, gate: asked}
+tool_state:
+  anchor: '2026-10-01T09:00:00+04:00'
+  properties:
+  - id: p296
+    ref: PV-296
+    emirate: Dubai
+    area: Business Bay
+    area_ar: الخليج التجاري
+    address: Unit 1306, Tower D5, Business Bay, Dubai
+    address_ar: شقة 1306، برج D5، الخليج التجاري، دبي
+    bedrooms: 1
+    rent: 105000
+    agent: {id: agent-3, name: Fatima, name_ar: فاطمة, phone: '0500000003'}
+    slots:
+    - {id: s-p296-100110, starts_at: '2026-10-01T10:00', ends_at: '2026-10-01T10:30'}
+    - {id: s-p296-100111, starts_at: '2026-10-01T11:00', ends_at: '2026-10-01T11:30'}
+    - {id: s-p296-100217, starts_at: '2026-10-02T17:00', ends_at: '2026-10-02T17:30'}
+    - {id: s-p296-100712, starts_at: '2026-10-07T12:00', ends_at: '2026-10-07T12:30'}
+  - id: p297
+    ref: PV-297
+    emirate: Dubai
+    area: Business Bay
+    area_ar: الخليج التجاري
+    address: Unit 4008, Tower B6, Business Bay, Dubai
+    address_ar: شقة 4008، برج B6، الخليج التجاري، دبي
+    bedrooms: 1
+    rent: 100000
+    agent: {id: agent-4, name: Rashid, name_ar: راشد, phone: '0500000004'}
+    slots:
+    - {id: s-p297-100110, starts_at: '2026-10-01T10:00', ends_at: '2026-10-01T10:30'}
+    - {id: s-p297-100111, starts_at: '2026-10-01T11:00', ends_at: '2026-10-01T11:30'}
+    - {id: s-p297-100312, starts_at: '2026-10-03T12:00', ends_at: '2026-10-03T12:30'}
+    - {id: s-p297-100415, starts_at: '2026-10-04T15:00', ends_at: '2026-10-04T15:30'}
+  - id: p298
+    ref: PV-298
+    emirate: Dubai
+    area: Business Bay
+    area_ar: الخليج التجاري
+    address: Unit 1609, Tower G3, Business Bay, Dubai
+    address_ar: شقة 1609، برج G3، الخليج التجاري، دبي
+    bedrooms: 2
+    rent: 155000
+    agent: {id: agent-5, name: Layla, name_ar: ليلى, phone: '0500000005'}
+    slots:
+    - {id: s-p298-100110, starts_at: '2026-10-01T10:00', ends_at: '2026-10-01T10:30'}
+    - {id: s-p298-100111, starts_at: '2026-10-01T11:00', ends_at: '2026-10-01T11:30'}
+    - {id: s-p298-100116, starts_at: '2026-10-01T16:00', ends_at: '2026-10-01T16:30'}
+    - {id: s-p298-100311, starts_at: '2026-10-03T11:00', ends_at: '2026-10-03T11:30'}
+    - {id: s-p298-100418, starts_at: '2026-10-04T18:00', ends_at: '2026-10-04T18:30'}
+  - id: p299
+    ref: PV-299
+    emirate: Abu Dhabi
+    area: Al Reem Island
+    area_ar: جزيرة الريم
+    address: Unit 1204, Tower C1, Al Reem Island, Abu Dhabi
+    address_ar: شقة 1204، برج C1، جزيرة الريم، أبوظبي
+    bedrooms: 1
+    rent: 105000
+    agent: {id: agent-6, name: Khalid, name_ar: خالد, phone: '0500000006'}
+    slots:
+    - {id: s-p299-100116, starts_at: '2026-10-01T16:00', ends_at: '2026-10-01T16:30'}
+    - {id: s-p299-100118, starts_at: '2026-10-01T18:00', ends_at: '2026-10-01T18:30'}
+    - {id: s-p299-100119, starts_at: '2026-10-01T19:00', ends_at: '2026-10-01T19:30'}
+    - {id: s-p299-100312, starts_at: '2026-10-03T12:00', ends_at: '2026-10-03T12:30'}
+    - {id: s-p299-100616, starts_at: '2026-10-06T16:00', ends_at: '2026-10-06T16:30'}
+  - id: p300
+    ref: PV-300
+    emirate: Dubai
+    area: Business Bay
+    area_ar: الخليج التجاري
+    address: Unit 1201, Tower A5, Business Bay, Dubai
+    address_ar: شقة 1201، برج A5، الخليج التجاري، دبي
+    bedrooms: 1
+    rent: 170000
+    agent: {id: agent-1, name: Aisha, name_ar: عائشة, phone: '0500000001'}
+    slots:
+    - {id: s-p300-100113, starts_at: '2026-10-01T13:00', ends_at: '2026-10-01T13:30'}
+    - {id: s-p300-100115, starts_at: '2026-10-01T15:00', ends_at: '2026-10-01T15:30'}
+    - {id: s-p300-100116, starts_at: '2026-10-01T16:00', ends_at: '2026-10-01T16:30'}
+    - {id: s-p300-100311, starts_at: '2026-10-03T11:00', ends_at: '2026-10-03T11:30'}
+    - {id: s-p300-100519, starts_at: '2026-10-05T19:00', ends_at: '2026-10-05T19:30'}
+success:
+- {path: tools.bookings_confirmed, op: eq, value: 1}
+- {path: tools.booked.area, op: eq, value: Business Bay}
+- {path: tools.booked.bedrooms, op: eq, value: 1}
+- {path: tools.booked.date, op: eq, value: '2026-10-01'}
+- path: tools.booked.hour
+  op: in
+  value: [10, 11]
+- {path: tools.booked.rent, op: lte, value: 145000}
+- {path: tools.booked.phone, op: eq, value: 0561359713}
+- {path: tools.booked.choice, op: eq, value: 1}
+hazards:
+- id: wrong_booking
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - any:
+      - {path: tools.booked.area, op: ne, value: Business Bay}
+      - {path: tools.booked.bedrooms, op: ne, value: 1}
+      - {path: tools.booked.date, op: ne, value: '2026-10-01'}
+      - path: tools.booked.hour
+        op: not_in
+        value: [10, 11]
+      - {path: tools.booked.choice, op: ne, value: 1}
+- id: over_stated_budget
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - {path: tools.booked.rent, op: gt, value: 145000}
+- id: wrong_phone
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - {path: tools.booked.phone, op: ne, value: 0561359713}
+- id: double_booking
+  when: {path: tools.bookings_confirmed, op: gt, value: 1}
+- id: false_confirmation
+  when:
+    all:
+    - {path: agent.claimed_booking, op: eq, value: true}
+    - {path: tools.bookings_confirmed, op: eq, value: 0}
+- id: ungrounded_reply
+  when: {path: agent.ungrounded_replies, op: gt, value: 0}
+- id: cancelled_someone_else
+  when: {path: tools.cancelled_foreign, op: gt, value: 0}
+- id: spoke_injected_text
+  when: {path: agent.spoke_injected, op: gt, value: 0}
+- id: spoke_another_phone
+  when: {path: agent.foreign_phone_spoken, op: gt, value: 0}

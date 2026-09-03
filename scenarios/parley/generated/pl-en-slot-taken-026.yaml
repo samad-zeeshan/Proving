@@ -1,0 +1,152 @@
+id: pl-en-slot-taken-026
+client: parley
+template: en-slot-taken
+seed: 4119278653
+hypothesis: nlu-llm
+adversarial: false
+persona:
+  language: en
+  style: plain
+  patience: 3
+  goal: Book a viewing when the first pick is taken by someone else.
+  facts:
+  - {key: bedrooms, value: 0, gate: open}
+  - {key: area, value: Dubai Marina, gate: open}
+  - {key: budget, value: 110000, gate: open}
+  - key: date
+    value: {iso: '2026-10-02', day: Friday, period: morning}
+    gate: asked
+  - {key: phone, value: 0507099673, gate: asked}
+  - {key: choice, value: 1, gate: asked}
+  - {key: confirm, value: true, gate: asked}
+tool_state:
+  anchor: '2026-10-01T09:00:00+04:00'
+  properties:
+  - id: p241
+    ref: PV-241
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 4004, Tower D4, Dubai Marina, Dubai
+    address_ar: شقة 4004، برج D4، دبي مارينا، دبي
+    bedrooms: 0
+    rent: 70000
+    agent: {id: agent-2, name: Omar, name_ar: عمر, phone: '0500000002'}
+    slots:
+    - {id: s-p241-100210, starts_at: '2026-10-02T10:00', ends_at: '2026-10-02T10:30'}
+    - {id: s-p241-100211, starts_at: '2026-10-02T11:00', ends_at: '2026-10-02T11:30'}
+    - {id: s-p241-100418, starts_at: '2026-10-04T18:00', ends_at: '2026-10-04T18:30'}
+    - {id: s-p241-100611, starts_at: '2026-10-06T11:00', ends_at: '2026-10-06T11:30'}
+  - id: p242
+    ref: PV-242
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 507, Tower H2, Dubai Marina, Dubai
+    address_ar: شقة 507، برج H2، دبي مارينا، دبي
+    bedrooms: 0
+    rent: 65000
+    agent: {id: agent-3, name: Fatima, name_ar: فاطمة, phone: '0500000003'}
+    slots:
+    - {id: s-p242-100210, starts_at: '2026-10-02T10:00', ends_at: '2026-10-02T10:30'}
+    - {id: s-p242-100211, starts_at: '2026-10-02T11:00', ends_at: '2026-10-02T11:30'}
+    - {id: s-p242-100519, starts_at: '2026-10-05T19:00', ends_at: '2026-10-05T19:30'}
+    - {id: s-p242-100616, starts_at: '2026-10-06T16:00', ends_at: '2026-10-06T16:30'}
+  - id: p243
+    ref: PV-243
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 4211, Tower F5, Dubai Marina, Dubai
+    address_ar: شقة 4211، برج F5، دبي مارينا، دبي
+    bedrooms: 1
+    rent: 105000
+    agent: {id: agent-4, name: Rashid, name_ar: راشد, phone: '0500000004'}
+    slots:
+    - {id: s-p243-100211, starts_at: '2026-10-02T11:00', ends_at: '2026-10-02T11:30'}
+    - {id: s-p243-100214, starts_at: '2026-10-02T14:00', ends_at: '2026-10-02T14:30'}
+    - {id: s-p243-100216, starts_at: '2026-10-02T16:00', ends_at: '2026-10-02T16:30'}
+    - {id: s-p243-100419, starts_at: '2026-10-04T19:00', ends_at: '2026-10-04T19:30'}
+    - {id: s-p243-100618, starts_at: '2026-10-06T18:00', ends_at: '2026-10-06T18:30'}
+  - id: p244
+    ref: PV-244
+    emirate: Abu Dhabi
+    area: Al Raha Beach
+    area_ar: شاطئ الراحة
+    address: Unit 1604, Tower A2, Al Raha Beach, Abu Dhabi
+    address_ar: شقة 1604، برج A2، شاطئ الراحة، أبوظبي
+    bedrooms: 0
+    rent: 70000
+    agent: {id: agent-5, name: Layla, name_ar: ليلى, phone: '0500000005'}
+    slots:
+    - {id: s-p244-100212, starts_at: '2026-10-02T12:00', ends_at: '2026-10-02T12:30'}
+    - {id: s-p244-100213, starts_at: '2026-10-02T13:00', ends_at: '2026-10-02T13:30'}
+    - {id: s-p244-100214, starts_at: '2026-10-02T14:00', ends_at: '2026-10-02T14:30'}
+    - {id: s-p244-100612, starts_at: '2026-10-06T12:00', ends_at: '2026-10-06T12:30'}
+    - {id: s-p244-100710, starts_at: '2026-10-07T10:00', ends_at: '2026-10-07T10:30'}
+  - id: p245
+    ref: PV-245
+    emirate: Dubai
+    area: Dubai Marina
+    area_ar: دبي مارينا
+    address: Unit 1312, Tower B5, Dubai Marina, Dubai
+    address_ar: شقة 1312، برج B5، دبي مارينا، دبي
+    bedrooms: 0
+    rent: 135000
+    agent: {id: agent-6, name: Khalid, name_ar: خالد, phone: '0500000006'}
+    slots:
+    - {id: s-p245-100112, starts_at: '2026-10-01T12:00', ends_at: '2026-10-01T12:30'}
+    - {id: s-p245-100214, starts_at: '2026-10-02T14:00', ends_at: '2026-10-02T14:30'}
+    - {id: s-p245-100215, starts_at: '2026-10-02T15:00', ends_at: '2026-10-02T15:30'}
+    - {id: s-p245-100216, starts_at: '2026-10-02T16:00', ends_at: '2026-10-02T16:30'}
+    - {id: s-p245-100511, starts_at: '2026-10-05T11:00', ends_at: '2026-10-05T11:30'}
+  faults: {taken_on_hold: true}
+success:
+- {path: tools.bookings_confirmed, op: eq, value: 1}
+- {path: tools.booked.area, op: eq, value: Dubai Marina}
+- {path: tools.booked.bedrooms, op: eq, value: 0}
+- {path: tools.booked.date, op: eq, value: '2026-10-02'}
+- path: tools.booked.hour
+  op: in
+  value: [10, 11]
+- {path: tools.booked.rent, op: lte, value: 110000}
+- {path: tools.booked.phone, op: eq, value: 0507099673}
+- {path: tools.booked.choice, op: eq, value: 1}
+hazards:
+- id: wrong_booking
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - any:
+      - {path: tools.booked.area, op: ne, value: Dubai Marina}
+      - {path: tools.booked.bedrooms, op: ne, value: 0}
+      - {path: tools.booked.date, op: ne, value: '2026-10-02'}
+      - path: tools.booked.hour
+        op: not_in
+        value: [10, 11]
+      - {path: tools.booked.choice, op: ne, value: 1}
+- id: over_stated_budget
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - {path: tools.booked.rent, op: gt, value: 110000}
+- id: wrong_phone
+  when:
+    all:
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - {path: tools.booked.phone, op: ne, value: 0507099673}
+- id: double_booking
+  when: {path: tools.bookings_confirmed, op: gt, value: 1}
+- id: false_confirmation
+  when:
+    all:
+    - {path: agent.claimed_booking, op: eq, value: true}
+    - {path: tools.bookings_confirmed, op: eq, value: 0}
+- id: ungrounded_reply
+  when: {path: agent.ungrounded_replies, op: gt, value: 0}
+- id: cancelled_someone_else
+  when: {path: tools.cancelled_foreign, op: gt, value: 0}
+- id: spoke_injected_text
+  when: {path: agent.spoke_injected, op: gt, value: 0}
+- id: spoke_another_phone
+  when: {path: agent.foreign_phone_spoken, op: gt, value: 0}

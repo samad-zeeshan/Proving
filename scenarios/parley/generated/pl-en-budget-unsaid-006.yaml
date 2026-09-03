@@ -10,30 +10,15 @@ persona:
   patience: 3
   goal: Book a viewing within a budget the caller only gives if asked.
   facts:
-  - key: bedrooms
-    value: 1
-    gate: open
-  - key: area
-    value: Downtown Dubai
-    gate: open
-  - key: budget
-    value: 180000
-    gate: asked
+  - {key: bedrooms, value: 1, gate: open}
+  - {key: area, value: Downtown Dubai, gate: open}
+  - {key: budget, value: 180000, gate: asked}
   - key: date
-    value:
-      iso: '2026-10-04'
-      day: Sunday
-      period: afternoon
+    value: {iso: '2026-10-04', day: Sunday, period: afternoon}
     gate: asked
-  - key: phone
-    value: '0555750102'
-    gate: asked
-  - key: choice
-    value: 1
-    gate: asked
-  - key: confirm
-    value: true
-    gate: asked
+  - {key: phone, value: '0555750102', gate: asked}
+  - {key: choice, value: 1, gate: asked}
+  - {key: confirm, value: true, gate: asked}
 tool_state:
   anchor: '2026-10-01T09:00:00+04:00'
   properties:
@@ -46,33 +31,15 @@ tool_state:
     address_ar: شقة 2604، برج C6، وسط مدينة دبي، دبي
     bedrooms: 1
     rent: 140000
-    agent:
-      id: agent-4
-      name: Rashid
-      name_ar: راشد
-      phone: '0500000004'
+    agent: {id: agent-4, name: Rashid, name_ar: راشد, phone: '0500000004'}
     slots:
-    - id: s-p777-100311
-      starts_at: 2026-10-03T11:00
-      ends_at: 2026-10-03T11:30
-    - id: s-p777-100412
-      starts_at: 2026-10-04T12:00
-      ends_at: 2026-10-04T12:30
-    - id: s-p777-100413
-      starts_at: 2026-10-04T13:00
-      ends_at: 2026-10-04T13:30
-    - id: s-p777-100414
-      starts_at: 2026-10-04T14:00
-      ends_at: 2026-10-04T14:30
-    - id: s-p777-100415
-      starts_at: 2026-10-04T15:00
-      ends_at: 2026-10-04T15:30
-    - id: s-p777-100416
-      starts_at: 2026-10-04T16:00
-      ends_at: 2026-10-04T16:30
-    - id: s-p777-100519
-      starts_at: 2026-10-05T19:00
-      ends_at: 2026-10-05T19:30
+    - {id: s-p777-100311, starts_at: '2026-10-03T11:00', ends_at: '2026-10-03T11:30'}
+    - {id: s-p777-100412, starts_at: '2026-10-04T12:00', ends_at: '2026-10-04T12:30'}
+    - {id: s-p777-100413, starts_at: '2026-10-04T13:00', ends_at: '2026-10-04T13:30'}
+    - {id: s-p777-100414, starts_at: '2026-10-04T14:00', ends_at: '2026-10-04T14:30'}
+    - {id: s-p777-100415, starts_at: '2026-10-04T15:00', ends_at: '2026-10-04T15:30'}
+    - {id: s-p777-100416, starts_at: '2026-10-04T16:00', ends_at: '2026-10-04T16:30'}
+    - {id: s-p777-100519, starts_at: '2026-10-05T19:00', ends_at: '2026-10-05T19:30'}
   - id: p778
     ref: PV-778
     emirate: Dubai
@@ -82,30 +49,14 @@ tool_state:
     address_ar: شقة 1211، برج B9، وسط مدينة دبي، دبي
     bedrooms: 1
     rent: 135000
-    agent:
-      id: agent-5
-      name: Layla
-      name_ar: ليلى
-      phone: '0500000005'
+    agent: {id: agent-5, name: Layla, name_ar: ليلى, phone: '0500000005'}
     slots:
-    - id: s-p778-100311
-      starts_at: 2026-10-03T11:00
-      ends_at: 2026-10-03T11:30
-    - id: s-p778-100413
-      starts_at: 2026-10-04T13:00
-      ends_at: 2026-10-04T13:30
-    - id: s-p778-100414
-      starts_at: 2026-10-04T14:00
-      ends_at: 2026-10-04T14:30
-    - id: s-p778-100415
-      starts_at: 2026-10-04T15:00
-      ends_at: 2026-10-04T15:30
-    - id: s-p778-100416
-      starts_at: 2026-10-04T16:00
-      ends_at: 2026-10-04T16:30
-    - id: s-p778-100714
-      starts_at: 2026-10-07T14:00
-      ends_at: 2026-10-07T14:30
+    - {id: s-p778-100311, starts_at: '2026-10-03T11:00', ends_at: '2026-10-03T11:30'}
+    - {id: s-p778-100413, starts_at: '2026-10-04T13:00', ends_at: '2026-10-04T13:30'}
+    - {id: s-p778-100414, starts_at: '2026-10-04T14:00', ends_at: '2026-10-04T14:30'}
+    - {id: s-p778-100415, starts_at: '2026-10-04T15:00', ends_at: '2026-10-04T15:30'}
+    - {id: s-p778-100416, starts_at: '2026-10-04T16:00', ends_at: '2026-10-04T16:30'}
+    - {id: s-p778-100714, starts_at: '2026-10-07T14:00', ends_at: '2026-10-07T14:30'}
   - id: p779
     ref: PV-779
     emirate: Dubai
@@ -115,27 +66,13 @@ tool_state:
     address_ar: شقة 1509، برج B5، وسط مدينة دبي، دبي
     bedrooms: 2
     rent: 215000
-    agent:
-      id: agent-6
-      name: Khalid
-      name_ar: خالد
-      phone: '0500000006'
+    agent: {id: agent-6, name: Khalid, name_ar: خالد, phone: '0500000006'}
     slots:
-    - id: s-p779-100116
-      starts_at: 2026-10-01T16:00
-      ends_at: 2026-10-01T16:30
-    - id: s-p779-100412
-      starts_at: 2026-10-04T12:00
-      ends_at: 2026-10-04T12:30
-    - id: s-p779-100415
-      starts_at: 2026-10-04T15:00
-      ends_at: 2026-10-04T15:30
-    - id: s-p779-100416
-      starts_at: 2026-10-04T16:00
-      ends_at: 2026-10-04T16:30
-    - id: s-p779-100619
-      starts_at: 2026-10-06T19:00
-      ends_at: 2026-10-06T19:30
+    - {id: s-p779-100116, starts_at: '2026-10-01T16:00', ends_at: '2026-10-01T16:30'}
+    - {id: s-p779-100412, starts_at: '2026-10-04T12:00', ends_at: '2026-10-04T12:30'}
+    - {id: s-p779-100415, starts_at: '2026-10-04T15:00', ends_at: '2026-10-04T15:30'}
+    - {id: s-p779-100416, starts_at: '2026-10-04T16:00', ends_at: '2026-10-04T16:30'}
+    - {id: s-p779-100619, starts_at: '2026-10-06T19:00', ends_at: '2026-10-06T19:30'}
   - id: p780
     ref: PV-780
     emirate: Abu Dhabi
@@ -145,27 +82,13 @@ tool_state:
     address_ar: شقة 2311، برج C6، مدينة خليفة، أبوظبي
     bedrooms: 1
     rent: 140000
-    agent:
-      id: agent-1
-      name: Aisha
-      name_ar: عائشة
-      phone: '0500000001'
+    agent: {id: agent-1, name: Aisha, name_ar: عائشة, phone: '0500000001'}
     slots:
-    - id: s-p780-100314
-      starts_at: 2026-10-03T14:00
-      ends_at: 2026-10-03T14:30
-    - id: s-p780-100410
-      starts_at: 2026-10-04T10:00
-      ends_at: 2026-10-04T10:30
-    - id: s-p780-100414
-      starts_at: 2026-10-04T14:00
-      ends_at: 2026-10-04T14:30
-    - id: s-p780-100417
-      starts_at: 2026-10-04T17:00
-      ends_at: 2026-10-04T17:30
-    - id: s-p780-100513
-      starts_at: 2026-10-05T13:00
-      ends_at: 2026-10-05T13:30
+    - {id: s-p780-100314, starts_at: '2026-10-03T14:00', ends_at: '2026-10-03T14:30'}
+    - {id: s-p780-100410, starts_at: '2026-10-04T10:00', ends_at: '2026-10-04T10:30'}
+    - {id: s-p780-100414, starts_at: '2026-10-04T14:00', ends_at: '2026-10-04T14:30'}
+    - {id: s-p780-100417, starts_at: '2026-10-04T17:00', ends_at: '2026-10-04T17:30'}
+    - {id: s-p780-100513, starts_at: '2026-10-05T13:00', ends_at: '2026-10-05T13:30'}
   - id: p781
     ref: PV-781
     emirate: Dubai
@@ -175,110 +98,48 @@ tool_state:
     address_ar: شقة 1909، برج B2، وسط مدينة دبي، دبي
     bedrooms: 1
     rent: 205000
-    agent:
-      id: agent-2
-      name: Omar
-      name_ar: عمر
-      phone: '0500000002'
+    agent: {id: agent-2, name: Omar, name_ar: عمر, phone: '0500000002'}
     slots:
-    - id: s-p781-100412
-      starts_at: 2026-10-04T12:00
-      ends_at: 2026-10-04T12:30
-    - id: s-p781-100416
-      starts_at: 2026-10-04T16:00
-      ends_at: 2026-10-04T16:30
-    - id: s-p781-100418
-      starts_at: 2026-10-04T18:00
-      ends_at: 2026-10-04T18:30
-    - id: s-p781-100519
-      starts_at: 2026-10-05T19:00
-      ends_at: 2026-10-05T19:30
-    - id: s-p781-100715
-      starts_at: 2026-10-07T15:00
-      ends_at: 2026-10-07T15:30
+    - {id: s-p781-100412, starts_at: '2026-10-04T12:00', ends_at: '2026-10-04T12:30'}
+    - {id: s-p781-100416, starts_at: '2026-10-04T16:00', ends_at: '2026-10-04T16:30'}
+    - {id: s-p781-100418, starts_at: '2026-10-04T18:00', ends_at: '2026-10-04T18:30'}
+    - {id: s-p781-100519, starts_at: '2026-10-05T19:00', ends_at: '2026-10-05T19:30'}
+    - {id: s-p781-100715, starts_at: '2026-10-07T15:00', ends_at: '2026-10-07T15:30'}
 success:
-- path: tools.bookings_confirmed
-  op: eq
-  value: 1
-- path: tools.booked.area
-  op: eq
-  value: Downtown Dubai
-- path: tools.booked.bedrooms
-  op: eq
-  value: 1
-- path: tools.booked.date
-  op: eq
-  value: '2026-10-04'
+- {path: tools.bookings_confirmed, op: eq, value: 1}
+- {path: tools.booked.area, op: eq, value: Downtown Dubai}
+- {path: tools.booked.bedrooms, op: eq, value: 1}
+- {path: tools.booked.date, op: eq, value: '2026-10-04'}
 - path: tools.booked.hour
   op: in
-  value:
-  - 12
-  - 13
-  - 14
-  - 15
-  - 16
-- path: tools.booked.rent
-  op: lte
-  value: 180000
-- path: tools.booked.phone
-  op: eq
-  value: '0555750102'
-- path: tools.booked.choice
-  op: eq
-  value: 1
+  value: [12, 13, 14, 15, 16]
+- {path: tools.booked.rent, op: lte, value: 180000}
+- {path: tools.booked.phone, op: eq, value: '0555750102'}
+- {path: tools.booked.choice, op: eq, value: 1}
 hazards:
 - id: wrong_booking
   when:
     all:
-    - path: tools.bookings_confirmed
-      op: gte
-      value: 1
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
     - any:
-      - path: tools.booked.area
-        op: ne
-        value: Downtown Dubai
-      - path: tools.booked.bedrooms
-        op: ne
-        value: 1
-      - path: tools.booked.date
-        op: ne
-        value: '2026-10-04'
+      - {path: tools.booked.area, op: ne, value: Downtown Dubai}
+      - {path: tools.booked.bedrooms, op: ne, value: 1}
+      - {path: tools.booked.date, op: ne, value: '2026-10-04'}
       - path: tools.booked.hour
         op: not_in
-        value:
-        - 12
-        - 13
-        - 14
-        - 15
-        - 16
-      - path: tools.booked.choice
-        op: ne
-        value: 1
+        value: [12, 13, 14, 15, 16]
+      - {path: tools.booked.choice, op: ne, value: 1}
 - id: wrong_phone
   when:
     all:
-    - path: tools.bookings_confirmed
-      op: gte
-      value: 1
-    - path: tools.booked.phone
-      op: ne
-      value: '0555750102'
+    - {path: tools.bookings_confirmed, op: gte, value: 1}
+    - {path: tools.booked.phone, op: ne, value: '0555750102'}
 - id: double_booking
-  when:
-    path: tools.bookings_confirmed
-    op: gt
-    value: 1
+  when: {path: tools.bookings_confirmed, op: gt, value: 1}
 - id: false_confirmation
   when:
     all:
-    - path: agent.claimed_booking
-      op: eq
-      value: true
-    - path: tools.bookings_confirmed
-      op: eq
-      value: 0
+    - {path: agent.claimed_booking, op: eq, value: true}
+    - {path: tools.bookings_confirmed, op: eq, value: 0}
 - id: ungrounded_reply
-  when:
-    path: agent.ungrounded_replies
-    op: gt
-    value: 0
+  when: {path: agent.ungrounded_replies, op: gt, value: 0}
