@@ -98,6 +98,9 @@ class Proxy:
         self.clock = clock
         self.log: list[Envelope] = []
         self.sync_mismatches = 0
+        # Kept even if the agent swallows the exception: Parley's model parser catches everything
+        # and falls back to rules, which would hide a divergence at a model step.
+        self.diverged: ReplayDivergence | None = None
 
     @property
     def mode(self) -> str:
@@ -123,10 +126,12 @@ class Proxy:
         env = Envelope(step=step, kind=kind, name=name, args=args, meta=dict(meta or {}))
         if self._serving(step):
             if step >= len(self.record):
-                raise ReplayDivergence(step, None, env.key(), "a call beyond the record")
+                self.diverged = ReplayDivergence(step, None, env.key(), "a call beyond the record")
+                raise self.diverged
             rec = self.record[step]
             if not (rec.kind == kind and rec.name == name and _same(rec.args, args)):
-                raise ReplayDivergence(step, rec.key(), env.key())
+                self.diverged = ReplayDivergence(step, rec.key(), env.key())
+                raise self.diverged
             env.out, env.error, env.ms, env.source = copy.deepcopy(rec.out), rec.error, rec.ms, "served"
             env.meta = {**copy.deepcopy(rec.meta), **env.meta}
             if self.cut is not None and kind == "tool":

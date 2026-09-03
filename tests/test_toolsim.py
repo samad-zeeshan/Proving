@@ -158,3 +158,14 @@ def test_annotated_meta_is_kept_and_served():
     rep = px.Proxy(replay=rec.log)
     assert rep.call("model", "nlu", {"u": "hi"}, live=lambda: None) == "ok"
     assert rep.log[0].meta["usage"] == {"prompt_tokens": 9}
+
+
+def test_divergence_is_remembered_even_if_swallowed():
+    rec = px.Proxy()
+    _session(rec, Shop(), ["tea"])
+    rep = px.Proxy(replay=rec.log)
+    try:
+        rep.call("model", "plan", {"i": "other"}, live=lambda: None)
+    except px.ReplayDivergence:
+        pass
+    assert rep.diverged is not None and rep.diverged.step == 0

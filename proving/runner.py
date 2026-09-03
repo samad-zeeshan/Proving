@@ -46,6 +46,8 @@ def run_scenario(adapter: Adapter, scenario: Scenario, version: str, *, customer
             t0 = time.perf_counter()
             agent = session.send(said.text)
             ms = round((time.perf_counter() - t0) * 1000, 3)
+            if proxy.diverged:
+                raise proxy.diverged
             turns.append({
                 "i": i, "customer": said.text, "disclosed": list(said.disclosed), "agent": agent.text,
                 "action": agent.action, "asks": list(agent.asks), "done": agent.done,

@@ -19,7 +19,7 @@ import yaml
 
 from ..customer.base import AgentTurn
 from ..scenarios.schema import Scenario
-from ..toolsim.proxy import ErrorFactory, Proxy
+from ..toolsim.proxy import ErrorFactory, Proxy, ReplayDivergence
 from ._root import REPO, client_root, client_sha, ensure_importable, file_hash, text_hash
 
 ensure_importable("warden")
@@ -186,6 +186,8 @@ class WardenSession:
             try:
                 client.call(call["tool"], **args)
                 steered.append({"tool": call["tool"], "ok": True, "blocked_by": None})
+            except ReplayDivergence:
+                raise
             except Exception as exc:  # noqa: BLE001 - a refusal is the expected answer
                 layer = "agent_resolver" if "not sent:" in str(exc) else "server"
                 steered.append({"tool": call["tool"], "ok": False, "blocked_by": layer})
