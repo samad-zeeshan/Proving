@@ -7,8 +7,8 @@ lets CI replay a recorded 9B run with no model.
 
 from __future__ import annotations
 
-import dataclasses
 import hashlib
+import json
 import random
 import re
 import sqlite3
@@ -311,8 +311,13 @@ class ProxiedLLMNLU(LLMNLU):
     def _live(self, norm, today, context):
         full = self._messages(norm, today, context)
         # What the parser is handed beyond the fixed prompt and the caller's words: the dialogue
-        # state ("last asked about") and the normalizer's entities.
-        stripped = self._messages(dataclasses.replace(norm, entities=[]), today, "")
+        # state ("last asked about", "nothing yet" included) and the normalizer's entities.
+        said = context or "nothing yet"
+        stripped = [
+            {"role": "system", "content": full[0]["content"].replace(f"last asked about: {said}.",
+                                                                       "last asked about: .")},
+            {"role": "user", "content": json.dumps({"utterance": norm.text, "entities": []}, ensure_ascii=False)},
+        ]
         out = llm.chat(full, model=self.model, schema=NLU_SCHEMA)
         counter = self.counter or llm.ServerCounter(self.model)
         n_full, n_stripped = counter.count(full), counter.count(stripped)
