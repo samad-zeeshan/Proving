@@ -55,3 +55,11 @@ def test_replay_against_another_version_diverges(warden, scenarios):
     again = run_scenario(warden, s, "v2", replay_run=recorded)
     assert again["end"] == "diverged"
     assert again["divergence"]["expected"]["kind"] == "tool"
+
+
+def test_cli_simulate_then_replay(warden, tmp_path):
+    out = tmp_path / "v2.smoke.jsonl.gz"
+    assert cli.main(["simulate", "warden", "--version", "v2", "--set", "smoke", "--out", str(out)]) == 0
+    assert cli.main(["replay", "warden", "--runs", str(out)]) == 0
+    # The same record replayed against the resolver-off build is flagged.
+    assert cli.main(["replay", "warden", "--runs", str(out), "--version", "resolver-off"]) == 1

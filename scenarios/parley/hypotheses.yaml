@@ -1,0 +1,16 @@
+# What is being screened for Parley, and how much evidence a change needs.
+deployment:
+  autonomy: A3
+  autonomy_why: Parley books a viewing on its own once the caller says yes.
+  consequence: low
+  consequence_why: A wrong viewing wastes a trip and can be cancelled.
+comparisons:
+  - baseline: rules
+    candidate: llm
+    hypotheses:
+      - id: nlu-llm
+        claim: Swapping the rule parser for the 9B model parser raises task completion.
+        metric: success
+        direction: increase
+        min_effect: 0.02
+        set: standard

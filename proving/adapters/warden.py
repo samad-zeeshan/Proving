@@ -212,8 +212,8 @@ class WardenSession:
                 "audit_entries": len(audit),
                 "steered_calls": len(steered),
                 "steered_sent": len(steered_env),
-                "steered_writes_succeeded": sum(
-                    1 for s in steered if s["ok"] and (s["tool"] in WRITE_TOOLS or s["tool"] == "learn_role")),
+                # Learning a role is not an effect by itself. A write it enables would show up here.
+                "steered_writes_succeeded": sum(1 for s in steered if s["ok"] and s["tool"] in WRITE_TOOLS),
                 "blocked_by_resolver": sum(1 for s in steered if s["blocked_by"] == "agent_resolver"),
                 "blocked_by_server": sum(1 for s in steered if s["blocked_by"] == "server"),
             },
