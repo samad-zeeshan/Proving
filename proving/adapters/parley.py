@@ -383,6 +383,16 @@ def _asks(turn) -> tuple[tuple[str, ...], bool, bool]:
     return (), False, True  # "error": a tool call was refused
 
 
+_SPEECH: list = []
+
+
+def _speech() -> "_voice.SpeechChannel":
+    # Loading Whisper takes seconds, so one channel serves every call in the process.
+    if not _SPEECH:
+        _SPEECH.append(_voice.SpeechChannel())
+    return _SPEECH[0]
+
+
 class ParleySession:
     def __init__(self, scenario: Scenario, cfg: dict, proxy: Proxy, channel: str) -> None:
         self.scenario, self.cfg, self.proxy, self.channel = scenario, cfg, proxy, channel
@@ -425,6 +435,16 @@ class ParleySession:
             return [out]
         if self.channel == "split":
             return _voice.split(text)
+        if self.channel.startswith("asr@"):
+            arm = self.channel[4:]  # "clean" or "white@10"
+            hint = self.agent.lang if self.turn_i > 0 else None
+            seed = f"{self.scenario.seed}:{self.turn_i}:{arm}"
+            heard = self.proxy.call("channel", "asr", {"text": text, "arm": arm, "hint": hint},
+                                    live=lambda: _speech().hear(text, arm, hint, seed), meta={"node": "asr"})
+            err, n = _voice.word_errors(text, heard["text"])
+            self.words[0] += err
+            self.words[1] += n
+            return [heard["text"] or "..."]
         return [text]
 
     def send(self, text: str) -> AgentTurn:

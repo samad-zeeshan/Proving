@@ -1,0 +1,80 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Offline end to end: no model, no LM Studio, no speech models. Model and speech boundaries are
+  # served from the recorded runs in eval/runs.
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PROVING_WARDEN_ROOT: ${{ github.workspace }}/clients/warden
+      PROVING_PARLEY_ROOT: ${{ github.workspace }}/clients/parley
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read the pinned client commits
+        id: pins
+        run: |
+          echo "warden=$(jq -r .warden.sha clients.json)" >> "$GITHUB_OUTPUT"
+          echo "parley=$(jq -r .parley.sha clients.json)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+        with:
+          repository: samad-zeeshan/Warden
+          ref: ${{ steps.pins.outputs.warden }}
+          path: clients/warden
+
+      - uses: actions/checkout@v4
+        with:
+          repository: samad-zeeshan/Parley
+          ref: ${{ steps.pins.outputs.parley }}
+          path: clients/parley
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Proving and both clients' dependencies
+        run: |
+          pip install -r clients/warden/requirements.lock
+          pip install -e ".[dev]" jsonschema
+
+      - name: Unit tests
+        run: pytest -q
+
+      - name: Smoke simulations, rules customer, 20 scenarios per client
+        run: |
+          python -m proving.cli simulate warden --version v2 --set smoke --out /tmp/warden-smoke.jsonl.gz
+          python -m proving.cli simulate parley --version rules --set smoke --out /tmp/parley-smoke.jsonl.gz
+
+      - name: Replay recorded runs with tools, model and speech served from the record
+        run: |
+          python -m proving.cli replay warden --runs eval/runs/warden/v2.smoke.jsonl.gz
+          python -m proving.cli replay parley --runs eval/runs/parley/rules.smoke.jsonl.gz
+          python -m proving.cli replay parley --runs eval/runs/parley/llm.jsonl.gz
+          python -m proving.cli replay parley --runs eval/runs/parley/rules-asr-white-10.trace.jsonl.gz
+
+      - name: Regression replay catches the deliberately broken build
+        run: python -m proving.cli regress parley --runs eval/runs/parley/rules.jsonl.gz --version rules-regressed --expect-caught
+
+      - name: Rebuild every result from the saved runs and fail on drift
+        run: |
+          python -m proving.cli report warden
+          python -m proving.cli report parley
+          python -m proving.cli channels parley --no-simulate
+          python -m proving.cli judge parley --versions rules,llm
+          python -m proving.cli fidelity parley
+          python -m proving.cli site
+          git diff --exit-code eval/results site/data
+
+      - name: README numbers match the results files
+        run: python -m proving.cli readme --check

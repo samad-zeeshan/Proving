@@ -5,6 +5,7 @@ These isolate the dialogue model from speech recognition, as MTVA-Bench does (ar
 
 from __future__ import annotations
 
+import hashlib
 import random
 
 # Letters speech recognizers confuse, per script. Arabic pairs are close in sound, Latin ones in shape.
@@ -67,3 +68,74 @@ def word_errors(ref: str, hyp: str) -> tuple[int, int]:
             cur[j] = min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (rw != hw))
         prev = cur
     return prev[-1], len(r)
+
+
+class SpeechChannel:
+    """Caller text spoken by Parley's Piper voices, optionally degraded, heard by Parley's Whisper stack.
+
+    TRACE (arXiv 2609.29452) runs each call on a clean and a stressed copy. Only this channel needs the
+    speech models, and its transcripts are recorded, so a replay needs neither.
+    """
+
+    def __init__(self, config: str = "local-v1") -> None:
+        from speech.backends import CONFIGS
+        from speech.backends.local import build_asr
+        from speech.tts import PiperTTS
+
+        self.asr = build_asr(CONFIGS[config])
+        self.tts = PiperTTS()
+
+    def _audio(self, text: str):
+        import re
+
+        import numpy as np
+        from speech.audio import silence
+
+        # Parley's own callers voice a code-switched line one language at a time, so split by script.
+        runs = re.findall(r"[؀-ۿ][؀-ۿ\s،؟]*|[^؀-ۿ]+", text)
+        parts = [silence(0.25)]
+        for chunk in (r.strip() for r in runs):
+            if not chunk or not re.search(r"\w", chunk):
+                continue
+            lang = "ar" if re.search(r"[؀-ۿ]", chunk) else "en"
+            parts += [self.tts.synthesize(chunk, lang).pcm, silence(0.12)]
+        parts.append(silence(0.25))
+        return np.concatenate(parts)
+
+    @staticmethod
+    def stress(pcm, arm: str, seed: str):
+        import numpy as np
+
+        if arm == "clean":
+            return pcm
+        kind, _, level = arm.partition("@")
+        rng = np.random.default_rng(int(hashlib.sha256(seed.encode()).hexdigest()[:8], 16))
+        x = pcm.astype(np.float64)
+        if kind == "white":
+            snr = float(level)
+            noise = rng.standard_normal(len(x))
+            scale = np.sqrt(np.mean(x ** 2) / (np.mean(noise ** 2) * 10 ** (snr / 10)))
+            x = x + scale * noise
+        return np.clip(x, -32768, 32767).astype(np.int16)
+
+    def hear(self, text: str, arm: str, hint: str | None, seed: str) -> dict:
+        import numpy as np
+        from speech.asr import StreamingRecognizer
+        from speech.audio import SAMPLE_RATE, silence
+        from speech.vad import FRAME, EnergyVAD
+
+        pcm = self.stress(self._audio(text), arm, seed)
+        rec = StreamingRecognizer(self.asr, early_final=True)
+        rec.lang_hint = hint
+        hangover = EnergyVAD().hangover_frames * FRAME / SAMPLE_RATE
+        stream = np.concatenate([silence(0.3), pcm, silence(hangover + 0.3)])
+        texts, secs = [], 0.0
+        for k in range(len(stream) // FRAME):
+            for ev in rec.push(stream[k * FRAME:(k + 1) * FRAME]):
+                if ev.kind == "final":
+                    texts.append(ev.text)
+                    secs += ev.decode_seconds
+        for ev in rec.flush():
+            texts.append(ev.text)
+            secs += ev.decode_seconds
+        return {"text": " ".join(t for t in texts if t).strip(), "decode_s": round(secs, 3)}
