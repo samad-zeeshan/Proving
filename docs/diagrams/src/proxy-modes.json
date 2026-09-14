@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "One boundary through the recording proxy",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    { "id": "agent", "label": "Agent under test" },
+    { "id": "proxy", "label": "Recording proxy" },
+    { "id": "live", "label": "Live answer" },
+    { "id": "saved", "label": "Saved run", "variant": "exception" }
+  ],
+  "mainPath": ["ask", "envelope", "mode", "served", "match", "answer"],
+  "nodes": [
+    { "id": "ask", "lane": "agent", "col": 0, "type": "external", "label": "Agent asks", "sublabel": "tool, model or customer", "width": 150 },
+    { "id": "envelope", "lane": "proxy", "col": 1, "type": "backend", "label": "Envelope", "sublabel": "kind, name, args, step k", "width": 150 },
+    { "id": "mode", "lane": "proxy", "col": 2, "type": "security", "label": "Mode", "sublabel": "record, synthesize, replay", "width": 150 },
+    { "id": "real", "lane": "live", "col": 3, "type": "cloud", "label": "Real tool", "sublabel": "record mode", "width": 150 },
+    { "id": "synth", "lane": "live", "col": 4, "type": "cloud", "label": "Synthesizer", "sublabel": "rules from tool state", "width": 150 },
+    { "id": "served", "lane": "saved", "col": 3, "type": "database", "label": "Recorded step k", "sublabel": "replay, or before the cut", "width": 150 },
+    { "id": "match", "lane": "saved", "col": 4, "type": "security", "label": "Same call?", "sublabel": "kind, name, args", "width": 150 },
+    { "id": "stop", "lane": "saved", "col": 5, "type": "security", "label": "Divergence", "sublabel": "stop at step k", "width": 150 },
+    { "id": "answer", "lane": "agent", "col": 5, "type": "backend", "label": "Answer to agent", "sublabel": "logged with step k", "width": 150 }
+  ],
+  "edges": [
+    { "id": "e-ask", "from": "ask", "to": "envelope" },
+    { "id": "e-mode", "from": "envelope", "to": "mode" },
+    { "id": "e-record", "from": "mode", "to": "real", "label": "record", "role": "branch" },
+    { "id": "e-synth", "from": "mode", "to": "synth", "label": "synthesize", "variant": "dashed", "role": "branch" },
+    { "id": "e-replay", "from": "mode", "to": "served", "label": "replay", "variant": "emphasis" },
+    { "id": "e-check", "from": "served", "to": "match" },
+    { "id": "e-yes", "from": "match", "to": "answer", "label": "yes", "variant": "emphasis" },
+    { "id": "e-no", "from": "match", "to": "stop", "label": "no", "role": "error", "variant": "security" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Record and synthesize", "items": ["Record calls the client's own tools, synthesize answers from the scenario's tool state", "Both save every call, argument and answer with its step index"] },
+    { "dot": "rose", "title": "Replay and cut-point replay", "items": ["Replay serves every step from the record, so a changed build stops at its first different call", "A cut at step k serves steps before k and runs the rest live"] }
+  ]
+}

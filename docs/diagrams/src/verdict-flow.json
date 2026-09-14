@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "How two versions become ship, hold or more evidence",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    { "id": "runs", "label": "Saved runs" },
+    { "id": "stats", "label": "Paired statistics" },
+    { "id": "bar", "label": "Evidence bar" },
+    { "id": "stop", "label": "Stop", "variant": "exception" }
+  ],
+  "mainPath": ["pair", "boot", "hyp", "gates", "ship"],
+  "nodes": [
+    { "id": "pair", "lane": "runs", "col": 0, "type": "database", "label": "Same scenarios", "sublabel": "version A and B", "width": 150 },
+    { "id": "boot", "lane": "stats", "col": 1, "type": "backend", "label": "Paired bootstrap", "sublabel": "4000 resamples", "width": 150 },
+    { "id": "hyp", "lane": "stats", "col": 2, "type": "backend", "label": "Hypothesis", "sublabel": "confirmed, refuted, underpowered", "width": 170 },
+    { "id": "tier", "lane": "bar", "col": 1, "type": "security", "label": "Autonomy and consequence", "sublabel": "set the tier", "width": 196 },
+    { "id": "gates", "lane": "bar", "col": 3, "type": "security", "label": "Gates", "sublabel": "sample, hazards, success, claim", "width": 170 },
+    { "id": "ship", "lane": "runs", "col": 5, "type": "external", "label": "Ship", "sublabel": "every gate passed", "width": 140 },
+    { "id": "hold", "lane": "stop", "col": 4, "type": "security", "label": "Hold", "sublabel": "a gate failed outright", "width": 150 },
+    { "id": "more", "lane": "stop", "col": 5, "type": "messagebus", "label": "More evidence", "sublabel": "an interval is too wide", "width": 150 }
+  ],
+  "edges": [
+    { "id": "e-boot", "from": "pair", "to": "boot" },
+    { "id": "e-hyp", "from": "boot", "to": "hyp", "label": "interval" },
+    { "id": "e-gates", "from": "hyp", "to": "gates", "variant": "emphasis" },
+    { "id": "e-tier", "from": "tier", "to": "gates", "label": "bar", "role": "branch" },
+    { "id": "e-ship", "from": "gates", "to": "ship", "label": "all pass", "variant": "emphasis" },
+    { "id": "e-hold", "from": "gates", "to": "hold", "label": "fail", "role": "error", "variant": "security" },
+    { "id": "e-more", "from": "gates", "to": "more", "label": "unsure", "variant": "dashed", "role": "branch" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Hypothesis rule", "items": ["Confirmed when the whole interval shows the change helps", "Refuted when it rules out the smallest help worth shipping for"] },
+    { "dot": "amber", "title": "Evidence bar", "items": ["Tiers after EnterpriseVal: light, standard, strict", "Stricter tiers ask for more confidence, more scenarios and fewer hazards"] }
+  ]
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proving demo</title>
+<meta name="description" content="Proving tests an AI agent on made-up customers before it meets a real one. This page replays recorded simulations of two agents and shows the ship or hold report.">
+<meta name="theme-color" content="#f4f3ef">
+<meta property="og:title" content="Proving demo">
+<meta property="og:description" content="Watch recorded simulated customers talk to two AI agents, then read the ship or hold report.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%2318201c'/%3E%3Crect x='7' y='7' width='7' height='7' fill='%233fa36b'/%3E%3Crect x='18' y='7' width='7' height='7' fill='%233fa36b'/%3E%3Crect x='7' y='18' width='7' height='7' fill='%233fa36b'/%3E%3Crect x='18' y='18' width='7' height='7' fill='%23d9534f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#stage">Skip to the demo</a>
+
+<header class="wrap mast">
+  <p class="eyebrow">Proving</p>
+  <h1>Test an AI agent on made-up customers before it meets a real one.</h1>
+  <p class="lede">Each square below is one simulated customer from a recorded run. Pick an agent and two versions, watch the customers, then read the report that says ship or hold. Nothing runs live here.</p>
+</header>
+
+<main class="wrap">
+  <section class="panel controls" aria-label="Choose what to replay">
+    <div class="field">
+      <span class="field__label" id="client-label">Agent</span>
+      <div class="segmented" role="radiogroup" aria-labelledby="client-label" id="clients"></div>
+      <p class="field__note" id="client-blurb"></p>
+    </div>
+    <div class="field">
+      <label class="field__label" for="version-a">Current version</label>
+      <select id="version-a"></select>
+      <p class="field__note" id="note-a"></p>
+    </div>
+    <div class="field">
+      <label class="field__label" for="version-b">Candidate version</label>
+      <select id="version-b"></select>
+      <p class="field__note" id="note-b"></p>
+    </div>
+  </section>
+
+  <nav class="actions" aria-label="Views">
+    <button type="button" data-view="run">Run the customers</button>
+    <button type="button" data-view="report">Read the report</button>
+    <button type="button" data-view="regression">Replay a regression</button>
+    <button type="button" data-view="attacks" class="surprise">Adversarial personas</button>
+  </nav>
+
+  <section id="stage" class="stage" tabindex="-1" aria-live="polite"></section>
+</main>
+
+<dialog id="drawer" class="drawer" aria-labelledby="drawer-title">
+  <div class="drawer__head">
+    <h2 id="drawer-title"></h2>
+    <button type="button" class="drawer__close" id="drawer-close" aria-label="Close">Close</button>
+  </div>
+  <p class="drawer__meta" id="drawer-meta"></p>
+  <ol class="transcript" id="drawer-body"></ol>
+</dialog>
+
+<footer class="wrap foot">
+  <p>Source, method and every number: <a href="https://github.com/samad-zeeshan/Proving">github.com/samad-zeeshan/Proving</a>. The agents are <a href="https://github.com/samad-zeeshan/Warden">Warden</a> and <a href="https://github.com/samad-zeeshan/Parley">Parley</a>. All customers are synthetic.</p>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>

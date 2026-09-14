@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Where Proving meets a client agent",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    {
+      "id": "scenarios",
+      "type": "database",
+      "label": "Scenario files",
+      "sublabel": "persona, tool state, hazards",
+      "pos": [
+        40,
+        100
+      ],
+      "size": [
+        170,
+        64
+      ]
+    },
+    {
+      "id": "customer",
+      "type": "frontend",
+      "label": "Simulated customer",
+      "sublabel": "rules or local model",
+      "pos": [
+        40,
+        260
+      ],
+      "size": [
+        170,
+        64
+      ]
+    },
+    {
+      "id": "runner",
+      "type": "backend",
+      "label": "Runner",
+      "sublabel": "turn loop",
+      "pos": [
+        290,
+        260
+      ],
+      "size": [
+        150,
+        64
+      ]
+    },
+    {
+      "id": "proxy",
+      "type": "security",
+      "label": "Recording proxy",
+      "sublabel": "every boundary, step index",
+      "pos": [
+        290,
+        440
+      ],
+      "size": [
+        170,
+        64
+      ]
+    },
+    {
+      "id": "scoring",
+      "type": "backend",
+      "label": "Scoring and report",
+      "sublabel": "tool state, not words",
+      "pos": [
+        290,
+        100
+      ],
+      "size": [
+        170,
+        64
+      ]
+    },
+    {
+      "id": "adapter",
+      "type": "messagebus",
+      "label": "Adapter",
+      "sublabel": "warden.py, parley.py",
+      "pos": [
+        540,
+        260
+      ],
+      "size": [
+        160,
+        64
+      ]
+    },
+    {
+      "id": "agent",
+      "type": "external",
+      "label": "Client agent",
+      "sublabel": "pinned commit, unmodified",
+      "pos": [
+        790,
+        260
+      ],
+      "size": [
+        180,
+        64
+      ]
+    },
+    {
+      "id": "tools",
+      "type": "cloud",
+      "label": "Agent's tools",
+      "sublabel": "in-memory service",
+      "pos": [
+        790,
+        440
+      ],
+      "size": [
+        180,
+        64
+      ]
+    },
+    {
+      "id": "synth",
+      "type": "cloud",
+      "label": "Tool synthesizer",
+      "sublabel": "rules from tool state",
+      "pos": [
+        540,
+        440
+      ],
+      "size": [
+        170,
+        64
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Proving core: never imports an adapter",
+      "wraps": [
+        "scenarios",
+        "customer",
+        "runner",
+        "proxy",
+        "scoring"
+      ]
+    },
+    {
+      "kind": "security-group",
+      "label": "Client checkout",
+      "wraps": [
+        "agent",
+        "tools"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "persona",
+      "from": "scenarios",
+      "to": "customer",
+      "label": "persona",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [
+        125,
+        222
+      ]
+    },
+    {
+      "id": "say",
+      "from": "customer",
+      "to": "runner",
+      "label": "turn"
+    },
+    {
+      "id": "drive",
+      "from": "runner",
+      "to": "adapter",
+      "label": "send",
+      "variant": "emphasis"
+    },
+    {
+      "id": "call",
+      "from": "adapter",
+      "to": "agent",
+      "label": "agent API",
+      "variant": "emphasis"
+    },
+    {
+      "id": "tool-call",
+      "from": "agent",
+      "to": "proxy",
+      "label": "tool and model calls",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "variant": "security"
+    },
+    {
+      "id": "live",
+      "from": "proxy",
+      "to": "tools",
+      "label": "record",
+      "fromSide": "bottom",
+      "toSide": "bottom",
+      "variant": "dashed"
+    },
+    {
+      "id": "synthesize",
+      "from": "proxy",
+      "to": "synth",
+      "label": "synthesize",
+      "fromSide": "right",
+      "toSide": "left",
+      "variant": "dashed"
+    },
+    {
+      "id": "state",
+      "from": "runner",
+      "to": "scoring",
+      "label": "final state",
+      "fromSide": "top",
+      "toSide": "bottom"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Core",
+      "items": [
+        "Scenarios, customers, proxy, scoring and reports know nothing about a client",
+        "A test fails if any core module imports an adapter"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Missing seams",
+      "items": [
+        "Warden has no conversation turn and one request per task",
+        "Parley's model parser hides token usage, so the adapter resends the same request"
+      ]
+    }
+  ]
+}

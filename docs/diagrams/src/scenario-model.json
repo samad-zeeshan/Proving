@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "From a template to a scored customer",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    {
+      "id": "template",
+      "type": "database",
+      "label": "Template",
+      "sublabel": "at most 20 per client",
+      "pos": [
+        40,
+        220
+      ],
+      "size": [
+        160,
+        64
+      ]
+    },
+    {
+      "id": "generator",
+      "type": "backend",
+      "label": "Seeded generator",
+      "sublabel": "same seed, same files",
+      "pos": [
+        270,
+        220
+      ],
+      "size": [
+        170,
+        64
+      ]
+    },
+    {
+      "id": "persona",
+      "type": "frontend",
+      "label": "Persona",
+      "sublabel": "goal, style, patience",
+      "pos": [
+        520,
+        60
+      ],
+      "size": [
+        170,
+        64
+      ]
+    },
+    {
+      "id": "gate",
+      "type": "security",
+      "label": "Disclosure gate",
+      "sublabel": "open, asked, asked twice, never",
+      "pos": [
+        770,
+        60
+      ],
+      "size": [
+        200,
+        64
+      ]
+    },
+    {
+      "id": "state",
+      "type": "cloud",
+      "label": "Tool state",
+      "sublabel": "listings, requests, faults",
+      "pos": [
+        520,
+        220
+      ],
+      "size": [
+        170,
+        64
+      ]
+    },
+    {
+      "id": "success",
+      "type": "backend",
+      "label": "Success criteria",
+      "sublabel": "predicates on final state",
+      "pos": [
+        520,
+        380
+      ],
+      "size": [
+        170,
+        64
+      ]
+    },
+    {
+      "id": "hazards",
+      "type": "security",
+      "label": "Hazards",
+      "sublabel": "must never be true",
+      "pos": [
+        770,
+        380
+      ],
+      "size": [
+        200,
+        64
+      ]
+    },
+    {
+      "id": "tag",
+      "type": "messagebus",
+      "label": "Hypothesis tag",
+      "sublabel": "which change it tests",
+      "pos": [
+        520,
+        540
+      ],
+      "size": [
+        170,
+        64
+      ]
+    },
+    {
+      "id": "run",
+      "type": "external",
+      "label": "One simulated call",
+      "sublabel": "customer and agent",
+      "pos": [
+        770,
+        220
+      ],
+      "size": [
+        200,
+        64
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "One scenario YAML file",
+      "wraps": [
+        "persona",
+        "state",
+        "success",
+        "tag"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "expand",
+      "from": "template",
+      "to": "generator",
+      "label": "vars"
+    },
+    {
+      "id": "make",
+      "from": "generator",
+      "to": "state",
+      "label": "build"
+    },
+    {
+      "id": "who",
+      "from": "persona",
+      "to": "gate",
+      "label": "facts"
+    },
+    {
+      "id": "start",
+      "from": "state",
+      "to": "run",
+      "label": "starting tools",
+      "variant": "emphasis"
+    },
+    {
+      "id": "talks",
+      "from": "gate",
+      "to": "run",
+      "label": "what may be said",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [
+        870,
+        172
+      ]
+    },
+    {
+      "id": "judge",
+      "from": "run",
+      "to": "hazards",
+      "label": "final state",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "variant": "security",
+      "labelAt": [
+        870,
+        332
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "dot": "violet",
+      "title": "Disclosure",
+      "items": [
+        "A fact behind \"asked\" is only said when the agent asks for it",
+        "The model customer never sees a fact the gate has not released"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Scoring",
+      "items": [
+        "Success and hazards read the tool state at the end of the call",
+        "What the agent says is never taken as proof"
+      ]
+    }
+  ]
+}

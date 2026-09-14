@@ -285,6 +285,72 @@ def cmd_judge(args) -> int:
     return 0
 
 
+SITE_VERSIONS = {"warden": ["v2", "resolver-off"],
+                 "parley": ["rules", "llm", "rules|noise@0.1", "rules|split"]}
+CLIENT_TEXT = {
+    "warden": ("Warden", "An AI agent that approves, routes or denies changes to live software."),
+    "parley": ("Parley", "An AI phone agent that books property viewings in English and Gulf Arabic."),
+}
+
+
+def cmd_site(args) -> int:
+    import yaml
+
+    from .report import site
+
+    out_dir = REPO / "site" / "data"
+    index = []
+    for client, versions in SITE_VERSIONS.items():
+        doc = yaml.safe_load((SCENARIOS / client / "hypotheses.yaml").read_text(encoding="utf-8"))
+        comp = doc["comparisons"][0]
+        by_id = {s.id: s for s in scenario_set(client)}
+        runs = {}
+        for v in versions:
+            path = store.run_path(client, v)
+            if not path.exists():
+                path = store.run_path(client, v, "standard")
+            runs[v] = {r["scenario"]: r for r in store.load_runs(path)}
+        ids = site.pick(list(runs[versions[0]].values()))
+        grid = {v: [site.tile(runs[v][i], by_id[i].persona.language) if i in runs[v] else {"id": i, "missing": True}
+                    for i in ids] for v in versions}
+        attacks = [site.attack(by_id[i], runs[comp["baseline"]][i], runs[comp["candidate"]][i])
+                   for i in ids if by_id[i].adversarial]
+        rep = json.loads(report_path(client, comp["baseline"], comp["candidate"]).read_text(encoding="utf-8"))
+        regression = None
+        for path in sorted((RESULTS / client).glob("regression-*.json")):
+            reg = json.loads(path.read_text(encoding="utf-8"))
+            case = next((c for c in reg["cases"] if c.get("success_before") and not c.get("success_after")),
+                        reg["cases"][0] if reg["cases"] else None)
+            recorded = store.load_runs(REPO / reg["runs"])
+            rec = next((r for r in recorded if case and r["scenario"] == case["scenario"]), None)
+            regression = {k: reg[k] for k in ("recorded_version", "changed_version", "replayed", "diverged",
+                                              "lost_success", "new_hazards")}
+            regression["case"] = case
+            regression["recorded_turns"] = site.tile(rec, by_id[rec["scenario"]].persona.language)["turns"] \
+                if rec else []
+        label, blurb = CLIENT_TEXT[client]
+        data = {"client": client, "label": label, "blurb": blurb, "versions": versions,
+                "notes": {v: _adapter_note(client, v) for v in versions},
+                "comparison": {"baseline": comp["baseline"], "candidate": comp["candidate"]},
+                "report": site.trim_report(rep), "grid": grid, "attacks": attacks, "regression": regression}
+        write_json(out_dir / f"{client}.json", data)
+        index.append({"client": client, "label": label, "blurb": blurb, "versions": versions,
+                      "comparison": data["comparison"], "verdict": rep["verdict"]})
+    write_json(out_dir / "index.json", {"clients": index})
+    print(f"site data for {len(index)} clients -> {out_dir}")
+    return 0
+
+
+def _adapter_note(client: str, version: str) -> str:
+    base, _, channel = version.partition("|")
+    note = _adapter(client).versions()[base]["note"]
+    if channel.startswith("noise@"):
+        note += f", with {float(channel[6:]):.0%} of caller words garbled"
+    elif channel == "split":
+        note += ", with each caller turn cut in two messages"
+    return note
+
+
 def store_hash(config: dict) -> str:
     return hashlib.sha256(json.dumps(config, sort_keys=True).encode()).hexdigest()[:16]
 
@@ -336,6 +402,9 @@ def main(argv: list[str] | None = None) -> int:
     j.add_argument("--versions", required=True, help="comma separated, e.g. rules,llm")
     j.add_argument("--per-version", type=int, default=120)
     j.set_defaults(fn=cmd_judge)
+
+    st = sub.add_parser("site", help="pack recorded runs and reports for the static demo")
+    st.set_defaults(fn=cmd_site)
 
     p = sub.add_parser("report", help="compare two versions and write the EnterpriseVal report")
     p.add_argument("client")
