@@ -1,0 +1,12 @@
+{
+  "version": "rules",
+  "scenarios": 40,
+  "same_outcome": 40,
+  "rules_customer_success": 38,
+  "model_customer_success": 38,
+  "rules_customer_turns": 5.72,
+  "model_customer_turns": 5.72,
+  "model_lines": 224,
+  "model_tokens": 43686,
+  "differences": []
+}

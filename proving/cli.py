@@ -41,6 +41,9 @@ def scenario_set(client: str, which: str = "all") -> list[schema.Scenario]:
         return [s for s in loaded if s.adversarial]
     if which == "standard":
         return [s for s in loaded if not s.adversarial]
+    if which == "english":
+        # The model customer run: forty English callers, round robin over the English templates.
+        return generator.smoke_set([s for s in loaded if not s.adversarial and s.persona.language == "en"], 40)
     if which == "trace":
         # Speech runs cost seconds a turn, so the acoustic pairs use four callers per template.
         return generator.smoke_set([s for s in loaded if not s.adversarial], 52)
@@ -351,6 +354,47 @@ def _adapter_note(client: str, version: str) -> str:
     return note
 
 
+def cmd_customers(args) -> int:
+    """Compare the rules customer with the model customer on the same scenarios and agent version."""
+    rules = {r["scenario"]: r for r in store.load_runs(store.run_path(args.client, args.version))}
+    model = store.load_runs(store.run_path(args.client, args.version, "english", "llm"))
+    pairs = [(rules[r["scenario"]], r) for r in model if r["scenario"] in rules and r["outcome"]["valid"]]
+    agree = sum(1 for a, b in pairs if a["outcome"]["success"] == b["outcome"]["success"])
+    tokens = sum((s["meta"].get("usage") or {}).get("total_tokens", 0)
+                 for _, b in pairs for s in b["steps"] if s["kind"] == "customer")
+    lines = sum(1 for _, b in pairs for s in b["steps"] if s["kind"] == "customer")
+    n = len(pairs) or 1
+    data = {
+        "version": args.version, "scenarios": len(pairs), "same_outcome": agree,
+        "rules_customer_success": sum(1 for a, _ in pairs if a["outcome"]["success"]),
+        "model_customer_success": sum(1 for _, b in pairs if b["outcome"]["success"]),
+        "rules_customer_turns": round(sum(a["outcome"]["agent_turns"] for a, _ in pairs) / n, 2),
+        "model_customer_turns": round(sum(b["outcome"]["agent_turns"] for _, b in pairs) / n, 2),
+        "model_lines": lines, "model_tokens": tokens,
+        "differences": [a["scenario"] for a, b in pairs if a["outcome"]["success"] != b["outcome"]["success"]],
+    }
+    write_json(RESULTS / args.client / "customers.json", data)
+    print(f"{args.client}: model customer agrees with rules customer on {agree}/{len(pairs)} outcomes")
+    return 0
+
+
+def cmd_readme(args) -> int:
+    from .report import readme
+
+    path = REPO / "README.md"
+    text = path.read_text(encoding="utf-8")
+    new = readme.splice(text, readme.render(RESULTS))
+    if args.check:
+        if new != text:
+            print("README results block is out of date. Run: python -m proving.cli readme")
+            return 1
+        print("README numbers match eval/results")
+        return 0
+    path.write_text(new, encoding="utf-8", newline="\n")
+    print("README results block rewritten")
+    return 0
+
+
 def store_hash(config: dict) -> str:
     return hashlib.sha256(json.dumps(config, sort_keys=True).encode()).hexdigest()[:16]
 
@@ -402,6 +446,15 @@ def main(argv: list[str] | None = None) -> int:
     j.add_argument("--versions", required=True, help="comma separated, e.g. rules,llm")
     j.add_argument("--per-version", type=int, default=120)
     j.set_defaults(fn=cmd_judge)
+
+    cu = sub.add_parser("customers", help="compare the model customer with the rules customer")
+    cu.add_argument("client")
+    cu.add_argument("--version", default="rules")
+    cu.set_defaults(fn=cmd_customers)
+
+    rd = sub.add_parser("readme", help="rewrite or check the README results block")
+    rd.add_argument("--check", action="store_true")
+    rd.set_defaults(fn=cmd_readme)
 
     st = sub.add_parser("site", help="pack recorded runs and reports for the static demo")
     st.set_defaults(fn=cmd_site)

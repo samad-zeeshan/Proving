@@ -1,0 +1,4538 @@
+{
+  "0018b4b62eaa718572c7": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 409,
+      "completion_tokens": 32,
+      "total_tokens": 441,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "0167bd39aa3c9e42069e": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 357,
+      "completion_tokens": 32,
+      "total_tokens": 389,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "05a31a0396d7ceb65aac": {
+    "p": 1.0,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 395,
+      "completion_tokens": 29,
+      "total_tokens": 424,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "06c35049eea2ddc85ad0": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 361,
+      "completion_tokens": 26,
+      "total_tokens": 387,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "06c700506f81b6c23023": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 358,
+      "completion_tokens": 33,
+      "total_tokens": 391,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "06ce9fac502f6d7deffa": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 362,
+      "completion_tokens": 23,
+      "total_tokens": 385,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "07a4d45493047c31d803": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 362,
+      "completion_tokens": 23,
+      "total_tokens": 385,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "087f7ea29349a1d6bd09": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 378,
+      "completion_tokens": 30,
+      "total_tokens": 408,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "093776a8656a95f7a3b6": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 407,
+      "completion_tokens": 32,
+      "total_tokens": 439,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "0a782953759308c47c51": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 389,
+      "completion_tokens": 32,
+      "total_tokens": 421,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "0d662b80ed6d986b2c7a": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 396,
+      "completion_tokens": 23,
+      "total_tokens": 419,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "0dd5639ea77744595611": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 424,
+      "completion_tokens": 33,
+      "total_tokens": 457,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "108064b57b158f039f94": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 381,
+      "completion_tokens": 32,
+      "total_tokens": 413,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "10b4a428561f4daf7596": {
+    "p": 0.98,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 465,
+      "completion_tokens": 23,
+      "total_tokens": 488,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "1141ded2e3e6c03b0db9": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 240,
+      "completion_tokens": 30,
+      "total_tokens": 270,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "1145009828a5d505210d": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 415,
+      "completion_tokens": 23,
+      "total_tokens": 438,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "11553b673fde3b12ffa9": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 380,
+      "completion_tokens": 32,
+      "total_tokens": 412,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "12412dd4728e2ff10c1d": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 377,
+      "completion_tokens": 30,
+      "total_tokens": 407,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "12b2418ded82bd59d72d": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 379,
+      "completion_tokens": 30,
+      "total_tokens": 409,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "13389dba3054877bdc58": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 411,
+      "completion_tokens": 30,
+      "total_tokens": 441,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "136db3609305d2c86e95": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 410,
+      "completion_tokens": 33,
+      "total_tokens": 443,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "1464d47f34e1b9fa9113": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 376,
+      "completion_tokens": 30,
+      "total_tokens": 406,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "1562105acabb2644d8e0": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 389,
+      "completion_tokens": 30,
+      "total_tokens": 419,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "1580ed2073b9791e8dbd": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 230,
+      "completion_tokens": 33,
+      "total_tokens": 263,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "162bfa7795af228b052e": {
+    "p": 1.0,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 371,
+      "completion_tokens": 31,
+      "total_tokens": 402,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "1731d790bf657ad060d5": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 389,
+      "completion_tokens": 26,
+      "total_tokens": 415,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "182c9f315ae76a74cf0c": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 367,
+      "completion_tokens": 23,
+      "total_tokens": 390,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "18621751dc784a30d55e": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 429,
+      "completion_tokens": 32,
+      "total_tokens": 461,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "18689ddc37f667fc078b": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 397,
+      "completion_tokens": 23,
+      "total_tokens": 420,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "18907a2f51bd461938ec": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 429,
+      "completion_tokens": 32,
+      "total_tokens": 461,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "18b53a7751c1fb869e6a": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 332,
+      "completion_tokens": 32,
+      "total_tokens": 364,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "18ced146c8fc59a2974d": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 371,
+      "completion_tokens": 23,
+      "total_tokens": 394,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "191dea079e4b50c907da": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 408,
+      "completion_tokens": 30,
+      "total_tokens": 438,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "1b4ece3134c079bb6dc3": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 412,
+      "completion_tokens": 30,
+      "total_tokens": 442,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "1b5dc009445618c17a81": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 390,
+      "completion_tokens": 30,
+      "total_tokens": 420,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "1dd3761708fb2c6b6394": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 417,
+      "completion_tokens": 33,
+      "total_tokens": 450,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "1ed79ce9300bbd31c2f2": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 393,
+      "completion_tokens": 33,
+      "total_tokens": 426,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "1fd7832858e95f819175": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 389,
+      "completion_tokens": 32,
+      "total_tokens": 421,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "21406911a892c47eb02c": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 312,
+      "completion_tokens": 30,
+      "total_tokens": 342,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "217ff2159fecbd57e093": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 413,
+      "completion_tokens": 33,
+      "total_tokens": 446,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "219cb810cad50d793a2d": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 394,
+      "completion_tokens": 23,
+      "total_tokens": 417,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "22c5937db602ac83f126": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 374,
+      "completion_tokens": 23,
+      "total_tokens": 397,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "23602ae12adebdafc4d8": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 371,
+      "completion_tokens": 30,
+      "total_tokens": 401,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "236523f615480f62797b": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 407,
+      "completion_tokens": 32,
+      "total_tokens": 439,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "23af40e8a30d5a4d42d5": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 415,
+      "completion_tokens": 32,
+      "total_tokens": 447,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "23b81a0e84523b9a58e5": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 305,
+      "completion_tokens": 23,
+      "total_tokens": 328,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "23fea84f8368a1341f51": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 480,
+      "completion_tokens": 30,
+      "total_tokens": 510,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "245222a540e650743dbd": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 470,
+      "completion_tokens": 32,
+      "total_tokens": 502,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "246864338873654534d1": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 378,
+      "completion_tokens": 30,
+      "total_tokens": 408,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "2594b9950fbc3d45d4a0": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 443,
+      "completion_tokens": 32,
+      "total_tokens": 475,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "269581e3caa502ac094d": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 372,
+      "completion_tokens": 23,
+      "total_tokens": 395,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "28762d30cab79e000f6c": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 419,
+      "completion_tokens": 32,
+      "total_tokens": 451,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "28884d6b53def95d8c86": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 386,
+      "completion_tokens": 32,
+      "total_tokens": 418,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "2901324be1cb121905de": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 417,
+      "completion_tokens": 33,
+      "total_tokens": 450,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "2a94c0ecee4c8ad963a0": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 361,
+      "completion_tokens": 33,
+      "total_tokens": 394,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "2acbf26a762f390512f9": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 410,
+      "completion_tokens": 23,
+      "total_tokens": 433,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "2b77719ee701690614c0": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 322,
+      "completion_tokens": 23,
+      "total_tokens": 345,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "2e2d873c382f4e2394d3": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 369,
+      "completion_tokens": 23,
+      "total_tokens": 392,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "2e55d15b1f91296efc24": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 364,
+      "completion_tokens": 33,
+      "total_tokens": 397,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "2eaf8a0db70bf08d795d": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 378,
+      "completion_tokens": 30,
+      "total_tokens": 408,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "2eb1a54682c1a653f7c9": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 379,
+      "completion_tokens": 33,
+      "total_tokens": 412,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "2f0a82fbf44491b7a4d9": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 428,
+      "completion_tokens": 23,
+      "total_tokens": 451,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "2f1c47968a3c72b3d3e8": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 377,
+      "completion_tokens": 30,
+      "total_tokens": 407,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "2f948b8e6b70df130d43": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 391,
+      "completion_tokens": 32,
+      "total_tokens": 423,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "2ffb31e81710d594997e": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 411,
+      "completion_tokens": 32,
+      "total_tokens": 443,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "3020754016503994b500": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 401,
+      "completion_tokens": 30,
+      "total_tokens": 431,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "31afb079f25b214e67b8": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 369,
+      "completion_tokens": 23,
+      "total_tokens": 392,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "321a03da44daddee49fe": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 406,
+      "completion_tokens": 32,
+      "total_tokens": 438,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "329cc5dec2c3bddf6cae": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 393,
+      "completion_tokens": 23,
+      "total_tokens": 416,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "331f7157616cc6944706": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 371,
+      "completion_tokens": 29,
+      "total_tokens": 400,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "3373dff912669d79c422": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 383,
+      "completion_tokens": 33,
+      "total_tokens": 416,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "34dd7a24d5faf20945a9": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 377,
+      "completion_tokens": 23,
+      "total_tokens": 400,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "35c0f25b9e4a9f768981": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 374,
+      "completion_tokens": 33,
+      "total_tokens": 407,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "363b81a8e6068f848c45": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 406,
+      "completion_tokens": 32,
+      "total_tokens": 438,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "36a91f2d7673120fc739": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 317,
+      "completion_tokens": 32,
+      "total_tokens": 349,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "3763456e29c2ff02a5fc": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 408,
+      "completion_tokens": 32,
+      "total_tokens": 440,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "391b8324dfa26971e08b": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 422,
+      "completion_tokens": 23,
+      "total_tokens": 445,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "39f3fa8a840774d3384d": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 391,
+      "completion_tokens": 23,
+      "total_tokens": 414,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "3ac739e9bdee2ad7f1c1": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 392,
+      "completion_tokens": 23,
+      "total_tokens": 415,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "3b4ec1843516eff87f3f": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 419,
+      "completion_tokens": 23,
+      "total_tokens": 442,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "3c5f88d4bd4ed1fbb436": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 346,
+      "completion_tokens": 23,
+      "total_tokens": 369,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "3c7bdcb4b4ed08ded5f4": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 402,
+      "completion_tokens": 32,
+      "total_tokens": 434,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "3d3518e47d9195d79099": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 402,
+      "completion_tokens": 32,
+      "total_tokens": 434,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "3d86f89b46c283ae4753": {
+    "p": 0.05,
+    "helpfulness": 1,
+    "usage": {
+      "prompt_tokens": 235,
+      "completion_tokens": 30,
+      "total_tokens": 265,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "3d98e34b03bba3508b99": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 450,
+      "completion_tokens": 32,
+      "total_tokens": 482,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "3e1f95e0029c1893c5e2": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 397,
+      "completion_tokens": 33,
+      "total_tokens": 430,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "3e6ec657d4252abdb10a": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 413,
+      "completion_tokens": 23,
+      "total_tokens": 436,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "3e759f5e3e7e2f768e58": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 372,
+      "completion_tokens": 24,
+      "total_tokens": 396,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "3f70ab529e4483719e9d": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 333,
+      "completion_tokens": 23,
+      "total_tokens": 356,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "3fe179fd8a9e9c3919d7": {
+    "p": 0.98,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 408,
+      "completion_tokens": 23,
+      "total_tokens": 431,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "40319ada244f7507ae48": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 390,
+      "completion_tokens": 29,
+      "total_tokens": 419,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "4090a2a0d9beacdbb896": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 372,
+      "completion_tokens": 32,
+      "total_tokens": 404,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "410b458fdaa496e2f4da": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 359,
+      "completion_tokens": 29,
+      "total_tokens": 388,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "42a42605bc8223e992d4": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 384,
+      "completion_tokens": 30,
+      "total_tokens": 414,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "4358935b5d2b532113f0": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 422,
+      "completion_tokens": 32,
+      "total_tokens": 454,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "43b7aa4020345dddfd41": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 375,
+      "completion_tokens": 23,
+      "total_tokens": 398,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "453ed03fdde373a7365b": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 414,
+      "completion_tokens": 32,
+      "total_tokens": 446,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "462a8bd53bc0a41d5b96": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 399,
+      "completion_tokens": 32,
+      "total_tokens": 431,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "463cb451cb4b3b610516": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 402,
+      "completion_tokens": 32,
+      "total_tokens": 434,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "472aa81bee4cca71f98a": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 422,
+      "completion_tokens": 23,
+      "total_tokens": 445,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "48766e06314c3a121254": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 409,
+      "completion_tokens": 32,
+      "total_tokens": 441,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "48b6f3b5f2dc2ac1b4b5": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 369,
+      "completion_tokens": 33,
+      "total_tokens": 402,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "48f78da2b7c7cbb7ccde": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 394,
+      "completion_tokens": 32,
+      "total_tokens": 426,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "493a504d80502e633343": {
+    "p": 0.05,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 381,
+      "completion_tokens": 30,
+      "total_tokens": 411,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "496b8239a0147e313177": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 412,
+      "completion_tokens": 23,
+      "total_tokens": 435,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "4985327108f9c13b63ec": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 352,
+      "completion_tokens": 23,
+      "total_tokens": 375,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "49d1975fe991a1176454": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 424,
+      "completion_tokens": 29,
+      "total_tokens": 453,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "4b3d587fd170d7846095": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 392,
+      "completion_tokens": 23,
+      "total_tokens": 415,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "4b7674014abc5864c319": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 404,
+      "completion_tokens": 23,
+      "total_tokens": 427,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "4c4200b624fd871f9984": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 377,
+      "completion_tokens": 30,
+      "total_tokens": 407,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "4d27f29875a6ffdf4adc": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 403,
+      "completion_tokens": 30,
+      "total_tokens": 433,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "4d34b6d8000ea530c733": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 403,
+      "completion_tokens": 33,
+      "total_tokens": 436,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "4ea0973d07fe29509cac": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 397,
+      "completion_tokens": 33,
+      "total_tokens": 430,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "4fc0a655f7b6debca051": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 353,
+      "completion_tokens": 23,
+      "total_tokens": 376,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "51e649924103e74ac205": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 375,
+      "completion_tokens": 30,
+      "total_tokens": 405,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "5211e3c39f0a767e5dad": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 389,
+      "completion_tokens": 33,
+      "total_tokens": 422,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "52280b483d9d136ec575": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 378,
+      "completion_tokens": 33,
+      "total_tokens": 411,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "52bca62296a244ba5ec8": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 477,
+      "completion_tokens": 32,
+      "total_tokens": 509,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "535dbe9b9d178eda794e": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 487,
+      "completion_tokens": 32,
+      "total_tokens": 519,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "547f99b2ebb298578d8c": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 368,
+      "completion_tokens": 32,
+      "total_tokens": 400,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "562529944fbda9787226": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 411,
+      "completion_tokens": 23,
+      "total_tokens": 434,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "56a61ab7f0e2b0f7f2db": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 398,
+      "completion_tokens": 30,
+      "total_tokens": 428,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "56ae7d64c5ba916628c7": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 432,
+      "completion_tokens": 33,
+      "total_tokens": 465,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "56f9e245105af5c7b893": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 398,
+      "completion_tokens": 23,
+      "total_tokens": 421,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "573ce1326fb766594bd0": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 402,
+      "completion_tokens": 30,
+      "total_tokens": 432,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "57b5e61e7631dc7bcf1b": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 374,
+      "completion_tokens": 32,
+      "total_tokens": 406,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "57b929fac55e1e71e4a3": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 384,
+      "completion_tokens": 26,
+      "total_tokens": 410,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "587a46f73e7bef5f595a": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 372,
+      "completion_tokens": 30,
+      "total_tokens": 402,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "58d91021aadd16ab7271": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 363,
+      "completion_tokens": 23,
+      "total_tokens": 386,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "5971f5cf24dbbae3b7fa": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 407,
+      "completion_tokens": 30,
+      "total_tokens": 437,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "599577768508a9a7cb31": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 376,
+      "completion_tokens": 32,
+      "total_tokens": 408,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "5a7b9c7fe4875097f424": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 394,
+      "completion_tokens": 30,
+      "total_tokens": 424,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "5b2ca0c32beed0722754": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 358,
+      "completion_tokens": 33,
+      "total_tokens": 391,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "5b74ca6d32f03003c824": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 382,
+      "completion_tokens": 23,
+      "total_tokens": 405,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "5bb43b7b0324daaf911c": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 419,
+      "completion_tokens": 32,
+      "total_tokens": 451,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "5c93ddb26645b8655d78": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 421,
+      "completion_tokens": 32,
+      "total_tokens": 453,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "5c9eaf1189d5d02aa42c": {
+    "p": 0.02,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 371,
+      "completion_tokens": 30,
+      "total_tokens": 401,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "5d8edb2ea6ed6dcf1caf": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 381,
+      "completion_tokens": 30,
+      "total_tokens": 411,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "5dd4b18735b123fce743": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 379,
+      "completion_tokens": 30,
+      "total_tokens": 409,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "5edd2e49a56e958aac39": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 373,
+      "completion_tokens": 23,
+      "total_tokens": 396,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "5efaeb816c58649b8bd0": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 382,
+      "completion_tokens": 32,
+      "total_tokens": 414,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "5f0961863aa79ea0f2c5": {
+    "p": 0.02,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 374,
+      "completion_tokens": 33,
+      "total_tokens": 407,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "5ff92e97701a8ba5a5e3": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 410,
+      "completion_tokens": 32,
+      "total_tokens": 442,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "608380dbc8abf7c679ab": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 399,
+      "completion_tokens": 23,
+      "total_tokens": 422,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "60d7589fcf9abd7130ac": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 388,
+      "completion_tokens": 29,
+      "total_tokens": 417,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "628a164de3dc53d3f943": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 331,
+      "completion_tokens": 23,
+      "total_tokens": 354,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "63e540b1919ca5c7a5ed": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 387,
+      "completion_tokens": 32,
+      "total_tokens": 419,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "6549b80c01b45aa29186": {
+    "p": 0.02,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 389,
+      "completion_tokens": 30,
+      "total_tokens": 419,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "66c28ec871e948a20301": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 413,
+      "completion_tokens": 32,
+      "total_tokens": 445,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "67d3de6a40d6f9aee30a": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 376,
+      "completion_tokens": 32,
+      "total_tokens": 408,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "6858cf46acc5c607cce0": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 440,
+      "completion_tokens": 23,
+      "total_tokens": 463,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "68de4822cef71b7d1c2a": {
+    "p": 0.02,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 395,
+      "completion_tokens": 33,
+      "total_tokens": 428,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "6ab4f7b8a2b812a6df15": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 403,
+      "completion_tokens": 23,
+      "total_tokens": 426,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "6aeaf4cf9da468e0e045": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 294,
+      "completion_tokens": 29,
+      "total_tokens": 323,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "6af5598ac3d84db5ee18": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 415,
+      "completion_tokens": 23,
+      "total_tokens": 438,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "6eda38de0636329df066": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 367,
+      "completion_tokens": 32,
+      "total_tokens": 399,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "6f27d9ca2693fcdb171e": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 445,
+      "completion_tokens": 23,
+      "total_tokens": 468,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "6fe92f02a563abfc5fad": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 377,
+      "completion_tokens": 30,
+      "total_tokens": 407,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "7036d894ed974fe9f789": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 398,
+      "completion_tokens": 23,
+      "total_tokens": 421,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "7044bf7b4036828c7a01": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 406,
+      "completion_tokens": 29,
+      "total_tokens": 435,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "71d6ea9bf9ffa069768c": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 427,
+      "completion_tokens": 32,
+      "total_tokens": 459,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "71e81b21e8e9fe88c005": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 367,
+      "completion_tokens": 32,
+      "total_tokens": 399,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "73f07adb9d04b7f0479a": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 412,
+      "completion_tokens": 33,
+      "total_tokens": 445,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "7414e37dac46c6dd7c30": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 405,
+      "completion_tokens": 23,
+      "total_tokens": 428,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "74a57c9b179a29ca91f2": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 413,
+      "completion_tokens": 33,
+      "total_tokens": 446,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "74ccca7b8248c1279008": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 415,
+      "completion_tokens": 33,
+      "total_tokens": 448,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "766ff6d2defdd90ca284": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 418,
+      "completion_tokens": 32,
+      "total_tokens": 450,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "76b31f78ef7d87cf417b": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 398,
+      "completion_tokens": 32,
+      "total_tokens": 430,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "771121d43795959edbfe": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 402,
+      "completion_tokens": 23,
+      "total_tokens": 425,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "7729c3b3f4c4dc001e13": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 410,
+      "completion_tokens": 23,
+      "total_tokens": 433,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "772ef008e13eb53b0c62": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 403,
+      "completion_tokens": 32,
+      "total_tokens": 435,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "7791694e49afaa503aba": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 377,
+      "completion_tokens": 30,
+      "total_tokens": 407,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "77b7dbb7d38f41839824": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 379,
+      "completion_tokens": 30,
+      "total_tokens": 409,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "77f059dd8ccb2716c088": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 380,
+      "completion_tokens": 30,
+      "total_tokens": 410,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "7803ce6f9e9e7a058cda": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 300,
+      "completion_tokens": 32,
+      "total_tokens": 332,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "787b638e888dded6d07d": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 406,
+      "completion_tokens": 30,
+      "total_tokens": 436,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "7c0a3e1660cd88a5bb66": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 310,
+      "completion_tokens": 32,
+      "total_tokens": 342,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "7c6c0b4426083b4788a2": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 408,
+      "completion_tokens": 30,
+      "total_tokens": 438,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "7d0a964ace95ebc571d6": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 427,
+      "completion_tokens": 32,
+      "total_tokens": 459,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "7d740b1cb44751b8527f": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 340,
+      "completion_tokens": 32,
+      "total_tokens": 372,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "806a92bcbf5035d91fae": {
+    "p": 0.02,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 390,
+      "completion_tokens": 30,
+      "total_tokens": 420,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "80b33b9ff51df9ea58b5": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 309,
+      "completion_tokens": 30,
+      "total_tokens": 339,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "8265a187ad9813388c55": {
+    "p": 0.02,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 376,
+      "completion_tokens": 33,
+      "total_tokens": 409,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "827822fd0f95ea6961d1": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 338,
+      "completion_tokens": 32,
+      "total_tokens": 370,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "828134374660b08eda22": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 363,
+      "completion_tokens": 33,
+      "total_tokens": 396,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "832ec49dfed2b275201d": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 366,
+      "completion_tokens": 32,
+      "total_tokens": 398,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "839389295ceebfe83c46": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 409,
+      "completion_tokens": 23,
+      "total_tokens": 432,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "83c584637d8805cc1fb1": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 389,
+      "completion_tokens": 23,
+      "total_tokens": 412,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "83c9e605b9e66256ee32": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 382,
+      "completion_tokens": 23,
+      "total_tokens": 405,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "8488a9d72bc5956aa492": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 395,
+      "completion_tokens": 23,
+      "total_tokens": 418,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "861a05c375aa82f42722": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 406,
+      "completion_tokens": 23,
+      "total_tokens": 429,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "864e007b1eef2a4e5eec": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 409,
+      "completion_tokens": 23,
+      "total_tokens": 432,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "86b6fb09dd163c59feeb": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 397,
+      "completion_tokens": 23,
+      "total_tokens": 420,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "870306868f7ecf976009": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 377,
+      "completion_tokens": 32,
+      "total_tokens": 409,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "87a2667ba62264ff88ac": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 391,
+      "completion_tokens": 32,
+      "total_tokens": 423,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "87c1692296432d952fd1": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 416,
+      "completion_tokens": 32,
+      "total_tokens": 448,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "8822542f33a854ffd76e": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 385,
+      "completion_tokens": 23,
+      "total_tokens": 408,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "886f15b66e40a06ddcf9": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 382,
+      "completion_tokens": 32,
+      "total_tokens": 414,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "8980637315504e4a6a35": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 380,
+      "completion_tokens": 30,
+      "total_tokens": 410,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "89c04bdf13c22cf8fa4d": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 452,
+      "completion_tokens": 33,
+      "total_tokens": 485,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "89e73b695cd1f3480cb2": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 415,
+      "completion_tokens": 33,
+      "total_tokens": 448,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "8aa57dd775b152f0f506": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 404,
+      "completion_tokens": 30,
+      "total_tokens": 434,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "8ac0bf0da35f786c3bb0": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 475,
+      "completion_tokens": 23,
+      "total_tokens": 498,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "8c15f80ff16667c4bb6f": {
+    "p": 0.98,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 397,
+      "completion_tokens": 23,
+      "total_tokens": 420,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "8c32ef8dd46413e4b867": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 404,
+      "completion_tokens": 29,
+      "total_tokens": 433,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "8c523510c582891a7f56": {
+    "p": 0.02,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 238,
+      "completion_tokens": 33,
+      "total_tokens": 271,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "8ddb9d191a8671997143": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 414,
+      "completion_tokens": 30,
+      "total_tokens": 444,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "8e8f76301d04a49734b7": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 235,
+      "completion_tokens": 30,
+      "total_tokens": 265,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "8f7df91cecd2236e20f1": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 398,
+      "completion_tokens": 30,
+      "total_tokens": 428,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "8fc4eb3712f021056617": {
+    "p": 0.05,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 390,
+      "completion_tokens": 30,
+      "total_tokens": 420,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "8fe3c4af2a8f85b8aa55": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 393,
+      "completion_tokens": 32,
+      "total_tokens": 425,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9167db857fa756a797ea": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 384,
+      "completion_tokens": 23,
+      "total_tokens": 407,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "91c3dba2c35fbada1b89": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 435,
+      "completion_tokens": 32,
+      "total_tokens": 467,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "925baa0c6173707e9a2b": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 381,
+      "completion_tokens": 30,
+      "total_tokens": 411,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9336a0051428ab8bdb30": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 388,
+      "completion_tokens": 32,
+      "total_tokens": 420,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9409d4e6ac0fc7aab785": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 385,
+      "completion_tokens": 23,
+      "total_tokens": 408,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9410296653c648531911": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 394,
+      "completion_tokens": 30,
+      "total_tokens": 424,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9558ba5fa658d4a9782b": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 409,
+      "completion_tokens": 32,
+      "total_tokens": 441,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "95e10fd3722c0c28bc34": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 324,
+      "completion_tokens": 32,
+      "total_tokens": 356,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "96de8ccfdd70be907fa8": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 388,
+      "completion_tokens": 26,
+      "total_tokens": 414,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9771dd0b83bb8a99843c": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 358,
+      "completion_tokens": 29,
+      "total_tokens": 387,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9780fc08f96fe66a27bc": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 424,
+      "completion_tokens": 33,
+      "total_tokens": 457,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9814a4788f88bd609418": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 405,
+      "completion_tokens": 23,
+      "total_tokens": 428,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "984839291a206473da1f": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 407,
+      "completion_tokens": 23,
+      "total_tokens": 430,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9a39adfebe293565d542": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 336,
+      "completion_tokens": 32,
+      "total_tokens": 368,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9b04a48095853fce1e93": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 387,
+      "completion_tokens": 32,
+      "total_tokens": 419,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9b09498dc915cb197cf3": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 414,
+      "completion_tokens": 32,
+      "total_tokens": 446,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9b4e5aa3b3a9e3765729": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 472,
+      "completion_tokens": 23,
+      "total_tokens": 495,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9b4f38d94825e9caf9b6": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 372,
+      "completion_tokens": 23,
+      "total_tokens": 395,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9be7b05c4f0ceae7d74f": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 375,
+      "completion_tokens": 23,
+      "total_tokens": 398,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9c031f287fcdcf680a3b": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 373,
+      "completion_tokens": 23,
+      "total_tokens": 396,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9c3cdbf1a08023667fbe": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 397,
+      "completion_tokens": 23,
+      "total_tokens": 420,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9c5311c3cac9e6ac9b51": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 368,
+      "completion_tokens": 30,
+      "total_tokens": 398,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9cc829d5be36b155bc58": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 395,
+      "completion_tokens": 32,
+      "total_tokens": 427,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9db7afa1fe7014f62dda": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 417,
+      "completion_tokens": 32,
+      "total_tokens": 449,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "9f5dae2e6bf6719fe893": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 380,
+      "completion_tokens": 30,
+      "total_tokens": 410,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "a35684e1a71cb544d296": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 410,
+      "completion_tokens": 30,
+      "total_tokens": 440,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "a43293a34db68a44ce50": {
+    "p": 0.95,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 384,
+      "completion_tokens": 33,
+      "total_tokens": 417,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "a45c65194dd5a81dfa04": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 383,
+      "completion_tokens": 32,
+      "total_tokens": 415,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "a576b7392bc0e133c03f": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 430,
+      "completion_tokens": 23,
+      "total_tokens": 453,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "a5f56e091cf23e92c024": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 405,
+      "completion_tokens": 30,
+      "total_tokens": 435,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "a633d1cfe378692d10ac": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 422,
+      "completion_tokens": 29,
+      "total_tokens": 451,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "a66224e122cd4793f909": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 382,
+      "completion_tokens": 23,
+      "total_tokens": 405,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "a9dd4e2bdd1ecd7b404b": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 395,
+      "completion_tokens": 33,
+      "total_tokens": 428,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ac4c9ac8c748b37a1f72": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 454,
+      "completion_tokens": 23,
+      "total_tokens": 477,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ac8397ff0756362051da": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 380,
+      "completion_tokens": 32,
+      "total_tokens": 412,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "acaff3b28365beaceee3": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 407,
+      "completion_tokens": 32,
+      "total_tokens": 439,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ad1c8f8a1c8d74e008af": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 404,
+      "completion_tokens": 32,
+      "total_tokens": 436,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ad5a431e79c988792633": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 317,
+      "completion_tokens": 23,
+      "total_tokens": 340,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ae502b3daca46d64907e": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 384,
+      "completion_tokens": 32,
+      "total_tokens": 416,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ae5b6a0673514500ac02": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 419,
+      "completion_tokens": 32,
+      "total_tokens": 451,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ae6548aa7ec68c013b4e": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 447,
+      "completion_tokens": 23,
+      "total_tokens": 470,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b054ec02345153879a3d": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 397,
+      "completion_tokens": 30,
+      "total_tokens": 427,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b0876bb1970a0b77d970": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 416,
+      "completion_tokens": 33,
+      "total_tokens": 449,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b1722581ac6d52c1a27a": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 363,
+      "completion_tokens": 23,
+      "total_tokens": 386,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b1bc8b62cc01821097d3": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 401,
+      "completion_tokens": 23,
+      "total_tokens": 424,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b338f3a22ea683c4cf0a": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 390,
+      "completion_tokens": 33,
+      "total_tokens": 423,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b4331f295ff9f22f7409": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 380,
+      "completion_tokens": 23,
+      "total_tokens": 403,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b493decbceb7c410c634": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 371,
+      "completion_tokens": 23,
+      "total_tokens": 394,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b4f12aac3d3ff3f3c20f": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 339,
+      "completion_tokens": 30,
+      "total_tokens": 369,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b52b36107f13bf24aa2b": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 351,
+      "completion_tokens": 33,
+      "total_tokens": 384,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b560ef458fec8a3e4ed6": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 353,
+      "completion_tokens": 29,
+      "total_tokens": 382,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b5abf60fa62617e709b0": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 411,
+      "completion_tokens": 33,
+      "total_tokens": 444,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b633a3898ae0b95be24f": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 369,
+      "completion_tokens": 32,
+      "total_tokens": 401,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b6762074369cbc1e0ef9": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 379,
+      "completion_tokens": 32,
+      "total_tokens": 411,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b6e89e4b3029310a5c6d": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 356,
+      "completion_tokens": 29,
+      "total_tokens": 385,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b7e7f56b431e990b759a": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 378,
+      "completion_tokens": 30,
+      "total_tokens": 408,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b806c3b568e4c098dc28": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 383,
+      "completion_tokens": 23,
+      "total_tokens": 406,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "b80870faaceaa1fd7cd7": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 382,
+      "completion_tokens": 23,
+      "total_tokens": 405,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ba4642d4ff09db29a07b": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 295,
+      "completion_tokens": 23,
+      "total_tokens": 318,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "bb2eb7d97178d986dd27": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 386,
+      "completion_tokens": 23,
+      "total_tokens": 409,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "bd22bd4144f863211b21": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 482,
+      "completion_tokens": 23,
+      "total_tokens": 505,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "bd2f36ac93bddbf76334": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 327,
+      "completion_tokens": 30,
+      "total_tokens": 357,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "bdffe9c8db7662f2da61": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 322,
+      "completion_tokens": 32,
+      "total_tokens": 354,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "bfb38af53515ddcbe0cb": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 403,
+      "completion_tokens": 32,
+      "total_tokens": 435,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "c0cfd3f55ff753b81c0c": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 303,
+      "completion_tokens": 23,
+      "total_tokens": 326,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "c1c937a987923d914dc3": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 334,
+      "completion_tokens": 24,
+      "total_tokens": 358,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "c206944e4c4fe5543bd5": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 391,
+      "completion_tokens": 30,
+      "total_tokens": 421,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "c3e4b4f3671345a279a7": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 376,
+      "completion_tokens": 33,
+      "total_tokens": 409,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "c3ffd7c8c0b115bdb3fb": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 409,
+      "completion_tokens": 30,
+      "total_tokens": 439,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "c553de33f10a63794a76": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 427,
+      "completion_tokens": 23,
+      "total_tokens": 450,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "c59bc3982840959b1fce": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 364,
+      "completion_tokens": 29,
+      "total_tokens": 393,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "c6014208213069c5ced2": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 376,
+      "completion_tokens": 30,
+      "total_tokens": 406,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "c6c624b7a15fc096bf98": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 399,
+      "completion_tokens": 32,
+      "total_tokens": 431,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "c78147419312231952a9": {
+    "p": 0.15,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 366,
+      "completion_tokens": 23,
+      "total_tokens": 389,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "c84916f424a138cd89b6": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 380,
+      "completion_tokens": 32,
+      "total_tokens": 412,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "c8cb957c2d54d761f9a6": {
+    "p": 0.95,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 346,
+      "completion_tokens": 33,
+      "total_tokens": 379,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "c9067ff5b2aa7116bd6a": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 378,
+      "completion_tokens": 30,
+      "total_tokens": 408,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ca96cdc4da3cb0948272": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 378,
+      "completion_tokens": 32,
+      "total_tokens": 410,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "cacd0da47823c5d096eb": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 386,
+      "completion_tokens": 33,
+      "total_tokens": 419,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "cb13537155cd9fc7ab8a": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 416,
+      "completion_tokens": 30,
+      "total_tokens": 446,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "cb3d9aa1da3cfc4a1109": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 375,
+      "completion_tokens": 23,
+      "total_tokens": 398,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "cb40ce387388c0c9cfd7": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 387,
+      "completion_tokens": 32,
+      "total_tokens": 419,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "cb827d65377888799add": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 412,
+      "completion_tokens": 23,
+      "total_tokens": 435,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "cbc5f6261c8edf97021f": {
+    "p": 0.98,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 385,
+      "completion_tokens": 23,
+      "total_tokens": 408,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "cc8d311f9f0c749a6a6c": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 376,
+      "completion_tokens": 23,
+      "total_tokens": 399,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "cd054cce7f1bee5539b3": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 341,
+      "completion_tokens": 24,
+      "total_tokens": 365,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "cd1fb759dca0e6d1949c": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 394,
+      "completion_tokens": 30,
+      "total_tokens": 424,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "cd9000cad90411f1bac4": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 390,
+      "completion_tokens": 23,
+      "total_tokens": 413,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ce002559fc9c13bf4f76": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 385,
+      "completion_tokens": 33,
+      "total_tokens": 418,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ce2e2688d0459e14d5b2": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 384,
+      "completion_tokens": 29,
+      "total_tokens": 413,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "cece3cd87ef11ecf04c6": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 400,
+      "completion_tokens": 32,
+      "total_tokens": 432,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "cf011a0fa11af9573e60": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 427,
+      "completion_tokens": 33,
+      "total_tokens": 460,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "cf80d00d9b8ae0fd8c9c": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 308,
+      "completion_tokens": 32,
+      "total_tokens": 340,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "cfb41bf5fc6b1f321636": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 374,
+      "completion_tokens": 29,
+      "total_tokens": 403,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d0308da495ba3cab91c0": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 364,
+      "completion_tokens": 23,
+      "total_tokens": 387,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d0d419393a1f36ef482d": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 419,
+      "completion_tokens": 23,
+      "total_tokens": 442,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d18388fe9aeedf45cc3c": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 418,
+      "completion_tokens": 32,
+      "total_tokens": 450,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d21c14df9d6c76f8f2a5": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 412,
+      "completion_tokens": 32,
+      "total_tokens": 444,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d23680ce86af26177094": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 410,
+      "completion_tokens": 33,
+      "total_tokens": 443,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d2a05c0645fcc5acf5f8": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 402,
+      "completion_tokens": 32,
+      "total_tokens": 434,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d3bd7b1ec9cfce231766": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 394,
+      "completion_tokens": 23,
+      "total_tokens": 417,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d3d862fda83ed526de63": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 319,
+      "completion_tokens": 23,
+      "total_tokens": 342,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d55ed775cfcf4e1602db": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 376,
+      "completion_tokens": 30,
+      "total_tokens": 406,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d61b34c9b1b81c0d3bff": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 399,
+      "completion_tokens": 32,
+      "total_tokens": 431,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d63af92b8de719bdaee5": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 411,
+      "completion_tokens": 32,
+      "total_tokens": 443,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d651bcb15239eb649994": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 335,
+      "completion_tokens": 23,
+      "total_tokens": 358,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d6603cae9a97134f73df": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 401,
+      "completion_tokens": 32,
+      "total_tokens": 433,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d7a37e96767cea53afc0": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 297,
+      "completion_tokens": 23,
+      "total_tokens": 320,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d7efaba2309b2b8d2212": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 421,
+      "completion_tokens": 29,
+      "total_tokens": 450,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "d9d9f00efa4e2af59317": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 376,
+      "completion_tokens": 23,
+      "total_tokens": 399,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "db71a185d46bea34ce4f": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 399,
+      "completion_tokens": 32,
+      "total_tokens": 431,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "db8ceec6fc6e111f2383": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 406,
+      "completion_tokens": 29,
+      "total_tokens": 435,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "dbee0eb1e1af8565afba": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 394,
+      "completion_tokens": 33,
+      "total_tokens": 427,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "dc733ca25a98010faac5": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 420,
+      "completion_tokens": 33,
+      "total_tokens": 453,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "dcbdbc58e56a0cc6e200": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 375,
+      "completion_tokens": 30,
+      "total_tokens": 405,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "dccba5d013ecb68c2b8a": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 381,
+      "completion_tokens": 30,
+      "total_tokens": 411,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "dcee185ef80624ba33a7": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 299,
+      "completion_tokens": 32,
+      "total_tokens": 331,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ddbf32a24e54b118d2af": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 384,
+      "completion_tokens": 23,
+      "total_tokens": 407,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "de9a2a9f03441756429f": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 413,
+      "completion_tokens": 23,
+      "total_tokens": 436,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "df58ae71eb384715774c": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 374,
+      "completion_tokens": 30,
+      "total_tokens": 404,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "e1d2a43cc3897140af2f": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 371,
+      "completion_tokens": 23,
+      "total_tokens": 394,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "e28fb5ea2aeb33e28c81": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 379,
+      "completion_tokens": 23,
+      "total_tokens": 402,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "e3ac466a641c6d4ec940": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 327,
+      "completion_tokens": 32,
+      "total_tokens": 359,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "e473958c9fd2ba100853": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 390,
+      "completion_tokens": 30,
+      "total_tokens": 420,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "e556ceb109fdfc755683": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 420,
+      "completion_tokens": 32,
+      "total_tokens": 452,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "e77f2d5271245410fb97": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 409,
+      "completion_tokens": 23,
+      "total_tokens": 432,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "e93102cedd242371964b": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 371,
+      "completion_tokens": 23,
+      "total_tokens": 394,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "e989193e17e3399fecc4": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 433,
+      "completion_tokens": 32,
+      "total_tokens": 465,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "e997d482b4b7adafd964": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 402,
+      "completion_tokens": 23,
+      "total_tokens": 425,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ea3f0903e8b6073b136f": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 394,
+      "completion_tokens": 23,
+      "total_tokens": 417,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ea5dca26bb0a40d96532": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 402,
+      "completion_tokens": 32,
+      "total_tokens": 434,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "eac0d23e1a62b7a91fb6": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 438,
+      "completion_tokens": 23,
+      "total_tokens": 461,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "eb20e4eddf72eb4f4a77": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 459,
+      "completion_tokens": 32,
+      "total_tokens": 491,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "eb3025e425626a12a588": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 417,
+      "completion_tokens": 30,
+      "total_tokens": 447,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "eb32d23688a77f67b4f5": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 374,
+      "completion_tokens": 30,
+      "total_tokens": 404,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ec32dbca64409ea29e23": {
+    "p": 0.02,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 387,
+      "completion_tokens": 33,
+      "total_tokens": 420,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ec9330927352f6bc2f2e": {
+    "p": 0.95,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 376,
+      "completion_tokens": 23,
+      "total_tokens": 399,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ecb7c2fdc2b0d6eafb02": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 389,
+      "completion_tokens": 29,
+      "total_tokens": 418,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ecc2bdbb5224e20df187": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 417,
+      "completion_tokens": 23,
+      "total_tokens": 440,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ed91564fd94bbed726de": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 411,
+      "completion_tokens": 33,
+      "total_tokens": 444,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "edfd857ee5f0fe3f8b05": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 414,
+      "completion_tokens": 23,
+      "total_tokens": 437,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ef79f65686305c550bf4": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 366,
+      "completion_tokens": 23,
+      "total_tokens": 389,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "efdd6c75b863789c2839": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 414,
+      "completion_tokens": 32,
+      "total_tokens": 446,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f12ba840089c4ff89375": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 396,
+      "completion_tokens": 32,
+      "total_tokens": 428,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f1ae04d217d555a645e6": {
+    "p": 0.98,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 414,
+      "completion_tokens": 23,
+      "total_tokens": 437,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f286b2c8342aab0de68e": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 445,
+      "completion_tokens": 33,
+      "total_tokens": 478,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f3a068f87506cb0e36c6": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 302,
+      "completion_tokens": 32,
+      "total_tokens": 334,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f3baeeaa9aa3942aa586": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 424,
+      "completion_tokens": 30,
+      "total_tokens": 454,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f3ec06dae5677c9b6ef9": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 395,
+      "completion_tokens": 32,
+      "total_tokens": 427,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f431f6fd79c140ab7728": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 386,
+      "completion_tokens": 26,
+      "total_tokens": 412,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f53a59d9e9466733a12e": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 414,
+      "completion_tokens": 32,
+      "total_tokens": 446,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f56308eb88bbdae7c235": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 386,
+      "completion_tokens": 23,
+      "total_tokens": 409,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f64ee7da5cddb9064e4e": {
+    "p": 0.95,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 390,
+      "completion_tokens": 26,
+      "total_tokens": 416,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f65250cfb17f941e3f9e": {
+    "p": 0.05,
+    "helpfulness": 1,
+    "usage": {
+      "prompt_tokens": 233,
+      "completion_tokens": 30,
+      "total_tokens": 263,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f73f2f304ade5b27ede1": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 426,
+      "completion_tokens": 32,
+      "total_tokens": 458,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f81a4391040d58d2afca": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 372,
+      "completion_tokens": 23,
+      "total_tokens": 395,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f82a9ec3fdfa2c4647b9": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 389,
+      "completion_tokens": 33,
+      "total_tokens": 422,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f919438bcfbce6259529": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 371,
+      "completion_tokens": 24,
+      "total_tokens": 395,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f97d6cffce198b87a9e6": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 373,
+      "completion_tokens": 29,
+      "total_tokens": 402,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "f9af4f7a17757a7a21ce": {
+    "p": 0.05,
+    "helpfulness": 2,
+    "usage": {
+      "prompt_tokens": 369,
+      "completion_tokens": 23,
+      "total_tokens": 392,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "fa2e986f4a51a7f8d8c9": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 385,
+      "completion_tokens": 32,
+      "total_tokens": 417,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "fac842cbf4e242b6d8ee": {
+    "p": 0.98,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 383,
+      "completion_tokens": 32,
+      "total_tokens": 415,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "fd68472080a1fe590030": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 314,
+      "completion_tokens": 32,
+      "total_tokens": 346,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "fe1973138e4be8d91e85": {
+    "p": 0.98,
+    "helpfulness": 5,
+    "usage": {
+      "prompt_tokens": 410,
+      "completion_tokens": 23,
+      "total_tokens": 433,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "fea39f622082da92161c": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 415,
+      "completion_tokens": 32,
+      "total_tokens": 447,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ff431f77ee47c577a64f": {
+    "p": 0.05,
+    "helpfulness": 3,
+    "usage": {
+      "prompt_tokens": 373,
+      "completion_tokens": 30,
+      "total_tokens": 403,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "ffa26ad2dcf2f4f1fc00": {
+    "p": 0.95,
+    "helpfulness": 4,
+    "usage": {
+      "prompt_tokens": 412,
+      "completion_tokens": 23,
+      "total_tokens": 435,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  }
+}

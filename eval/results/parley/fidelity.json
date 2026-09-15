@@ -1,0 +1,8 @@
+{
+  "version": "rules",
+  "scenarios": 607,
+  "same_outcome": 607,
+  "same_tool_calls": 607,
+  "differences": [],
+  "note": "each scenario run on the rules synthesizer and on the client's real booking service"
+}

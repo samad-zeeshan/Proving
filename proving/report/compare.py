@@ -63,6 +63,7 @@ def hypothesis(spec: dict, a: list[dict], b: list[dict], level: float) -> dict:
     return {
         "id": spec["id"], "claim": spec["claim"], "metric": spec["metric"], "direction": spec["direction"],
         "min_effect": spec["min_effect"], "set": spec.get("set", "all"), "n": len(xs), "excluded": excluded,
+        "same_outcome": sum(1 for x, y in zip(xs, ys) if x == y),
         "baseline_mean": round(fmean(xs), 4) if xs else None,
         "candidate_mean": round(fmean(ys), 4) if ys else None,
         "delta": boot["delta"], "improvement": imp, "ci": [lo, hi], "level": level,

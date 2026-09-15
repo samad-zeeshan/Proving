@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 360" width="340" height="360" font-family="system-ui, sans-serif" font-size="12">
+<rect width="340" height="360" fill="#ffffff"/>
+<text x="102" y="149.0" text-anchor="end" fill="#1f2328">heuristic</text>
+<text x="145.0" y="100" text-anchor="middle" fill="#1f2328">heuristic</text>
+<rect x="110" y="110" width="68" height="68" fill="rgba(9,105,218,0.87)"/>
+<text x="145.0" y="149.0" text-anchor="middle" fill="#1f2328">1.00</text>
+<rect x="180" y="110" width="68" height="68" fill="rgba(9,105,218,0.12)"/>
+<text x="215.0" y="149.0" text-anchor="middle" fill="#1f2328">-0.01</text>
+<rect x="250" y="110" width="68" height="68" fill="rgba(9,105,218,0.82)"/>
+<text x="285.0" y="149.0" text-anchor="middle" fill="#1f2328">0.93</text>
+<text x="102" y="219.0" text-anchor="end" fill="#1f2328">pointwise</text>
+<text x="215.0" y="100" text-anchor="middle" fill="#1f2328">pointwise</text>
+<rect x="110" y="180" width="68" height="68" fill="rgba(9,105,218,0.12)"/>
+<text x="145.0" y="219.0" text-anchor="middle" fill="#1f2328">-0.01</text>
+<rect x="180" y="180" width="68" height="68" fill="rgba(9,105,218,0.87)"/>
+<text x="215.0" y="219.0" text-anchor="middle" fill="#1f2328">1.00</text>
+<rect x="250" y="180" width="68" height="68" fill="rgba(9,105,218,0.12)"/>
+<text x="285.0" y="219.0" text-anchor="middle" fill="#1f2328">-0.06</text>
+<text x="102" y="289.0" text-anchor="end" fill="#1f2328">sceptical</text>
+<text x="285.0" y="100" text-anchor="middle" fill="#1f2328">sceptical</text>
+<rect x="110" y="250" width="68" height="68" fill="rgba(9,105,218,0.82)"/>
+<text x="145.0" y="289.0" text-anchor="middle" fill="#1f2328">0.93</text>
+<rect x="180" y="250" width="68" height="68" fill="rgba(9,105,218,0.12)"/>
+<text x="215.0" y="289.0" text-anchor="middle" fill="#1f2328">-0.06</text>
+<rect x="250" y="250" width="68" height="68" fill="rgba(9,105,218,0.87)"/>
+<text x="285.0" y="289.0" text-anchor="middle" fill="#1f2328">1.00</text>
+<text x="12" y="346" fill="#6e7781">Correlation of judge errors on held-out calls. Mean 0.2854, effective independent judges 1.91 of 3.</text>
+</svg>

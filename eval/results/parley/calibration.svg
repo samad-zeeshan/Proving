@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 666 272" width="666" height="272" font-family="system-ui, sans-serif" font-size="12">
+<rect width="666" height="272" fill="#ffffff"/>
+<text x="36" y="24" fill="#1f2328" font-weight="600">heuristic</text>
+<rect x="36" y="36" width="180" height="180" fill="none" stroke="#d0d7de"/>
+<line x1="36" y1="216" x2="216" y2="36" stroke="#d0d7de" stroke-dasharray="4 3"/>
+<polyline fill="none" stroke="#bc4c00" stroke-width="2" points="54.0,168.6 189.0,118.2"/>
+<circle cx="54.0" cy="168.6" r="2.5" fill="#bc4c00"/>
+<circle cx="189.0" cy="118.2" r="2.5" fill="#bc4c00"/>
+<polyline fill="none" stroke="#0969da" stroke-width="2" points="48.2,168.6 138.6,118.2"/>
+<circle cx="48.2" cy="168.6" r="2.5" fill="#0969da"/>
+<circle cx="138.6" cy="118.2" r="2.5" fill="#0969da"/>
+<text x="36" y="232" fill="#6e7781">ECE raw 0.288, calibrated 0.0485</text>
+<text x="246" y="24" fill="#1f2328" font-weight="600">pointwise</text>
+<rect x="246" y="36" width="180" height="180" fill="none" stroke="#d0d7de"/>
+<line x1="246" y1="216" x2="426" y2="36" stroke="#d0d7de" stroke-dasharray="4 3"/>
+<polyline fill="none" stroke="#bc4c00" stroke-width="2" points="253.1,163.1 419.3,119.7"/>
+<circle cx="253.1" cy="163.1" r="2.5" fill="#bc4c00"/>
+<circle cx="419.3" cy="119.7" r="2.5" fill="#bc4c00"/>
+<polyline fill="none" stroke="#0969da" stroke-width="2" points="248.1,163.1 333.4,124.8 362.8,108.7 423.8,216.0"/>
+<circle cx="248.1" cy="163.1" r="2.5" fill="#0969da"/>
+<circle cx="333.4" cy="124.8" r="2.5" fill="#0969da"/>
+<circle cx="362.8" cy="108.7" r="2.5" fill="#0969da"/>
+<circle cx="423.8" cy="216.0" r="2.5" fill="#0969da"/>
+<text x="246" y="232" fill="#6e7781">ECE raw 0.4078, calibrated 0.0761</text>
+<text x="456" y="24" fill="#1f2328" font-weight="600">sceptical</text>
+<rect x="456" y="36" width="180" height="180" fill="none" stroke="#d0d7de"/>
+<line x1="456" y1="216" x2="636" y2="36" stroke="#d0d7de" stroke-dasharray="4 3"/>
+<polyline fill="none" stroke="#bc4c00" stroke-width="2" points="465.0,216.0 483.0,36.0 628.1,114.9"/>
+<circle cx="465.0" cy="216.0" r="2.5" fill="#bc4c00"/>
+<circle cx="483.0" cy="36.0" r="2.5" fill="#bc4c00"/>
+<circle cx="628.1" cy="114.9" r="2.5" fill="#bc4c00"/>
+<polyline fill="none" stroke="#0969da" stroke-width="2" points="461.1,204.8 554.7,111.1 580.4,129.3"/>
+<circle cx="461.1" cy="204.8" r="2.5" fill="#0969da"/>
+<circle cx="554.7" cy="111.1" r="2.5" fill="#0969da"/>
+<circle cx="580.4" cy="129.3" r="2.5" fill="#0969da"/>
+<text x="456" y="232" fill="#6e7781">ECE raw 0.3624, calibrated 0.0665</text>
+<text x="36" y="264" fill="#6e7781">x: stated confidence, y: share that was right. Orange raw, blue after calibration on anchors, dashed line perfect.</text>
+</svg>

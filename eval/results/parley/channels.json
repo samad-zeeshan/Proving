@@ -1,0 +1,122 @@
+{
+  "mtva": {
+    "set": "standard",
+    "note": "text channel, rule parser, noise injected into caller words",
+    "rows": [
+      {
+        "condition": "clean",
+        "runs": 505,
+        "completed": 491,
+        "wrong_actions": 7,
+        "hazard_runs": 7,
+        "abandoned": 0,
+        "word_error_rate": 0.0,
+        "troubled": 75,
+        "recovered": 75,
+        "customer_turns": 6.67
+      },
+      {
+        "condition": "noise@0.05",
+        "runs": 505,
+        "completed": 403,
+        "wrong_actions": 23,
+        "hazard_runs": 26,
+        "abandoned": 71,
+        "word_error_rate": 0.057,
+        "troubled": 152,
+        "recovered": 113,
+        "customer_turns": 7.11,
+        "extra_turns": 0.76,
+        "paired_successes": 403
+      },
+      {
+        "condition": "noise@0.1",
+        "runs": 505,
+        "completed": 289,
+        "wrong_actions": 28,
+        "hazard_runs": 38,
+        "abandoned": 175,
+        "word_error_rate": 0.114,
+        "troubled": 235,
+        "recovered": 96,
+        "customer_turns": 7.59,
+        "extra_turns": 1.39,
+        "paired_successes": 289
+      },
+      {
+        "condition": "noise@0.2",
+        "runs": 505,
+        "completed": 80,
+        "wrong_actions": 9,
+        "hazard_runs": 11,
+        "abandoned": 411,
+        "word_error_rate": 0.223,
+        "troubled": 357,
+        "recovered": 39,
+        "customer_turns": 7.02,
+        "extra_turns": 1.89,
+        "paired_successes": 80
+      },
+      {
+        "condition": "noise@0.3",
+        "runs": 505,
+        "completed": 19,
+        "wrong_actions": 6,
+        "hazard_runs": 6,
+        "abandoned": 480,
+        "word_error_rate": 0.326,
+        "troubled": 409,
+        "recovered": 12,
+        "customer_turns": 6.39,
+        "extra_turns": 2.42,
+        "paired_successes": 19
+      },
+      {
+        "condition": "split",
+        "runs": 505,
+        "completed": 470,
+        "wrong_actions": 7,
+        "hazard_runs": 7,
+        "abandoned": 23,
+        "word_error_rate": 0.0,
+        "troubled": 237,
+        "recovered": 213,
+        "customer_turns": 6.66,
+        "extra_turns": 0.13,
+        "paired_successes": 470
+      }
+    ]
+  },
+  "trace": {
+    "set": "trace",
+    "speech": "Piper voices, faster-whisper small (Parley local-v1)",
+    "rows": [
+      {
+        "condition": "asr@clean",
+        "runs": 52,
+        "completed": 23,
+        "wrong_actions": 0,
+        "hazard_runs": 1,
+        "abandoned": 26,
+        "word_error_rate": 0.387,
+        "troubled": 24,
+        "recovered": 4,
+        "customer_turns": 5.54
+      },
+      {
+        "condition": "asr@white@10",
+        "runs": 52,
+        "completed": 19,
+        "wrong_actions": 1,
+        "hazard_runs": 1,
+        "abandoned": 30,
+        "word_error_rate": 0.422,
+        "troubled": 21,
+        "recovered": 1,
+        "customer_turns": 5.81,
+        "extra_turns": 0.24,
+        "paired_successes": 17
+      }
+    ]
+  }
+}

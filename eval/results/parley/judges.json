@@ -1,0 +1,300 @@
+{
+  "calibration": {
+    "status": "run",
+    "label": "task success from the final tool state",
+    "scores": [
+      {
+        "name": "judge:heuristic",
+        "ece_raw": 0.288,
+        "ece_calibrated": 0.0485,
+        "held_out": 146
+      },
+      {
+        "name": "judge:pointwise",
+        "ece_raw": 0.4078,
+        "ece_calibrated": 0.0761,
+        "held_out": 146
+      },
+      {
+        "name": "judge:sceptical",
+        "ece_raw": 0.3624,
+        "ece_calibrated": 0.0665,
+        "held_out": 146
+      }
+    ]
+  },
+  "judges": {
+    "sample": {
+      "transcripts": 240,
+      "successes": 120,
+      "by_version": {
+        "llm": 120,
+        "rules": 120
+      }
+    },
+    "per_judge": {
+      "heuristic": {
+        "model": null,
+        "platt": [
+          0.7373,
+          -0.9978
+        ],
+        "anchors": 94,
+        "held_out": 146,
+        "accuracy_raw": 0.5685,
+        "accuracy_calibrated": 0.5685,
+        "ece_raw": 0.288,
+        "ece_calibrated": 0.0485,
+        "reliability_raw": [
+          {
+            "bin": [
+              0.1,
+              0.2
+            ],
+            "n": 19,
+            "confidence": 0.1,
+            "accuracy": 0.2632
+          },
+          {
+            "bin": [
+              0.8,
+              0.9
+            ],
+            "n": 127,
+            "confidence": 0.85,
+            "accuracy": 0.5433
+          }
+        ],
+        "reliability_calibrated": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 19,
+            "confidence": 0.068,
+            "accuracy": 0.2632
+          },
+          {
+            "bin": [
+              0.5,
+              0.6
+            ],
+            "n": 127,
+            "confidence": 0.5698,
+            "accuracy": 0.5433
+          }
+        ],
+        "unparsed": 0,
+        "tokens": 0
+      },
+      "pointwise": {
+        "model": "qwen/qwen3.5-9b",
+        "platt": [
+          0.7102,
+          -2.1492
+        ],
+        "anchors": 94,
+        "held_out": 146,
+        "accuracy_raw": 0.5548,
+        "accuracy_calibrated": 0.5479,
+        "ece_raw": 0.4078,
+        "ece_calibrated": 0.0761,
+        "reliability_raw": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 17,
+            "confidence": 0.0394,
+            "accuracy": 0.2941
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 129,
+            "confidence": 0.9629,
+            "accuracy": 0.5349
+          }
+        ],
+        "reliability_calibrated": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 17,
+            "confidence": 0.0118,
+            "accuracy": 0.2941
+          },
+          {
+            "bin": [
+              0.4,
+              0.5
+            ],
+            "n": 75,
+            "confidence": 0.4855,
+            "accuracy": 0.5067
+          },
+          {
+            "bin": [
+              0.6,
+              0.7
+            ],
+            "n": 52,
+            "confidence": 0.649,
+            "accuracy": 0.5962
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 2,
+            "confidence": 0.9878,
+            "accuracy": 0.0
+          }
+        ],
+        "unparsed": 0,
+        "tokens": 100601
+      },
+      "sceptical": {
+        "model": "qwen/qwen3.5-9b",
+        "platt": [
+          0.6451,
+          -1.7046
+        ],
+        "anchors": 94,
+        "held_out": 146,
+        "accuracy_raw": 0.6027,
+        "accuracy_calibrated": 0.6027,
+        "ece_raw": 0.3624,
+        "ece_calibrated": 0.0665,
+        "reliability_raw": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 15,
+            "confidence": 0.05,
+            "accuracy": 0.0
+          },
+          {
+            "bin": [
+              0.1,
+              0.2
+            ],
+            "n": 1,
+            "confidence": 0.15,
+            "accuracy": 1.0
+          },
+          {
+            "bin": [
+              0.9,
+              1.0
+            ],
+            "n": 130,
+            "confidence": 0.9562,
+            "accuracy": 0.5615
+          }
+        ],
+        "reliability_calibrated": [
+          {
+            "bin": [
+              0.0,
+              0.1
+            ],
+            "n": 16,
+            "confidence": 0.0283,
+            "accuracy": 0.0625
+          },
+          {
+            "bin": [
+              0.5,
+              0.6
+            ],
+            "n": 103,
+            "confidence": 0.5486,
+            "accuracy": 0.5825
+          },
+          {
+            "bin": [
+              0.6,
+              0.7
+            ],
+            "n": 27,
+            "confidence": 0.6913,
+            "accuracy": 0.4815
+          }
+        ],
+        "unparsed": 0,
+        "tokens": 97875
+      }
+    },
+    "cascade": [
+      {
+        "threshold": 0.6,
+        "escalated": 127,
+        "share_escalated": 0.8699,
+        "accuracy": 0.5479
+      },
+      {
+        "threshold": 0.7,
+        "escalated": 127,
+        "share_escalated": 0.8699,
+        "accuracy": 0.5479
+      },
+      {
+        "threshold": 0.8,
+        "escalated": 127,
+        "share_escalated": 0.8699,
+        "accuracy": 0.5479
+      },
+      {
+        "threshold": 0.9,
+        "escalated": 127,
+        "share_escalated": 0.8699,
+        "accuracy": 0.5479
+      },
+      {
+        "threshold": 0.95,
+        "escalated": 146,
+        "share_escalated": 1.0,
+        "accuracy": 0.5479
+      }
+    ],
+    "correlation": {
+      "judges": [
+        "heuristic",
+        "pointwise",
+        "sceptical"
+      ],
+      "pairwise": {
+        "heuristic|pointwise": -0.0133,
+        "heuristic|sceptical": 0.9318,
+        "pointwise|sceptical": -0.0624
+      },
+      "mean_error_correlation": 0.2854,
+      "effective_judges": 1.91,
+      "error_rates": {
+        "heuristic": 0.4315,
+        "pointwise": 0.4521,
+        "sceptical": 0.3973
+      }
+    },
+    "helpfulness": {
+      "pointwise": {
+        "llm": 4.067,
+        "rules": 3.967
+      },
+      "sceptical": {
+        "llm": 3.958,
+        "rules": 3.917
+      }
+    }
+  }
+}
