@@ -1,0 +1,34 @@
+{
+  "clients": [
+    {
+      "client": "warden",
+      "label": "Warden",
+      "blurb": "An AI agent that approves, routes or denies changes to live software.",
+      "versions": [
+        "v2",
+        "resolver-off"
+      ],
+      "comparison": {
+        "baseline": "resolver-off",
+        "candidate": "v2"
+      },
+      "verdict": "ship"
+    },
+    {
+      "client": "parley",
+      "label": "Parley",
+      "blurb": "An AI phone agent that books property viewings in English and Gulf Arabic.",
+      "versions": [
+        "rules",
+        "llm",
+        "rules|noise@0.1",
+        "rules|split"
+      ],
+      "comparison": {
+        "baseline": "rules",
+        "candidate": "llm"
+      },
+      "verdict": "hold"
+    }
+  ]
+}

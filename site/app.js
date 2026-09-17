@@ -189,9 +189,8 @@ function ciBar(h) {
       el("div", { class: "ci__zero", style: `left:${pos(0)}` }),
       el("div", { class: "ci__min", style: `left:${pos(minE)}` }),
       el("div", { class: "ci__bar", style: `left:${pos(lo)};width:calc(${pos(hi)} - ${pos(lo)})` })),
-    el("div", { class: "ci__labels" }, el("span", { text: num(left, 2) }),
-      el("span", { text: `grey line: no change, amber: smallest change worth shipping (${minE})` }),
-      el("span", { text: num(right, 2) })));
+    el("div", { class: "ci__labels" }, el("span", { text: num(left, 2) }), el("span", { text: num(right, 2) })),
+    el("p", { class: "field__note", text: `Bar: the interval. Grey line: no change. Amber line: the smallest improvement worth shipping for (${minE}).` }));
 }
 
 function renderReport(stage) {

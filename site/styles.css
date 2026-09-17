@@ -49,7 +49,7 @@ a { color: var(--accent); text-underline-offset: 2px; }
 
 .mast { padding-top: 48px; padding-bottom: 24px; }
 .eyebrow { font: 500 13px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; }
-h1 { font-size: clamp(26px, 4vw, 40px); line-height: 1.15; font-weight: 600; margin: 0 0 14px; max-width: 22ch; text-wrap: balance; }
+h1 { font-size: clamp(26px, 4vw, 40px); line-height: 1.15; font-weight: 600; margin: 0 0 14px; max-width: 30ch; text-wrap: balance; }
 .lede { color: var(--muted); max-width: 62ch; margin: 0; }
 
 .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); }
@@ -124,7 +124,7 @@ button:focus-visible, select:focus-visible, a:focus-visible, .tile:focus-visible
 .ci__axis { position: absolute; left: 0; right: 0; top: 16px; height: 1px; background: var(--line); }
 .ci__zero, .ci__min { position: absolute; top: 6px; width: 1px; height: 22px; background: var(--muted); }
 .ci__min { background: var(--gaveup); }
-.ci__bar { position: absolute; top: 12px; height: 9px; border-radius: 4px; background: var(--accent); opacity: 0.8; }
+.ci__bar { position: absolute; top: 12px; height: 9px; min-width: 3px; border-radius: 4px; background: var(--accent); opacity: 0.8; }
 .ci__labels { display: flex; justify-content: space-between; font: 12px/1.2 var(--mono); color: var(--muted); }
 .bars { display: grid; gap: 6px; font-size: 13px; }
 .bar { display: grid; grid-template-columns: 140px 1fr 70px; gap: 8px; align-items: center; }
