@@ -8,7 +8,7 @@
   },
   "parley": {
     "repo": "samad-zeeshan/Parley",
-    "sha": "d5c7a2070d231b1e5d543e6cb467f9c3ea2314a2",
+    "sha": "c1493faba84c6c41617900f8b0b1e71417778352",
     "local": "../Majlis",
     "env": "PROVING_PARLEY_ROOT",
     "import_path": "."
