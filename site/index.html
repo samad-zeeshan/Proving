@@ -4,68 +4,72 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Proving demo</title>
-<meta name="description" content="Proving tests an AI agent on made-up customers before it meets a real one. This page replays recorded simulations of two agents and shows the ship or hold report.">
-<meta name="theme-color" content="#f4f3ef">
+<meta name="description" content="Proving tests an AI agent on made-up customers before it meets a real one. This page replays recorded simulations of two agents and shows whether each change ships or holds.">
+<meta name="theme-color" content="#0d1012">
+<meta name="color-scheme" content="dark">
 <meta property="og:title" content="Proving demo">
-<meta property="og:description" content="Watch recorded simulated customers talk to two AI agents, then read the ship or hold report.">
+<meta property="og:description" content="Watch recorded simulated customers call two versions of an AI agent side by side, then see the ship or hold verdict.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%2318201c'/%3E%3Crect x='7' y='7' width='7' height='7' fill='%233fa36b'/%3E%3Crect x='18' y='7' width='7' height='7' fill='%233fa36b'/%3E%3Crect x='7' y='18' width='7' height='7' fill='%233fa36b'/%3E%3Crect x='18' y='18' width='7' height='7' fill='%23d9534f'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d1012'/%3E%3Crect x='7' y='7' width='8' height='8' rx='1' fill='%2362d6b0'/%3E%3Crect x='17' y='7' width='8' height='8' rx='1' fill='%2362d6b0'/%3E%3Crect x='7' y='17' width='8' height='8' rx='1' fill='%2362d6b0'/%3E%3Crect x='17' y='17' width='8' height='8' rx='1' fill='%23ff7a45'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Big+Shoulders+Display:wght@600;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="styles.css">
+<link rel="preload" href="data/index.json" as="fetch" crossorigin>
 </head>
 <body>
 <a class="skip" href="#stage">Skip to the demo</a>
 
 <header class="wrap mast">
-  <p class="eyebrow">Proving</p>
+  <p class="brand"><span class="brand__mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Proving</p>
   <h1>Test an AI agent on made-up customers before it meets a real one.</h1>
-  <p class="lede">Each square below is one simulated customer from a recorded run. Pick an agent and two versions, watch the customers, then read the report that says ship or hold. Nothing runs live here.</p>
+  <p class="lede">Each square is one simulated customer from a recorded run, replayed at the pace it was recorded. Two versions of the agent take the same customers side by side, and the change either ships or holds.</p>
 </header>
 
 <main class="wrap">
-  <section class="panel controls" aria-label="Choose what to replay">
-    <div class="field">
+  <section class="console" aria-label="Choose what to replay">
+    <div class="field field--agent">
       <span class="field__label" id="client-label">Agent</span>
       <div class="segmented" role="radiogroup" aria-labelledby="client-label" id="clients"></div>
       <p class="field__note" id="client-blurb"></p>
     </div>
     <div class="field">
       <label class="field__label" for="version-a">Current version</label>
-      <select id="version-a"></select>
+      <div class="select"><select id="version-a" translate="no"></select></div>
       <p class="field__note" id="note-a"></p>
     </div>
     <div class="field">
       <label class="field__label" for="version-b">Candidate version</label>
-      <select id="version-b"></select>
+      <div class="select"><select id="version-b" translate="no"></select></div>
       <p class="field__note" id="note-b"></p>
     </div>
   </section>
 
-  <nav class="actions" aria-label="Views">
+  <nav class="views" aria-label="Views">
     <button type="button" data-view="run">Run the customers</button>
     <button type="button" data-view="report">Read the report</button>
     <button type="button" data-view="regression">Replay a regression</button>
-    <button type="button" data-view="attacks" class="surprise">Adversarial personas</button>
+    <button type="button" data-view="attacks" class="views__surprise">Adversarial personas</button>
   </nav>
 
-  <section id="stage" class="stage" tabindex="-1" aria-live="polite"></section>
+  <section id="stage" class="stage" tabindex="-1" aria-busy="true"></section>
+  <p id="status" class="sr" role="status" aria-live="polite"></p>
 </main>
 
 <dialog id="drawer" class="drawer" aria-labelledby="drawer-title">
   <div class="drawer__head">
-    <h2 id="drawer-title"></h2>
-    <button type="button" class="drawer__close" id="drawer-close" aria-label="Close">Close</button>
+    <h2 id="drawer-title" translate="no"></h2>
+    <button type="button" class="btn btn--quiet" id="drawer-close">Close</button>
   </div>
   <p class="drawer__meta" id="drawer-meta"></p>
   <ol class="transcript" id="drawer-body"></ol>
 </dialog>
 
 <footer class="wrap foot">
-  <p>Source, method and every number: <a href="https://github.com/samad-zeeshan/Proving">github.com/samad-zeeshan/Proving</a>. The agents are <a href="https://github.com/samad-zeeshan/Warden">Warden</a> and <a href="https://github.com/samad-zeeshan/Parley">Parley</a>. All customers are synthetic.</p>
+  <p>Source, method and every number: <a href="https://github.com/samad-zeeshan/Proving">github.com/samad-zeeshan/Proving</a>. The agents are <a href="https://github.com/samad-zeeshan/Warden">Warden</a> and <a href="https://github.com/samad-zeeshan/Parley">Parley</a>. Every customer is synthetic and nothing runs live on this page.</p>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="app.js" defer></script>
 </body>
 </html>

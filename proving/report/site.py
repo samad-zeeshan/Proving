@@ -39,6 +39,8 @@ def tile(run: dict, language: str) -> dict:
         "success": o["success"], "hazards": o["hazards"], "end": o["end"],
         "turns": [[_cut(t.get("customer")), _cut(t.get("agent"))] for t in run["turns"]],
         "calls": calls,
+        # One recorded latency per agent reply, so the demo can replay each call at its real pace.
+        "ms": [round(x, 2) for x in o["latency_ms"]],
     }
 
 

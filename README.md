@@ -2,9 +2,9 @@
 
 Proving lets you test an AI agent on thousands of made-up customers before it ever meets a real one. The customers have goals, details they only give when asked, and patience that runs out. The agent's tools are recorded or faked, so nothing real is touched. At the end you get one answer, ship or hold, with the numbers behind it. It is tried here on two agents from this portfolio: Warden, which approves changes to live software, and Parley, which books property viewings by phone in English and Gulf Arabic.
 
-**Demo:** [samad-zeeshan.github.io/Proving](https://samad-zeeshan.github.io/Proving/) replays recorded simulations. Pick an agent and two versions, watch a grid of customers run, then read the report. The last button shows adversarial customers and what they got past. A longer walkthrough is in [docs/demo.mp4](docs/demo.mp4).
+**Demo:** [samad-zeeshan.github.io/Proving](https://samad-zeeshan.github.io/Proving/) replays recorded simulations. Pick an agent and two versions, watch both grids of customers run at their recorded pace, and see the interval, the gates and the ship or hold stamp land. The last button shows adversarial customers and what they got past. A longer walkthrough is in [docs/demo.mp4](docs/demo.mp4).
 
-![Simulated customers running against two versions of an agent](docs/demo.gif)
+![Simulated customers calling two versions of Parley side by side, ending in a hold verdict](docs/demo.gif)
 
 ## How it works
 
