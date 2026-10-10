@@ -85,12 +85,11 @@ h1 { font: 600 clamp(34px, 4.4vw, 56px)/1 var(--display); letter-spacing: -0.005
 
 .segmented { display: inline-flex; align-self: flex-start; padding: 3px; gap: 3px; background: var(--sunk); border: 1px solid var(--line); border-radius: var(--r-panel); }
 .segmented button {
-  border: 0; background: transparent; padding: 7px 16px; min-height: 36px; border-radius: 4px; cursor: pointer;
-  font-weight: 500; color: var(--muted); transition: background-color 160ms ease, color 160ms ease, transform 120ms var(--ease-out);
+  border: 1px solid var(--line-strong); background: transparent; padding: 7px 16px; min-height: 36px; border-radius: 4px; cursor: pointer;
+  font-weight: 500; color: var(--muted); transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, transform 120ms var(--ease-out);
 }
 .segmented button:hover { color: var(--ink); }
 .segmented button:active { transform: scale(0.97); }
-.segmented button[aria-checked="true"] { background: var(--ink); color: var(--bg); }
 .segmented button[aria-busy="true"] { cursor: progress; opacity: 0.7; }
 
 .select { position: relative; }
@@ -111,14 +110,11 @@ select option { background: var(--raise); color: var(--ink); }
 .views { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0 20px; }
 .views button {
   position: relative; text-align: left; padding: 13px 14px; min-height: 50px; cursor: pointer;
-  background: transparent; border: 1px solid var(--line); border-radius: var(--r-panel); font-weight: 500;
+  background: transparent; border: 1px solid var(--line-strong); border-radius: var(--r-panel); font-weight: 500; color: var(--muted);
   transition: border-color 160ms ease, background-color 160ms ease, transform 120ms var(--ease-out);
 }
-.views button:hover { border-color: var(--line-strong); background: var(--raise); }
+.views button:hover { border-color: var(--muted); color: var(--ink); background: var(--raise); }
 .views button:active { transform: scale(0.98); }
-.views button[aria-pressed="true"] { background: var(--raise); border-color: var(--ink); }
-.views button[aria-pressed="true"]::before { content: ""; position: absolute; left: 14px; right: 14px; top: -1px; height: 2px; background: var(--accent); }
-.views .views__surprise[aria-pressed="true"]::before { background: var(--signal); }
 .views .views__surprise { border-style: dashed; }
 
 /* ---------------------------------------------------------------- shared controls */
@@ -150,9 +146,14 @@ select option { background: var(--raise); color: var(--ink); }
 .scrub__read { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; font: 12px/1.2 var(--mono); color: var(--muted); }
 .scrub__read b { color: var(--ink); font-weight: 500; }
 .speed { display: inline-flex; padding: 3px; gap: 2px; background: var(--sunk); border: 1px solid var(--line); border-radius: var(--r-panel); }
-.speed button { border: 0; background: transparent; color: var(--muted); font: 500 12.5px/1 var(--mono); padding: 8px 9px; border-radius: 4px; cursor: pointer; transition: color 160ms ease, background-color 160ms ease; }
+.speed button { border: 1px solid var(--line-strong); background: transparent; color: var(--muted); font: 500 12.5px/1 var(--mono); padding: 8px 9px; border-radius: 4px; cursor: pointer; transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease; }
 .speed button:hover { color: var(--ink); }
-.speed button[aria-pressed="true"] { background: var(--line-strong); color: var(--ink); }
+
+/* Agent, view and speed pickers share one picked look, an accent outline and tint.
+   Unpicked options keep a grey outline so they still read as buttons. The filled Play button is an action, not a pick. */
+.segmented button[aria-checked="true"], .views button[aria-pressed="true"], .speed button[aria-pressed="true"] {
+  background: rgba(98, 214, 176, 0.12); border-color: var(--accent); color: var(--ink);
+}
 
 /* ---------------------------------------------------------------- run view: floor */
 
@@ -379,10 +380,11 @@ code { font: 13px/1.5 var(--mono); background: var(--sunk); border: 1px solid va
 }
 
 @media (hover: none) {
-  .views button:hover, .btn:hover, .attack:hover { border-color: var(--line); background: transparent; }
+  .btn:hover, .attack:hover { border-color: var(--line); background: transparent; }
+  .views button:hover { border-color: var(--line-strong); color: var(--muted); background: transparent; }
   .btn:hover { background: var(--raise); border-color: var(--line-strong); }
   .btn--primary:hover { background: var(--ink); border-color: var(--ink); }
-  .views button[aria-pressed="true"]:hover { background: var(--raise); border-color: var(--ink); }
+  .views button[aria-pressed="true"]:hover { background: rgba(98, 214, 176, 0.12); border-color: var(--accent); color: var(--ink); }
   .attack:hover { background: var(--raise); }
 }
 

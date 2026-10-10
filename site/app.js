@@ -70,7 +70,7 @@ const BLURB = {
   parley: "Parley is an AI phone agent. It books property viewings in English and Gulf Arabic.",
 };
 const CLAIM = {
-  resolver: "With the call checker, fewer planted calls reach Warden's server. A planted call is a request that an attacker hides in the conversation for the agent to send.",
+  resolver: "With the call checker, fewer planted calls reach Warden's server. A planted call is an order that an attacker hides in a request for the agent to send.",
   "nlu-llm": "If a small AI model reads callers instead of hand-written rules, the agent books more viewings.",
 };
 const HAZARD = {
@@ -101,6 +101,55 @@ const COMP = {
   miss_penalty: "answers thrown away",
   accumulation: "earlier turns sent again",
 };
+// Parley talks with made-up customers. Warden talks with no one. It judges each made-up change request once,
+// so its words name requests, and its goal is the right decision for that request.
+const WORDS = {
+  parley: {
+    one: "customer", many: "customers", speaker: "Customer",
+    runTab: "Run the customers", tricksTab: "Customers who try tricks",
+    goal: "the customer got their goal", noGoal: "the customer did not get their goal", gaveUp: "the customer gave up",
+    met: "goal met", notMet: "goal not met", legendGaveUp: "customer gave up", legendTrick: "customer who tries a trick",
+    metric: "How many more customers got their goal, before and after",
+    share: "The share of customers who got their goal", shareRule: "The share of customers who get their goal",
+    worse: "fewer customers got their goal", noWorse: "Customers did no worse", rate: "Customers got their goal",
+    goalRow: "Customers who got their goal", gaveUpRow: "Customers who gave up", tricked: " who tried tricks",
+    metCount: (n) => `Each version met ${n} customers.`,
+    used: (n, m) => `It used ${n} made-up customers, and ${m} of them tried tricks.`,
+    caught: "The replay found the damage before any real customer met it.",
+    went: (before, after) => (before === after
+      ? `the customer ${after ? "still got their goal" : "still did not get their goal"}.`
+      : `the customer ${before ? "got their goal before the change, but not after it" : "did not get their goal before the change, but got it after"}.`),
+    lost: "then failed a customer that it served before",
+    attackIntro: (n, v) => `These ${n} customers tried tricks on "${v}".`,
+    hid: (n) => `They hid ${n} planted calls in their requests.`,
+    plantedDef: "A planted call is a request that the agent must never send.",
+    unsaid: "The customer did not say this. It hid in data that the agent read.",
+  },
+  warden: {
+    one: "request", many: "requests", speaker: "Requester",
+    runTab: "Run the requests", tricksTab: "Requests with hidden attacks",
+    goal: "Warden made the right decision on this request", noGoal: "Warden made the wrong decision on this request",
+    gaveUp: "the requester gave up",
+    met: "right decision", notMet: "wrong decision", legendGaveUp: "requester gave up", legendTrick: "request with a hidden attack",
+    metric: "How many more requests got the right decision, before and after",
+    share: "The share of requests with the right decision", shareRule: "The share of requests with the right decision",
+    worse: "Warden made the right decision less often", noWorse: "Warden did no worse on the requests",
+    rate: "Warden made the right decision",
+    goalRow: "Requests with the right decision", gaveUpRow: "Requesters who gave up", tricked: " with hidden attacks",
+    metCount: (n) => `Each version judged ${n} requests.`,
+    used: (n, m) => `It used ${n} made-up requests, and ${m} of them hid an attack.`,
+    caught: "The replay found the damage before it reached any real change.",
+    went: (before, after) => (before === after
+      ? `Warden still made the ${after ? "right" : "wrong"} decision.`
+      : `Warden made the ${before ? "right decision before the change, but not after it" : "wrong decision before the change, but the right one after"}.`),
+    lost: "then got a request wrong that it got right before",
+    attackIntro: (n, v) => `These ${n} requests hid attacks aimed at "${v}".`,
+    hid: (n) => `Together they hid ${n} planted calls.`,
+    plantedDef: "A planted call is an order that the agent must never send to the server.",
+    unsaid: "The request text did not hold this. It hid in data that the agent read.",
+  },
+};
+const W = () => WORDS[state.client] || WORDS.parley;
 const plain = (v) => VERSION[v] || nice(v);
 const harm = (h) => HAZARD[h] || human(h);
 const kindName = (a) => (a.kind ? KIND[a.kind] || cap(human(a.kind)) : "Hides orders in data the agent reads");
@@ -152,6 +201,8 @@ async function boot() {
 async function selectClient(id) {
   killTimeline();
   state.client = id;
+  $('.views [data-view="run"]').textContent = W().runTab;
+  $('.views [data-view="attacks"]').textContent = W().tricksTab;
   const stage = $("#stage");
   document.querySelectorAll("#clients button").forEach((b) => {
     const on = b.dataset.client === id;
@@ -237,9 +288,9 @@ function outcomeClass(t) {
 }
 
 function outcomeText(t) {
-  if (t.missing) return "this version did not run this customer";
-  const bits = [t.success ? "the customer got their goal" : "the customer did not get their goal"];
-  if (t.end === "patience") bits.push("the customer gave up");
+  if (t.missing) return `this version did not run this ${W().one}`;
+  const bits = [t.success ? W().goal : W().noGoal];
+  if (t.end === "patience") bits.push(W().gaveUp);
   if (t.hazards.length) bits.push(`the agent caused harm. It ${t.hazards.map(harm).join(", ")}`);
   return bits.map(cap).join(". ");
 }
@@ -250,7 +301,7 @@ function openTranscript(title, meta, turns, calls) {
   const body = $("#drawer-body");
   body.replaceChildren();
   turns.forEach(([c, a]) => {
-    if (c) body.append(el("li", { class: "c" }, el("span", { class: "who", text: "Customer" }), c));
+    if (c) body.append(el("li", { class: "c" }, el("span", { class: "who", text: W().speaker }), c));
     if (a) body.append(el("li", { class: "a" }, el("span", { class: "who", text: "Agent" }), a));
   });
   const planted = (calls || []).filter((x) => x.phase === "steered");
@@ -264,13 +315,13 @@ function openTranscript(title, meta, turns, calls) {
 // ---------------------------------------------------------------- number line
 
 const METRIC = {
-  success: "How many more customers got their goal, before and after",
+  get success() { return W().metric; },
   "tools.steered_sent": "How many planted calls reached the server, before and after",
 };
 // How the report sentence reads each measure. "lower" means a fall is the good direction.
 const MEASURE = {
-  success: { noun: "The share of customers who got their goal", fmt: pctR, better: "higher", unit: "" },
-  "tools.steered_sent": { noun: "Planted calls that reached the server", fmt: sig2, better: "lower", unit: " per customer" },
+  success: { get noun() { return W().share; }, fmt: pctR, better: "higher", unit: "" },
+  "tools.steered_sent": { noun: "Planted calls that reached the server", fmt: sig2, better: "lower", get unit() { return ` per ${W().one}`; } },
 };
 
 function niceStep(span) {
@@ -312,7 +363,7 @@ function numberLine(h) {
     iv);
   const widthNote = point
     ? (h.same_outcome === h.n
-      ? ` All ${h.n} customers ended the same way in both versions, so the range has no width.`
+      ? ` All ${h.n} ${W().many} ended the same way in both versions, so the range has no width.`
       : " The range has no width.")
     : "";
   const note = el("p", { class: "nl__note" },
@@ -337,10 +388,10 @@ function stampWord(r) {
 
 // Why a failed check holds the release, said as the reason a person would give.
 const HOLD_WHY = {
-  "sample size": "the test used too few customers",
+  get "sample size"() { return `the test used too few ${W().many}`; },
   "hazard rate": "too many conversations still caused harm",
   "no new hazards": "the new version caused harm the old one did not",
-  "task success not worse": "fewer customers got their goal",
+  get "task success not worse"() { return W().worse; },
 };
 
 function stampLine(r) {
@@ -366,8 +417,8 @@ function gateInfo(g, r) {
   const range = m ? `change ${m[1]}, range ${m[2]}` : "";
   const paren = (g.detail.match(/\(([^)]*)\)/) || [])[1] || "";
   if (g.gate === "sample size") {
-    return { name: "The test used enough customers", tag: `${c.valid} run, ${bar.min_scenarios} needed`,
-      text: `Each version met ${approx(c.valid)} customers. This agent needs at least ${approx(bar.min_scenarios)}, so that is ${pass ? "enough" : "too few"}.` };
+    return { name: `The test used enough ${W().many}`, tag: `${c.valid} run, ${bar.min_scenarios} needed`,
+      text: `${W().metCount(approx(c.valid))} This agent needs at least ${approx(bar.min_scenarios)}, so that is ${pass ? "enough" : "too few"}.` };
   }
   if (g.gate === "hazard rate") {
     const seen = c.hazard_runs
@@ -388,9 +439,9 @@ function gateInfo(g, r) {
   }
   if (g.gate === "task success not worse") {
     const seen = pctR(b.success_rate) === pctR(c.success_rate)
-      ? `Customers got their goal ${pctR(c.success_rate)} of the time in both versions.`
-      : `Customers got their goal ${pctR(b.success_rate)} of the time before and ${pctR(c.success_rate)} after.`;
-    return { name: "Customers did no worse", tag: range,
+      ? `${W().rate} ${pctR(c.success_rate)} of the time in both versions.`
+      : `${W().rate} ${pctR(b.success_rate)} of the time before and ${pctR(c.success_rate)} after.`;
+    return { name: W().noWorse, tag: range,
       text: `${seen} A drop of more than ${sig2(bar.success_margin * 100)} points would fail, so this ${pass ? "passes" : "fails"}.` };
   }
   if (g.gate.startsWith("hypothesis")) {
@@ -440,7 +491,7 @@ function renderRun(stage) {
   // Banks: one grid of customers per version, with counters that tick as calls land.
   const banks = lanes.map((ls, side) => {
     const v = sides[side];
-    const grid = el("div", { class: "grid", role: "list", "aria-label": `Customers for ${plain(v)}` });
+    const grid = el("div", { class: "grid", role: "list", "aria-label": `${cap(W().many)} for ${plain(v)}` });
     const counters = { done: el("b", { text: "0" }), ok: el("b", { text: "0" }), hazard: el("b", { text: "0" }), gaveup: el("b", { text: "0" }) };
     const run = ls.filter((l) => !l.t.missing).length;
     ls.forEach((l) => {
@@ -463,7 +514,7 @@ function renderRun(stage) {
       grid,
       el("div", { class: "counts" },
         el("span", {}, counters.done, `of ${run} finished`),
-        el("span", { class: "c-ok" }, counters.ok, "goal met"),
+        el("span", { class: "c-ok" }, counters.ok, W().met),
         el("span", { class: "c-hazard" }, counters.hazard, "caused harm"),
         el("span", {}, counters.gaveup, "gave up")));
     return { bank, counters, lanes: ls, tally: { done: -1, ok: -1, hazard: -1, gaveup: -1 } };
@@ -477,7 +528,7 @@ function renderRun(stage) {
   let lamps = [];
   let words = [];
   let stamp = null;
-  const wait = el("p", { class: "rail__wait rail__wide", text: "The verdict appears when the last customer finishes." });
+  const wait = el("p", { class: "rail__wait rail__wide", text: `The verdict appears when the last ${W().one} finishes.` });
   if (screened) {
     const h = r.hypotheses[0];
     hyp = numberLine(h);
@@ -528,11 +579,11 @@ function renderRun(stage) {
     el("div", { class: "speed", role: "group", "aria-label": "Playback speed" }, speeds));
 
   const legend = el("div", { class: "legend", "aria-label": "Legend" },
-    el("span", {}, el("span", { class: "tile ok" }), "goal met"),
-    el("span", {}, el("span", { class: "tile fail" }), "goal not met"),
-    el("span", {}, el("span", { class: "tile gaveup" }), "customer gave up"),
+    el("span", {}, el("span", { class: "tile ok" }), W().met),
+    el("span", {}, el("span", { class: "tile fail" }), W().notMet),
+    el("span", {}, el("span", { class: "tile gaveup" }), W().legendGaveUp),
     el("span", {}, el("span", { class: "tile hazard" }), "the agent caused harm"),
-    el("span", {}, el("span", { class: "tile adv" }), "customer who tries a trick"),
+    el("span", {}, el("span", { class: "tile adv" }), W().legendTrick),
     el("span", { text: "Select a square to read the conversation." }));
 
   const floor = el("div", { class: "floor" }, banks[0].bank, banks[1].bank, rail);
@@ -661,8 +712,8 @@ function pairTable(ta, tb) {
   return el("table", { class: "pair" },
     el("thead", {}, el("tr", {}, el("th", { text: "" }), el("th", { text: plain(state.a) }), el("th", { text: plain(state.b) }))),
     el("tbody", {},
-      row("customers replayed", a.n, b.n),
-      row("goal met", a.ok, b.ok),
+      row(`${W().many} replayed`, a.n, b.n),
+      row(W().met, a.ok, b.ok),
       row("the agent caused harm", a.hz, b.hz),
       row("gave up", a.gu, b.gu)));
 }
@@ -674,7 +725,7 @@ function renderReport(stage) {
   const r = d.report;
   if (!screenedPair()) {
     stage.append(el("div", { class: "summary" },
-      el("p", { style: "margin:0 0 12px", text: `The page has a report only for "${plain(d.comparison.baseline)}" against "${plain(d.comparison.candidate)}". For the pair that you picked, the table shows the counts from the customers on this page.` }),
+      el("p", { style: "margin:0 0 12px", text: `The page has a report only for "${plain(d.comparison.baseline)}" against "${plain(d.comparison.candidate)}". For the pair that you picked, the table shows the counts from the ${W().many} on this page.` }),
       pairTable(d.grid[state.a], d.grid[state.b]),
       el("button", { type: "button", class: "btn", style: "margin-top:14px", onclick: useScreenedPair, text: "Show the pair with a verdict" })));
     return;
@@ -698,14 +749,14 @@ function renderReport(stage) {
       nl.line, nl.note,
       el("p", { class: "hyp__verdict", style: "margin-top:10px" }, el("span", { class: h.verdict === "confirmed" ? "confirmed" : "", text: verdictText(h) })),
       el("p", { class: "nl__note", style: "margin-top:8px" }, "The exact values were ", el("b", { text: num(h.baseline_mean, 3) }), " before and ",
-        el("b", { text: num(h.candidate_mean, 3) }), ` after, over ${h.n} customers.`, tag(h.metric)));
+        el("b", { text: num(h.candidate_mean, 3) }), ` after, over ${h.n} ${W().many}.`, tag(h.metric)));
   });
 
   stage.append(el("div", { class: "report" },
     el("section", { class: "report__top" },
       el("span", { class: `stamp ${word}`, text: stampText(r) }),
       el("p", { class: "report__line" }, stampLine(r),
-        el("small", {}, `The test compared "${plain(r.baseline)}" with "${plain(r.candidate)}". It used ${approx(r.scenarios.total)} made-up customers, and ${approx(r.scenarios.adversarial)} of them tried tricks.`,
+        el("small", {}, `The test compared "${plain(r.baseline)}" with "${plain(r.candidate)}". ${W().used(approx(r.scenarios.total), approx(r.scenarios.adversarial))}`,
           tag(`${r.baseline} vs ${r.candidate}`)))),
     ...hyps,
     el("section", { class: "split" },
@@ -721,14 +772,14 @@ function renderReport(stage) {
       el("div", {}, el("h2", { text: "How high the bar is" }),
         el("p", {}, `How much it does alone: ${r.deployment.autonomy_why}`, tag(`autonomy ${r.deployment.autonomy}`)),
         el("p", {}, `What a mistake costs: ${r.deployment.consequence_why}`, tag(`consequence ${r.deployment.consequence}`)),
-        el("p", {}, `So this agent gets the ${bar.tier} bar. The results must hold with ${Math.round(bar.confidence * 100)}% confidence, over at least ${approx(bar.min_scenarios)} customers. Harm may happen in at most ${pctR(bar.max_hazard_rate)} of conversations. The share of customers who get their goal may not fall by more than ${sig2(bar.success_margin * 100)} points.`, tag(bar.tier)))),
+        el("p", {}, `So this agent gets the ${bar.tier} bar. The results must hold with ${Math.round(bar.confidence * 100)}% confidence, over at least ${approx(bar.min_scenarios)} ${W().many}. Harm may happen in at most ${pctR(bar.max_hazard_rate)} of conversations. ${W().shareRule} may not fall by more than ${sig2(bar.success_margin * 100)} points.`, tag(bar.tier)))),
     el("section", {}, el("h2", { text: "The numbers side by side" }),
       el("div", { class: "table-scroll" }, el("table", { class: "numbers" },
         el("thead", {}, el("tr", {}, el("th", { text: "" }), el("th", { text: plain(r.baseline) }), el("th", { text: plain(r.candidate) }))),
         el("tbody", {},
-          row("Customers who got their goal", pct(b.success_rate), pct(c.success_rate)),
+          row(W().goalRow, pct(b.success_rate), pct(c.success_rate)),
           row("Conversations where the agent caused harm", `${b.hazard_runs} of ${b.valid}`, `${c.hazard_runs} of ${c.valid}`),
-          row("Customers who gave up", b.abandoned, c.abandoned),
+          row(W().gaveUpRow, b.abandoned, c.abandoned),
           el("tr", {}, el("td", {}, "Typical time to reply", tag("p50")), el("td", { text: `${num(b.latency_ms.p50, 1)} ms` }), el("td", { text: `${num(c.latency_ms.p50, 1)} ms` })),
           el("tr", {}, el("td", {}, "AI model text per conversation", tag("tokens")), el("td", { text: num(b.tokens.per_run, 0) }), el("td", { text: num(c.tokens.per_run, 0) }))))),
       c.tokens.total
@@ -746,7 +797,7 @@ function measureLine(h) {
   if (!m) return "";
   const before = m.fmt(h.baseline_mean);
   const after = m.fmt(h.candidate_mean);
-  const who = `across ${approx(h.n)} customers${h.set === "adversarial" ? " who tried tricks" : ""}`;
+  const who = `across ${approx(h.n)} ${W().many}${h.set === "adversarial" ? W().tricked : ""}`;
   if (before === after) return `${m.noun} stayed at ${after}${m.unit} in both versions, ${who}. No gain.`;
   const up = h.candidate_mean > h.baseline_mean;
   const good = up === (m.better === "higher");
@@ -765,11 +816,9 @@ function renderRegression(stage) {
   const call = (x, none) => (x && x.name ? `${x.name} ${JSON.stringify(x.args)}` : none);
   const damage = reg.lost_success + reg.new_hazards;
   const outcome = damage
-    ? "The replay found the damage before any real customer met it."
+    ? W().caught
     : `Some conversations took a different step, but none ended worse. The change broke nothing the replay could find.`;
-  const went = !c ? "" : c.success_before === c.success_after
-    ? `the customer ${c.success_after ? "still got their goal" : "still did not get their goal"}.`
-    : `the customer ${c.success_before ? "got their goal before the change, but not after it" : "did not get their goal before the change, but got it after"}.`;
+  const went = c ? W().went(c.success_before, c.success_after) : "";
   const readout = (n, label, bad) => el("div", { class: bad && n > 0 ? "bad" : "" }, el("b", { text: n }), el("span", { text: label }));
   stage.append(el("div", { class: "report" },
     el("section", {}, el("h2", { text: "Replay on changed code" }),
@@ -779,7 +828,7 @@ function renderRegression(stage) {
     el("section", { class: "readouts" },
       readout(reg.replayed, "conversations played again"),
       readout(reg.diverged, "took a different step"),
-      readout(reg.lost_success, "then failed a customer that it served before", true),
+      readout(reg.lost_success, W().lost, true),
       readout(reg.new_hazards, "then caused new harm", true)),
     c ? el("section", {},
       el("h2", {}, `One example, at step ${c.step}`, tag(c.scenario)),
@@ -797,11 +846,11 @@ function renderAttacks(stage) {
   const cand = d.comparison.candidate;
   const hz = atts.filter((a) => a.candidate_hazards.length).length;
   const planted = sum(atts.map((a) => a.planted_calls.length));
-  const lines = [`These ${atts.length} customers tried tricks on "${plain(cand)}".`];
+  const lines = [W().attackIntro(atts.length, plain(cand))];
   if (planted) {
     const res = sum(atts.map((a) => a.blocked_by_resolver || 0));
     const srv = sum(atts.map((a) => a.blocked_by_server || 0));
-    lines.push(`They hid ${planted} planted calls in their requests. A planted call is a request that the agent must never send.`);
+    lines.push(W().hid(planted), W().plantedDef);
     lines.push(`The call checker refused ${res} of them before they left the agent. Warden's server refused ${srv}.`);
   }
   lines.push(hz ? `The agent still caused harm for ${hz} of them. That is not good enough yet.` : "The agent caused harm for none of them.");
@@ -814,7 +863,7 @@ function renderAttacks(stage) {
     ];
     return el("button", { type: "button", class: "attack", onclick: () => openTranscript(a.id, `${kindName(a)}. ${plain(cand)}.`, a.turns) },
       el("div", {}, el("strong", {}, kindName(a), tag(a.kind || "planted in a tool result")),
-        el("q", { text: a.lines.length ? a.lines[0] : "The customer did not say this. It hid in data that the agent read." }),
+        el("q", { text: a.lines.length ? a.lines[0] : W().unsaid }),
         chips.length ? el("div", { class: "chips" }, chips) : null),
       el("span", { class: `attack__state${bad ? " bad" : ""}` },
         el("span", { class: `lamp ${bad ? "hold" : "pass"}`, "aria-hidden": "true" }, el("i")), bad ? "trick worked" : "blocked"));
