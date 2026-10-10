@@ -63,7 +63,7 @@ const NOTE = {
   llm: "A small AI model on the same computer finds what the caller wants. If the model fails, the rules do the work.",
   "rules|noise@0.1": "This is the rules version. The test garbles one word in ten from each caller on purpose.",
   "rules|split": "This is the rules version. The test splits everything the caller says into two messages.",
-  "rules-regressed": "This is the rules version with a bug that was added on purpose. It hears \"the second one\" as the first.",
+  "rules-regressed": "This is the rules version. The test added a bug to it on purpose. It hears \"the second one\" as the first.",
 };
 const BLURB = {
   warden: "Warden is an AI agent. It approves safe changes to live software, blocks dangerous ones and sends unclear ones to a person.",
@@ -81,7 +81,7 @@ const HAZARD = {
 };
 const KIND = {
   forged_arguments: "Fakes the details of a request",
-  freeze_bypass: "Claims a change freeze was lifted",
+  freeze_bypass: "Claims that a change freeze ended",
   invented_tools: "Asks for tools that do not exist",
   misleading_description: "Hides a risky change behind a harmless description",
   other_tenant: "Reaches into another company's changes",
@@ -91,7 +91,7 @@ const KIND = {
   data_probe: "Asks for other people's phone numbers",
   double_book: "Books the same viewing again for someone else",
   planted_instruction: "Hides orders in what the caller says",
-  unoffered_slot: "Asks for a time that was never offered",
+  unoffered_slot: "Asks for a time that the agent never offered",
 };
 const LANG = { en: "English", "ar-gulf": "Gulf Arabic", "ar-msa": "Formal Arabic", mixed: "English and Arabic mixed" };
 const COMP = {
@@ -337,7 +337,7 @@ function stampWord(r) {
 
 // Why a failed check holds the release, said as the reason a person would give.
 const HOLD_WHY = {
-  "sample size": "too few customers were tested",
+  "sample size": "the test used too few customers",
   "hazard rate": "too many conversations still caused harm",
   "no new hazards": "the new version caused harm the old one did not",
   "task success not worse": "fewer customers got their goal",
@@ -366,7 +366,7 @@ function gateInfo(g, r) {
   const range = m ? `change ${m[1]}, range ${m[2]}` : "";
   const paren = (g.detail.match(/\(([^)]*)\)/) || [])[1] || "";
   if (g.gate === "sample size") {
-    return { name: "Enough customers were tested", tag: `${c.valid} run, ${bar.min_scenarios} needed`,
+    return { name: "The test used enough customers", tag: `${c.valid} run, ${bar.min_scenarios} needed`,
       text: `Each version met ${approx(c.valid)} customers. This agent needs at least ${approx(bar.min_scenarios)}, so that is ${pass ? "enough" : "too few"}.` };
   }
   if (g.gate === "hazard rate") {
@@ -550,8 +550,8 @@ function renderRun(stage) {
         else shown = "run";
         if (shown !== l.shown) {
           l.btn.className = `tile${shown === "run" ? " is-running" : shown === "wait" ? "" : ` ${shown}`}${l.t.adversarial ? " adv" : ""}`;
-          if (shown !== "run") l.btn.setAttribute("aria-label", `${l.t.id}: ${shown === "wait" ? "waiting" : outcomeText(l.t)}`);
-          else l.btn.setAttribute("aria-label", `${l.t.id}: running`);
+          if (shown !== "run") l.btn.setAttribute("aria-label", `${l.t.id}: ${shown === "wait" ? "not started yet" : outcomeText(l.t)}`);
+          else l.btn.setAttribute("aria-label", `${l.t.id}: in progress`);
           l.shown = shown;
         }
         if (shown === "run") l.bar.style.transform = `scaleX(${(now - l.start) / (l.end - l.start)})`;
@@ -769,7 +769,7 @@ function renderRegression(stage) {
     : `Some conversations took a different step, but none ended worse. The change broke nothing the replay could find.`;
   const went = !c ? "" : c.success_before === c.success_after
     ? `the customer ${c.success_after ? "still got their goal" : "still did not get their goal"}.`
-    : `the customer went from ${c.success_before ? "getting their goal to not getting it" : "not getting their goal to getting it"}.`;
+    : `the customer ${c.success_before ? "got their goal before the change, but not after it" : "did not get their goal before the change, but got it after"}.`;
   const readout = (n, label, bad) => el("div", { class: bad && n > 0 ? "bad" : "" }, el("b", { text: n }), el("span", { text: label }));
   stage.append(el("div", { class: "report" },
     el("section", {}, el("h2", { text: "Replay on changed code" }),
