@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Proving demo</title>
-<meta name="description" content="Proving tests an AI agent on made-up customers before it meets a real one. This page replays recorded simulations of two agents and shows whether each change ships or holds.">
+<meta name="description" content="Proving tests an AI agent on made-up customers before it meets a real one. This page replays recorded test runs of two agents. It shows whether each change ships or holds.">
 <meta name="theme-color" content="#0d1012">
 <meta name="color-scheme" content="dark">
 <meta property="og:title" content="Proving demo">
-<meta property="og:description" content="Watch recorded simulated customers call two versions of an AI agent side by side, then see the ship or hold verdict.">
+<meta property="og:description" content="Made-up customers call two versions of an AI agent side by side. The page then gives a ship or hold verdict.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d1012'/%3E%3Crect x='7' y='7' width='8' height='8' rx='1' fill='%2362d6b0'/%3E%3Crect x='17' y='7' width='8' height='8' rx='1' fill='%2362d6b0'/%3E%3Crect x='7' y='17' width='8' height='8' rx='1' fill='%2362d6b0'/%3E%3Crect x='17' y='17' width='8' height='8' rx='1' fill='%23ff7a45'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,37 +19,41 @@
 </head>
 <body>
 <a class="skip" href="#stage">Skip to the demo</a>
+<a class="pill" href="https://github.com/samad-zeeshan/Proving">Source</a>
 
 <header class="wrap mast">
   <p class="brand"><span class="brand__mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Proving</p>
+  <p class="eyebrow"><span>01</span>What this is</p>
   <h1>Test an AI agent on made-up customers before it meets a real one.</h1>
-  <p class="lede">Each square is one simulated customer from a recorded run, replayed at the pace it was recorded. Two versions of the agent take the same customers side by side, and the change either ships or holds.</p>
+  <p class="lede">Each square is one made-up customer from a recorded run. The page replays each conversation at its recorded speed. An old and a new version of the agent serve the same customers side by side. At the end the page says whether the new version is ready to release (ship) or should wait (hold).</p>
 </header>
 
 <main class="wrap">
-  <section class="console" aria-label="Choose what to replay">
+  <h2 class="eyebrow" id="pick-label"><span>02</span>Pick an agent</h2>
+  <section class="console" aria-labelledby="pick-label">
     <div class="field field--agent">
       <span class="field__label" id="client-label">Agent</span>
       <div class="segmented" role="radiogroup" aria-labelledby="client-label" id="clients"></div>
       <p class="field__note" id="client-blurb"></p>
     </div>
     <div class="field">
-      <label class="field__label" for="version-a">Current version</label>
-      <div class="select"><select id="version-a" translate="no"></select></div>
+      <label class="field__label" for="version-a">Old version</label>
+      <div class="select"><select id="version-a"></select></div>
       <p class="field__note" id="note-a"></p>
     </div>
     <div class="field">
-      <label class="field__label" for="version-b">Candidate version</label>
-      <div class="select"><select id="version-b" translate="no"></select></div>
+      <label class="field__label" for="version-b">New version</label>
+      <div class="select"><select id="version-b"></select></div>
       <p class="field__note" id="note-b"></p>
     </div>
   </section>
 
-  <nav class="views" aria-label="Views">
-    <button type="button" data-view="run">Run the customers</button>
-    <button type="button" data-view="report">Read the report</button>
-    <button type="button" data-view="regression">Replay a regression</button>
-    <button type="button" data-view="attacks" class="views__surprise">Adversarial personas</button>
+  <h2 class="eyebrow" id="watch-label"><span>03</span>Watch it run</h2>
+  <nav class="views" aria-labelledby="watch-label">
+    <button type="button" data-view="run" data-demo="run">Run the customers</button>
+    <button type="button" data-view="report" data-demo="report">Read the report</button>
+    <button type="button" data-view="regression">Replay on changed code</button>
+    <button type="button" data-view="attacks" data-demo="adversarial" class="views__surprise">Customers who try tricks</button>
   </nav>
 
   <section id="stage" class="stage" tabindex="-1" aria-busy="true"></section>
@@ -65,8 +69,17 @@
   <ol class="transcript" id="drawer-body"></ol>
 </dialog>
 
-<footer class="wrap foot">
-  <p>Source, method and every number: <a href="https://github.com/samad-zeeshan/Proving">github.com/samad-zeeshan/Proving</a>. The agents are <a href="https://github.com/samad-zeeshan/Warden">Warden</a> and <a href="https://github.com/samad-zeeshan/Parley">Parley</a>. Every customer is synthetic and nothing runs live on this page.</p>
+<footer class="foot" id="foot">
+  <div class="wrap">
+    <h2 class="eyebrow"><span>04</span>Where it comes from</h2>
+    <p class="foot__mark" aria-hidden="true">Proving</p>
+    <p class="foot__voice">Let made-up customers find the mistakes, so real ones never meet them.</p>
+    <div class="foot__meta">
+      <p>The code, the method and every number are at <a href="https://github.com/samad-zeeshan/Proving">github.com/samad-zeeshan/Proving</a>.</p>
+      <p>Every customer here is made up. The conversations were recorded from two real agents, <a href="https://github.com/samad-zeeshan/Warden">Warden</a> and <a href="https://github.com/samad-zeeshan/Parley">Parley</a>, and nothing runs live on this page.</p>
+      <p>The code is free to use under the MIT licence.</p>
+    </div>
+  </div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>

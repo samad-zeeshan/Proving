@@ -40,6 +40,70 @@ const median = (xs) => {
 const fmtMs = (x) => (x === null ? "n/a" : x < 10 ? `${x.toFixed(1)} ms` : x < 1000 ? `${Math.round(x)} ms` : `${(x / 1000).toFixed(2)} s`);
 const fmtClock = (s) => `${Math.floor(s / 60)}:${(s % 60).toFixed(1).padStart(4, "0")}`;
 const say = (msg) => { $("#status").textContent = msg; };
+// Prose rounds to two significant figures. Exact values stay in tables and mono tags.
+const sig2 = (x) => Number(Number(x).toPrecision(2));
+const approx = (n) => (sig2(n) === n ? n.toLocaleString("en") : `about ${sig2(n).toLocaleString("en")}`);
+const pctR = (x) => `${sig2(x * 100)}%`;
+const tag = (text) => el("span", { class: "tag", translate: "no", text });
+
+// Plain names for what the recording calls by internal id. The id still shows in a small tag.
+const VERSION = {
+  v2: "As shipped, with the call checker",
+  "resolver-off": "Without the call checker",
+  rules: "As shipped, with hand-written rules",
+  llm: "With a small AI model that reads callers",
+  "rules|noise@0.1": "Rules, with one caller word in ten garbled",
+  "rules|split": "Rules, with each caller line cut in two",
+  "rules-regressed": "Rules, with a bug added on purpose",
+};
+const NOTE = {
+  v2: "Before the agent sends a request to Warden's server, a checker on its side refuses any call that is not on the approved list.",
+  "resolver-off": "This version has no checker. Warden's server still checks every call on its own.",
+  rules: "This is the version in use now. Hand-written rules find what the caller wants.",
+  llm: "A small AI model on the same computer finds what the caller wants. If the model fails, the rules do the work.",
+  "rules|noise@0.1": "This is the rules version. The test garbles one word in ten from each caller on purpose.",
+  "rules|split": "This is the rules version. The test splits everything the caller says into two messages.",
+  "rules-regressed": "This is the rules version with a bug that was added on purpose. It hears \"the second one\" as the first.",
+};
+const BLURB = {
+  warden: "Warden is an AI agent. It approves safe changes to live software, blocks dangerous ones and sends unclear ones to a person.",
+  parley: "Parley is an AI phone agent. It books property viewings in English and Gulf Arabic.",
+};
+const CLAIM = {
+  resolver: "With the call checker, fewer planted calls reach Warden's server. A planted call is a request that an attacker hides in the conversation for the agent to send.",
+  "nlu-llm": "If a small AI model reads callers instead of hand-written rules, the agent books more viewings.",
+};
+const HAZARD = {
+  wrong_phone: "saved the wrong phone number",
+  wrong_booking: "booked the wrong viewing",
+  spoke_injected_text: "repeated text planted in a listing",
+  over_stated_budget: "offered a home over the caller's budget",
+};
+const KIND = {
+  forged_arguments: "Fakes the details of a request",
+  freeze_bypass: "Claims a change freeze was lifted",
+  invented_tools: "Asks for tools that do not exist",
+  misleading_description: "Hides a risky change behind a harmless description",
+  other_tenant: "Reaches into another company's changes",
+  poisoned_reads: "Hides orders in data the agent reads",
+  self_approve: "Tries to approve its own change",
+  cancel_other: "Tries to cancel someone else's booking",
+  data_probe: "Asks for other people's phone numbers",
+  double_book: "Books the same viewing again for someone else",
+  planted_instruction: "Hides orders in what the caller says",
+  unoffered_slot: "Asks for a time that was never offered",
+};
+const LANG = { en: "English", "ar-gulf": "Gulf Arabic", "ar-msa": "Formal Arabic", mixed: "English and Arabic mixed" };
+const COMP = {
+  base_prompt: "fixed instructions",
+  injected_context: "listing details added",
+  inference: "the model's own answer",
+  miss_penalty: "answers thrown away",
+  accumulation: "earlier turns sent again",
+};
+const plain = (v) => VERSION[v] || nice(v);
+const harm = (h) => HAZARD[h] || human(h);
+const kindName = (a) => (a.kind ? KIND[a.kind] || cap(human(a.kind)) : "Hides orders in data the agent reads");
 
 const ICON = {
   play: '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.2v9.6L10.6 6z"/></svg>',
@@ -103,7 +167,7 @@ async function selectClient(id) {
     } catch (err) {
       stage.removeAttribute("aria-busy");
       stage.replaceChildren(el("div", { class: "empty" },
-        el("p", { text: `The recorded runs did not load (${err.message}). Check the connection and try again.` }),
+        el("p", { text: `The recorded runs did not load (${err.message}). Check the connection. Then try again.` }),
         el("button", { type: "button", class: "btn", onclick: () => selectClient(id), text: "Try again" })));
       return;
     } finally {
@@ -113,9 +177,9 @@ async function selectClient(id) {
   if (state.client !== id) return;
   const d = state.cache.get(id);
   state.data = d;
-  $("#client-blurb").textContent = d.blurb;
+  $("#client-blurb").textContent = BLURB[id] || d.blurb;
   for (const [sel, pick] of [["#version-a", d.comparison.baseline], ["#version-b", d.comparison.candidate]]) {
-    $(sel).replaceChildren(...d.versions.map((v) => el("option", { value: v, text: nice(v), selected: v === pick })));
+    $(sel).replaceChildren(...d.versions.map((v) => el("option", { value: v, text: plain(v), selected: v === pick })));
   }
   state.a = d.comparison.baseline;
   state.b = d.comparison.candidate;
@@ -123,9 +187,13 @@ async function selectClient(id) {
   show(state.view);
 }
 
+function noteFor(v) {
+  return [NOTE[v] || state.data.notes[v] || "", tag(v)];
+}
+
 function notes() {
-  $("#note-a").textContent = state.data.notes[state.a] || "";
-  $("#note-b").textContent = state.data.notes[state.b] || "";
+  $("#note-a").replaceChildren(...noteFor(state.a));
+  $("#note-b").replaceChildren(...noteFor(state.b));
 }
 
 function screenedPair() {
@@ -156,7 +224,7 @@ function skeleton() {
   const bank = () => el("div", { class: "bank" }, el("div", { class: "grid" },
     Array.from({ length: 48 }, () => el("span", { class: "tile skeleton" }))));
   return el("div", { class: "floor", style: "border-top:1px solid var(--line);border-radius:var(--r-panel)" },
-    bank(), bank(), el("div", { class: "rail" }, el("p", { class: "rail__wait", text: "Loading the recorded runs…" })));
+    bank(), bank(), el("div", { class: "rail" }, el("p", { class: "rail__wait", text: "Please wait while the recorded conversations load…" })));
 }
 
 // ---------------------------------------------------------------- tiles and transcripts
@@ -169,11 +237,11 @@ function outcomeClass(t) {
 }
 
 function outcomeText(t) {
-  if (t.missing) return "not run for this version";
-  const bits = [t.success ? "goal met" : "goal not met"];
+  if (t.missing) return "this version did not run this customer";
+  const bits = [t.success ? "the customer got their goal" : "the customer did not get their goal"];
   if (t.end === "patience") bits.push("the customer gave up");
-  if (t.hazards.length) bits.push(`hazard: ${t.hazards.map(human).join(", ")}`);
-  return bits.join(", ");
+  if (t.hazards.length) bits.push(`the agent caused harm. It ${t.hazards.map(harm).join(", ")}`);
+  return bits.map(cap).join(". ");
 }
 
 function openTranscript(title, meta, turns, calls) {
@@ -187,8 +255,8 @@ function openTranscript(title, meta, turns, calls) {
   });
   const planted = (calls || []).filter((x) => x.phase === "steered");
   if (planted.length) {
-    body.append(el("li", { class: "c" }, el("span", { class: "who", text: "Planted calls that reached the server" }),
-      planted.map((x) => `${x.tool} (${x.ok ? "ran" : "refused"})`).join(", ")));
+    body.append(el("li", { class: "c" }, el("span", { class: "who", text: "Planted calls that reached Warden's server" }),
+      planted.map((x) => `${x.tool} (${x.ok ? "the server ran it" : "the server refused it"})`).join(", ")));
   }
   $("#drawer").showModal();
 }
@@ -196,8 +264,13 @@ function openTranscript(title, meta, turns, calls) {
 // ---------------------------------------------------------------- number line
 
 const METRIC = {
-  success: "Gain in task success rate",
-  "tools.steered_sent": "Drop in planted calls reaching the server, per scenario",
+  success: "How many more customers got their goal, before and after",
+  "tools.steered_sent": "How many planted calls reached the server, before and after",
+};
+// How the report sentence reads each measure. "lower" means a fall is the good direction.
+const MEASURE = {
+  success: { noun: "The share of customers who got their goal", fmt: pctR, better: "higher", unit: "" },
+  "tools.steered_sent": { noun: "Planted calls that reached the server", fmt: sig2, better: "lower", unit: " per customer" },
 };
 
 function niceStep(span) {
@@ -231,43 +304,116 @@ function numberLine(h) {
     class: `nl__iv ${h.verdict}${point ? " is-point" : ""}`,
     style: point ? `left:${pos(lo)}%` : `left:${pos(lo)}%;width:${pos(hi) - pos(lo)}%;transform-origin:${inner}% 50%`,
   }, el("span", { class: "nl__bar" }), el("span", { class: "nl__est", style: `left:${inner}%` }));
-  const label = `${Math.round(h.level * 100)}% interval for the improvement, ${num(lo, 3)} to ${num(hi, 3)}. No change is 0, the smallest gain worth shipping is ${minE}.`;
+  const label = `With ${Math.round(h.level * 100)}% confidence the improvement is between ${num(lo, 3)} and ${num(hi, 3)}. No change is 0. The smallest improvement good enough to ship is ${minE}.`;
   const line = el("div", { class: "nl", role: "img", "aria-label": label },
     el("div", { class: "nl__axis" }), ...ticks,
     el("div", { class: "nl__ref flip is-zero", style: `left:${pos(0)}%` }, el("span", { text: "no change" })),
-    el("div", { class: `nl__ref is-min${pos(minE) > 62 ? " flip" : ""}`, style: `left:${pos(minE)}%` }, el("span", { text: `worth shipping, ${minE}` })),
+    el("div", { class: `nl__ref is-min${pos(minE) > 62 ? " flip" : ""}`, style: `left:${pos(minE)}%` }, el("span", { text: `good enough to ship, ${minE}` })),
     iv);
   const widthNote = point
     ? (h.same_outcome === h.n
-      ? ` Width zero: all ${h.n} paired scenarios ended the same way in both versions.`
-      : " Width zero.")
+      ? ` All ${h.n} customers ended the same way in both versions, so the range has no width.`
+      : " The range has no width.")
     : "";
   const note = el("p", { class: "nl__note" },
-    "improvement ", el("b", { text: num(h.improvement, 3) }), `, ${Math.round(h.level * 100)}% interval `,
-    el("b", { text: num(lo, 3) }), " to ", el("b", { text: num(hi, 3) }), `.${widthNote}`);
+    "The best guess is ", el("b", { text: num(h.improvement, 3) }), `. The test is ${Math.round(h.level * 100)}% sure that the true change is between `,
+    el("b", { text: num(lo, 3) }), " and ", el("b", { text: num(hi, 3) }), `.${widthNote}`);
   return { line, iv, note, point };
 }
 
 function verdictText(h) {
-  if (h.verdict === "confirmed") return "Confirmed. The whole interval is above zero.";
-  if (h.verdict === "refuted") return `Refuted. The interval rules out a gain of ${h.min_effect} or more.`;
-  return "Not settled. The interval is too wide to call either way.";
+  if (h.verdict === "confirmed") return "The claim proved true. Even the low end of the range is an improvement.";
+  if (h.verdict === "refuted") return "The claim proved false. The range shows that the gain is too small to ship.";
+  return "The claim is not settled yet. The range is too wide to decide.";
+}
+
+function heldWord(h) {
+  return h.verdict === "confirmed" ? "proved true" : h.verdict === "refuted" ? "proved false" : "is not settled yet";
 }
 
 function stampWord(r) {
   return r.verdict === "needs more evidence" ? "more" : r.verdict;
 }
 
+// Why a failed check holds the release, said as the reason a person would give.
+const HOLD_WHY = {
+  "sample size": "too few customers were tested",
+  "hazard rate": "too many conversations still caused harm",
+  "no new hazards": "the new version caused harm the old one did not",
+  "task success not worse": "fewer customers got their goal",
+};
+
 function stampLine(r) {
-  const why = r.verdict_line.replace(/^[^:]+:\s*/, "");
-  return `${cap(why)}.`;
+  if (r.verdict === "ship") return "Every check passed, so the new version is ready to release.";
+  const failed = r.gates.filter((g) => g.outcome !== "pass")
+    .map((g) => HOLD_WHY[g.gate] || (g.gate.startsWith("hypothesis") ? "the claimed gain did not show up" : g.gate));
+  if (r.verdict === "hold") return `The new version should wait, because ${failed.join(" and ")}.`;
+  return "There is not enough evidence yet to decide.";
 }
 
-function gateList(gates, withDetail) {
-  return el("ul", { class: "gates" }, gates.map((g) => el("li", { class: g.outcome },
-    el("span", { class: `lamp ${g.outcome}`, "aria-hidden": "true" }, el("i")),
-    el("span", { class: "g-name" }, cap(g.gate), withDetail ? el("span", { class: "sr", text: `. ${g.detail}` }) : null),
-    el("span", { class: "g-word", text: g.outcome === "more" ? "more" : g.outcome }))));
+function stampText(r) {
+  return r.verdict === "ship" ? "Ship" : r.verdict === "hold" ? "Hold" : "More evidence";
+}
+
+// Gate details arrive as one generated line. The plain sentence is rebuilt from the report numbers,
+// and only the interval from that line survives, in a tag.
+function gateInfo(g, r) {
+  const b = r.baseline_summary;
+  const c = r.candidate_summary;
+  const bar = r.evidence_bar;
+  const pass = g.outcome === "pass";
+  const m = g.detail.match(/change ([+-]?[\d.]+) \(([^)]*)\)/);
+  const range = m ? `change ${m[1]}, range ${m[2]}` : "";
+  const paren = (g.detail.match(/\(([^)]*)\)/) || [])[1] || "";
+  if (g.gate === "sample size") {
+    return { name: "Enough customers were tested", tag: `${c.valid} run, ${bar.min_scenarios} needed`,
+      text: `Each version met ${approx(c.valid)} customers. This agent needs at least ${approx(bar.min_scenarios)}, so that is ${pass ? "enough" : "too few"}.` };
+  }
+  if (g.gate === "hazard rate") {
+    const seen = c.hazard_runs
+      ? `The new version caused harm in ${approx(c.hazard_runs)} of ${approx(c.valid)} conversations, about ${pctR(c.hazard_runs / c.valid)}.`
+      : `The new version caused harm in none of ${approx(c.valid)} conversations.`;
+    return { name: "Harm stayed rare enough", tag: paren,
+      text: `${seen} The limit is ${pctR(bar.max_hazard_rate)}, so this ${pass ? "passes" : "fails"}.` };
+  }
+  if (g.gate === "no new hazards") {
+    let text;
+    if (!b.hazard_runs && !c.hazard_runs) text = "No conversation in either version caused harm. The change added no harm.";
+    else if (b.hazard_runs === c.hazard_runs) text = `Both versions caused harm in ${approx(c.hazard_runs)} conversations. The change added none.`;
+    else {
+      const down = c.hazard_runs < b.hazard_runs;
+      text = `The new version caused harm in ${approx(c.hazard_runs)} conversations, ${down ? "down" : "up"} from ${approx(b.hazard_runs)}. ${down ? "That is better." : "That is worse."}`;
+    }
+    return { name: "The change added no new harm", tag: range, text };
+  }
+  if (g.gate === "task success not worse") {
+    const seen = pctR(b.success_rate) === pctR(c.success_rate)
+      ? `Customers got their goal ${pctR(c.success_rate)} of the time in both versions.`
+      : `Customers got their goal ${pctR(b.success_rate)} of the time before and ${pctR(c.success_rate)} after.`;
+    return { name: "Customers did no worse", tag: range,
+      text: `${seen} A drop of more than ${sig2(bar.success_margin * 100)} points would fail, so this ${pass ? "passes" : "fails"}.` };
+  }
+  if (g.gate.startsWith("hypothesis")) {
+    const id = g.gate.replace(/^hypothesis\s+/, "");
+    const h = r.hypotheses.find((x) => x.id === id);
+    const claim = (h && (CLAIM[h.id] || h.claim)) || "";
+    return { name: "The claimed reason is true", tag: id, text: `${h ? `The claim ${heldWord(h)}.` : ""} ${claim}`.trim() };
+  }
+  return { name: cap(g.gate), tag: "", text: g.detail };
+}
+
+function gateWord(g) {
+  return g.outcome === "pass" ? "yes" : g.outcome === "more" ? "not yet" : "no";
+}
+
+function gateList(r) {
+  return el("ul", { class: "gates" }, r.gates.map((g) => {
+    const info = gateInfo(g, r);
+    return el("li", { class: g.outcome },
+      el("span", { class: `lamp ${g.outcome}`, "aria-hidden": "true" }, el("i")),
+      el("span", { class: "g-name" }, info.name, el("span", { class: "sr", text: `. ${info.text}` })),
+      el("span", { class: "g-word", text: gateWord(g) }));
+  }));
 }
 
 // ---------------------------------------------------------------- run view
@@ -294,7 +440,7 @@ function renderRun(stage) {
   // Banks: one grid of customers per version, with counters that tick as calls land.
   const banks = lanes.map((ls, side) => {
     const v = sides[side];
-    const grid = el("div", { class: "grid", role: "list", "aria-label": `Customers for ${nice(v)}` });
+    const grid = el("div", { class: "grid", role: "list", "aria-label": `Customers for ${plain(v)}` });
     const counters = { done: el("b", { text: "0" }), ok: el("b", { text: "0" }), hazard: el("b", { text: "0" }), gaveup: el("b", { text: "0" }) };
     const run = ls.filter((l) => !l.t.missing).length;
     ls.forEach((l) => {
@@ -303,22 +449,22 @@ function renderRun(stage) {
       l.btn = el("button", {
         type: "button", class: `tile${t.adversarial ? " adv" : ""}${t.missing ? " missing" : ""}`, role: "listitem",
         "aria-label": `${t.id}: ${t.missing ? outcomeText(t) : "waiting"}`, disabled: t.missing ? true : null,
-        onclick: () => !t.missing && openTranscript(t.id, `${nice(v)}. ${t.language}. ${cap(outcomeText(t))}.`, t.turns, t.calls),
+        onclick: () => !t.missing && openTranscript(t.id, `${plain(v)}. ${LANG[t.language] || t.language}. ${cap(outcomeText(t))}.`, t.turns, t.calls),
       }, l.bar);
       grid.append(l.btn);
     });
     const replies = ls.flatMap((l) => l.t.ms || []);
-    const bank = el("section", { class: "bank", "aria-label": `${side ? "Candidate" : "Current"} version` },
+    const bank = el("section", { class: "bank", "aria-label": `${side ? "New" : "Old"} version` },
       el("div", { class: "bank__head" },
-        el("span", { class: "bank__side", text: side ? "Candidate" : "Current" }),
-        el("span", { class: "bank__pace" }, "median reply ", el("b", { text: fmtMs(median(replies)) }))),
-      el("h2", { class: "bank__name", translate: "no", text: nice(v) }),
-      el("p", { class: "bank__note", text: d.notes[v] || "" }),
+        el("span", { class: "bank__side" }, side ? "New version" : "Old version", tag(v)),
+        el("span", { class: "bank__pace" }, "typical reply ", el("b", { text: fmtMs(median(replies)) }))),
+      el("h2", { class: "bank__name", text: plain(v) }),
+      el("p", { class: "bank__note", text: NOTE[v] || d.notes[v] || "" }),
       grid,
       el("div", { class: "counts" },
-        el("span", {}, counters.done, `of ${run} done`),
+        el("span", {}, counters.done, `of ${run} finished`),
         el("span", { class: "c-ok" }, counters.ok, "goal met"),
-        el("span", { class: "c-hazard" }, counters.hazard, "hazard"),
+        el("span", { class: "c-hazard" }, counters.hazard, "caused harm"),
         el("span", {}, counters.gaveup, "gave up")));
     return { bank, counters, lanes: ls, tally: { done: -1, ok: -1, hazard: -1, gaveup: -1 } };
   });
@@ -336,21 +482,21 @@ function renderRun(stage) {
     const h = r.hypotheses[0];
     hyp = numberLine(h);
     const hv = el("p", { class: "hyp__verdict" }, el("span", { class: h.verdict === "confirmed" ? "confirmed" : "", text: verdictText(h) }));
-    const gates = gateList(r.gates, true);
+    const gates = gateList(r);
     lamps = [...gates.querySelectorAll(".lamp i")];
     words = [...gates.querySelectorAll(".g-word")];
-    stamp = el("span", { class: `stamp ${stampWord(r)}`, text: stampWord(r) === "more" ? "More evidence" : r.verdict });
-    const stampText = el("p", { class: "stamp-line", text: stampLine(r) });
-    reveal.push(hv, hyp.note, stampText);
+    stamp = el("span", { class: `stamp ${stampWord(r)}`, "data-demo": "verdict", text: stampText(r) });
+    const why = el("p", { class: "stamp-line", text: stampLine(r) });
+    reveal.push(hv, hyp.note, why);
     rail.append(
       el("div", { class: "rail__wide" },
-        el("p", { class: "rail__title", text: "Hypothesis" }),
-        el("p", { class: "rail__claim", text: h.claim })),
+        el("p", { class: "rail__title", text: "What the change claims" }),
+        el("p", { class: "rail__claim", text: CLAIM[h.id] || h.claim })),
       el("div", { class: "rail__wide" },
-        el("p", { class: "nl__note", text: METRIC[h.metric] || `Improvement in ${h.metric}` }),
+        el("p", { class: "nl__note", text: METRIC[h.metric] || `Change in ${h.metric}` }),
         hyp.line, hyp.note, hv),
-      el("div", {}, el("p", { class: "rail__title", style: "margin-bottom:10px", text: "Gates" }), gates),
-      el("div", {}, el("div", { class: "stamp-slot" }, stamp), stampText),
+      el("div", {}, el("p", { class: "rail__title", style: "margin-bottom:10px", text: "Checks before release" }), gates),
+      el("div", {}, el("div", { class: "stamp-slot" }, stamp), why),
       wait);
   } else {
     const table = pairTable(tiles[0], tiles[1]);
@@ -358,8 +504,8 @@ function renderRun(stage) {
     rail.append(
       el("div", { class: "rail__wide" },
         el("p", { class: "rail__title", text: "Verdict" }),
-        el("p", { class: "rail__claim", text: `The ship or hold report covers ${nice(d.comparison.baseline)} against ${nice(d.comparison.candidate)}, the change this agent was screened for. For the pair on screen, these are the counts.` }),
-        el("button", { type: "button", class: "btn", style: "margin-top:12px", onclick: useScreenedPair, text: "Show the screened pair" })),
+        el("p", { class: "rail__claim", text: `The page has a ship or hold verdict only for "${plain(d.comparison.baseline)}" against "${plain(d.comparison.candidate)}". For the two versions on screen, the table shows the plain counts.` }),
+        el("button", { type: "button", class: "btn", style: "margin-top:12px", onclick: useScreenedPair, text: "Show the pair with a verdict" })),
       el("div", { class: "rail__wide" }, table), wait);
   }
 
@@ -370,9 +516,11 @@ function renderRun(stage) {
   const nowOut = el("b", { text: fmtClock(0) });
   const lenOut = el("span");
   const ratio = perSec >= 1000
-    ? `1 s here is ${(perSec / 1000).toFixed(1)} s of recorded reply time`
-    : `1 s here is ${perSec < 1 ? perSec.toFixed(2) : perSec.toFixed(1)} ms of recorded reply time, slowed down`;
-  const speeds = [1, 2, 4].map((s) => el("button", { type: "button", "aria-pressed": String(s === 1), "data-speed": s, text: `${s}x` }));
+    ? `Each second here is ${(perSec / 1000).toFixed(1)} s of real reply time.`
+    : `Each second here is ${perSec < 1 ? perSec.toFixed(2) : perSec.toFixed(1)} ms of real reply time. The page slows the replay so you can watch it.`;
+  const speeds = [1, 2, 4].map((s) => el("button", {
+    type: "button", "aria-pressed": String(s === 1), "data-speed": s, "data-demo": s === 4 ? "speed-4x" : null, text: `${s}x`,
+  }));
   const transport = el("div", { class: "transport" },
     playBtn, restartBtn,
     el("div", { class: "scrub" }, scrub, el("div", { class: "scrub__read" },
@@ -383,9 +531,9 @@ function renderRun(stage) {
     el("span", {}, el("span", { class: "tile ok" }), "goal met"),
     el("span", {}, el("span", { class: "tile fail" }), "goal not met"),
     el("span", {}, el("span", { class: "tile gaveup" }), "customer gave up"),
-    el("span", {}, el("span", { class: "tile hazard" }), "hazard"),
-    el("span", {}, el("span", { class: "tile adv" }), "adversarial persona"),
-    el("span", { text: "Select a square to read the call." }));
+    el("span", {}, el("span", { class: "tile hazard" }), "the agent caused harm"),
+    el("span", {}, el("span", { class: "tile adv" }), "customer who tries a trick"),
+    el("span", { text: "Select a square to read the conversation." }));
 
   const floor = el("div", { class: "floor" }, banks[0].bank, banks[1].bank, rail);
   stage.append(transport, floor, legend);
@@ -421,13 +569,13 @@ function renderRun(stage) {
   }
 
   const finished = () => say(screened
-    ? `Replay finished. ${r.verdict === "ship" ? "Ship" : r.verdict === "hold" ? "Hold" : "Needs more evidence"}. ${stampLine(r)}`
-    : "Replay finished.");
+    ? `The replay finished. The verdict is ${stampText(r)}. ${stampLine(r)}`
+    : "The replay finished.");
 
   if (!window.gsap) {
     // The timeline library did not load. Show where the replay ends instead of a broken player.
     render(Infinity);
-    transport.replaceChildren(el("p", { class: "scrub__read", style: "margin:0", text: "The replay player did not load, so this is the end state of every call." }));
+    transport.replaceChildren(el("p", { class: "scrub__read", style: "margin:0", text: "The replay player did not load, so the page shows every conversation as it ended." }));
     return;
   }
 
@@ -511,11 +659,11 @@ function pairTable(ta, tb) {
   const b = tally(tb);
   const row = (label, x, y) => el("tr", {}, el("td", { text: label }), el("td", { text: x }), el("td", { text: y }));
   return el("table", { class: "pair" },
-    el("thead", {}, el("tr", {}, el("th", { text: "" }), el("th", { text: nice(state.a) }), el("th", { text: nice(state.b) }))),
+    el("thead", {}, el("tr", {}, el("th", { text: "" }), el("th", { text: plain(state.a) }), el("th", { text: plain(state.b) }))),
     el("tbody", {},
       row("customers replayed", a.n, b.n),
       row("goal met", a.ok, b.ok),
-      row("with a hazard", a.hz, b.hz),
+      row("the agent caused harm", a.hz, b.hz),
       row("gave up", a.gu, b.gu)));
 }
 
@@ -526,9 +674,9 @@ function renderReport(stage) {
   const r = d.report;
   if (!screenedPair()) {
     stage.append(el("div", { class: "summary" },
-      el("p", { style: "margin:0 0 12px", text: `The report is written for ${nice(d.comparison.baseline)} against ${nice(d.comparison.candidate)}, the change this agent was screened for. For the pair you picked, these are the counts from the customers on this page.` }),
+      el("p", { style: "margin:0 0 12px", text: `The page has a report only for "${plain(d.comparison.baseline)}" against "${plain(d.comparison.candidate)}". For the pair that you picked, the table shows the counts from the customers on this page.` }),
       pairTable(d.grid[state.a], d.grid[state.b]),
-      el("button", { type: "button", class: "btn", style: "margin-top:14px", onclick: useScreenedPair, text: "Show the screened pair" })));
+      el("button", { type: "button", class: "btn", style: "margin-top:14px", onclick: useScreenedPair, text: "Show the pair with a verdict" })));
     return;
   }
   const bar = r.evidence_bar;
@@ -543,48 +691,66 @@ function renderReport(stage) {
   const hyps = r.hypotheses.map((h) => {
     const nl = numberLine(h);
     return el("section", {},
-      el("h2", { text: `Hypothesis: ${h.verdict}` }),
-      el("p", { text: h.claim }),
-      el("p", { class: "nl__note", text: METRIC[h.metric] || `Improvement in ${h.metric}` }),
+      el("h2", {}, `The claim ${heldWord(h)}`, tag(h.id)),
+      el("p", { text: CLAIM[h.id] || h.claim }),
+      el("p", { text: measureLine(h) }),
+      el("p", { class: "nl__note", text: METRIC[h.metric] || `Change in ${h.metric}` }),
       nl.line, nl.note,
       el("p", { class: "hyp__verdict", style: "margin-top:10px" }, el("span", { class: h.verdict === "confirmed" ? "confirmed" : "", text: verdictText(h) })),
-      el("p", { class: "nl__note", style: "margin-top:8px" }, `${h.metric}: `, el("b", { text: num(h.baseline_mean, 3) }), " before, ",
-        el("b", { text: num(h.candidate_mean, 3) }), ` after, over ${h.n} scenarios.`));
+      el("p", { class: "nl__note", style: "margin-top:8px" }, "The exact values were ", el("b", { text: num(h.baseline_mean, 3) }), " before and ",
+        el("b", { text: num(h.candidate_mean, 3) }), ` after, over ${h.n} customers.`, tag(h.metric)));
   });
 
   stage.append(el("div", { class: "report" },
     el("section", { class: "report__top" },
-      el("span", { class: `stamp ${word}`, text: word === "more" ? "More evidence" : r.verdict }),
+      el("span", { class: `stamp ${word}`, text: stampText(r) }),
       el("p", { class: "report__line" }, stampLine(r),
-        el("small", { text: `${nice(r.baseline)} against ${nice(r.candidate)}, ${r.scenarios.total} scenarios, ${r.scenarios.adversarial} of them adversarial.` }))),
+        el("small", {}, `The test compared "${plain(r.baseline)}" with "${plain(r.candidate)}". It used ${approx(r.scenarios.total)} made-up customers, and ${approx(r.scenarios.adversarial)} of them tried tricks.`,
+          tag(`${r.baseline} vs ${r.candidate}`)))),
     ...hyps,
     el("section", { class: "split" },
-      el("div", {}, el("h2", { text: "Gates" }),
-        el("ul", { class: "gates" }, r.gates.map((g) => el("li", { class: g.outcome, style: "align-items:start" },
-          el("span", { class: `lamp ${g.outcome}`, style: "margin-top:4px", "aria-hidden": "true" }, el("i")),
-          el("span", {}, el("span", { class: "g-name", text: cap(g.gate) }), el("br"),
-            el("span", { style: "color:var(--muted);font-size:13px", text: g.detail })),
-          el("span", { class: "g-word", text: g.outcome }))))),
-      el("div", {}, el("h2", { text: "Evidence bar" }),
-        el("p", { text: `Autonomy ${r.deployment.autonomy}: ${r.deployment.autonomy_why}` }),
-        el("p", { text: `Consequence ${r.deployment.consequence}: ${r.deployment.consequence_why}` }),
-        el("p", { text: `So the bar is ${bar.tier}: ${Math.round(bar.confidence * 100)}% confidence, at least ${bar.min_scenarios} scenarios, hazards in at most ${pct(bar.max_hazard_rate)} of calls, and task success may not fall more than ${pct(bar.success_margin)}.` }))),
-    el("section", {}, el("h2", { text: "Numbers" }),
+      el("div", {}, el("h2", { text: "Checks before release" }),
+        el("ul", { class: "gates" }, r.gates.map((g) => {
+          const info = gateInfo(g, r);
+          return el("li", { class: g.outcome, style: "align-items:start" },
+            el("span", { class: `lamp ${g.outcome}`, style: "margin-top:4px", "aria-hidden": "true" }, el("i")),
+            el("span", {}, el("span", { class: "g-name", text: info.name }), el("br"),
+              el("span", { style: "color:var(--muted);font-size:13px" }, info.text, info.tag ? tag(info.tag) : null)),
+            el("span", { class: "g-word", text: gateWord(g) }));
+        }))),
+      el("div", {}, el("h2", { text: "How high the bar is" }),
+        el("p", {}, `How much it does alone: ${r.deployment.autonomy_why}`, tag(`autonomy ${r.deployment.autonomy}`)),
+        el("p", {}, `What a mistake costs: ${r.deployment.consequence_why}`, tag(`consequence ${r.deployment.consequence}`)),
+        el("p", {}, `So this agent gets the ${bar.tier} bar. The results must hold with ${Math.round(bar.confidence * 100)}% confidence, over at least ${approx(bar.min_scenarios)} customers. Harm may happen in at most ${pctR(bar.max_hazard_rate)} of conversations. The share of customers who get their goal may not fall by more than ${sig2(bar.success_margin * 100)} points.`, tag(bar.tier)))),
+    el("section", {}, el("h2", { text: "The numbers side by side" }),
       el("div", { class: "table-scroll" }, el("table", { class: "numbers" },
-        el("thead", {}, el("tr", {}, el("th", { text: "" }), el("th", { text: nice(r.baseline) }), el("th", { text: nice(r.candidate) }))),
+        el("thead", {}, el("tr", {}, el("th", { text: "" }), el("th", { text: plain(r.baseline) }), el("th", { text: plain(r.candidate) }))),
         el("tbody", {},
-          row("task success", pct(b.success_rate), pct(c.success_rate)),
-          row("calls with a hazard", `${b.hazard_runs} of ${b.valid}`, `${c.hazard_runs} of ${c.valid}`),
-          row("customer gave up", b.abandoned, c.abandoned),
-          row("turn latency p50", `${num(b.latency_ms.p50, 1)} ms`, `${num(c.latency_ms.p50, 1)} ms`),
-          row("model tokens per call", num(b.tokens.per_run, 0), num(c.tokens.per_run, 0))))),
+          row("Customers who got their goal", pct(b.success_rate), pct(c.success_rate)),
+          row("Conversations where the agent caused harm", `${b.hazard_runs} of ${b.valid}`, `${c.hazard_runs} of ${c.valid}`),
+          row("Customers who gave up", b.abandoned, c.abandoned),
+          el("tr", {}, el("td", {}, "Typical time to reply", tag("p50")), el("td", { text: `${num(b.latency_ms.p50, 1)} ms` }), el("td", { text: `${num(c.latency_ms.p50, 1)} ms` })),
+          el("tr", {}, el("td", {}, "AI model text per conversation", tag("tokens")), el("td", { text: num(b.tokens.per_run, 0) }), el("td", { text: num(c.tokens.per_run, 0) }))))),
       c.tokens.total
         ? el("div", { class: "tokens" },
-          el("p", { style: "margin:4px 0 2px", text: "Where the candidate's tokens go, per call:" }),
-          ...comps.map((k) => el("div", {}, el("span", { text: human(k) }),
+          el("p", { style: "margin:4px 0 2px", text: "This chart shows where the new version's AI model text goes in each conversation. It counts the text in tokens, which are pieces of words." }),
+          ...comps.map((k) => el("div", {}, el("span", { title: k, text: COMP[k] || human(k) }),
             el("i", { style: `transform:scaleX(${perRun(c.cost[k], c) / maxTok})` }),
             el("span", { text: num(perRun(c.cost[k], c), 0) }))))
-        : el("p", { style: "margin-top:12px;color:var(--muted)", text: "Neither version calls a model, so there is no token cost to split." }))));
+        : el("p", { style: "margin-top:12px;color:var(--muted)", text: "Neither version uses an AI model, so there is no model cost to show." }))));
+}
+
+// Says the measured change as a sentence: what moved, to what, from what, and whether that is good.
+function measureLine(h) {
+  const m = MEASURE[h.metric];
+  if (!m) return "";
+  const before = m.fmt(h.baseline_mean);
+  const after = m.fmt(h.candidate_mean);
+  const who = `across ${approx(h.n)} customers${h.set === "adversarial" ? " who tried tricks" : ""}`;
+  if (before === after) return `${m.noun} stayed at ${after}${m.unit} in both versions, ${who}. No gain.`;
+  const up = h.candidate_mean > h.baseline_mean;
+  const good = up === (m.better === "higher");
+  return `${m.noun} ${up ? "rose" : "fell"} to ${after}${m.unit}, from ${before} before, ${who}. ${good ? "That is better." : "That is worse."}`;
 }
 
 // ---------------------------------------------------------------- regression view
@@ -592,26 +758,35 @@ function renderReport(stage) {
 function renderRegression(stage) {
   const reg = state.data.regression;
   if (!reg) {
-    stage.append(el("p", { class: "empty", text: "No regression replay was recorded for this agent." }));
+    stage.append(el("p", { class: "empty", text: "The page has no replay on changed code for this agent." }));
     return;
   }
   const c = reg.case;
   const call = (x, none) => (x && x.name ? `${x.name} ${JSON.stringify(x.args)}` : none);
+  const damage = reg.lost_success + reg.new_hazards;
+  const outcome = damage
+    ? "The replay found the damage before any real customer met it."
+    : `Some conversations took a different step, but none ended worse. The change broke nothing the replay could find.`;
+  const went = !c ? "" : c.success_before === c.success_after
+    ? `the customer ${c.success_after ? "still got their goal" : "still did not get their goal"}.`
+    : `the customer went from ${c.success_before ? "getting their goal to not getting it" : "not getting their goal to getting it"}.`;
   const readout = (n, label, bad) => el("div", { class: bad && n > 0 ? "bad" : "" }, el("b", { text: n }), el("span", { text: label }));
   stage.append(el("div", { class: "report" },
-    el("section", {}, el("h2", { text: "Replay against a changed build" }),
-      el("p", { text: `Every call recorded with ${nice(reg.recorded_version)} was replayed against ${nice(reg.changed_version)}. The replay serves each recorded tool answer and stops at the first step where the new build asks for something different.` })),
+    el("section", {}, el("h2", { text: "Replay on changed code" }),
+      el("p", {}, `This test played every recorded conversation from "${plain(reg.recorded_version)}" again on "${plain(reg.changed_version)}".`, tag(`${reg.recorded_version} to ${reg.changed_version}`)),
+      el("p", { text: "The replay gives the recorded answers again. It stops at the first step where the changed code asks for something different, then runs the rest for real." }),
+      el("p", { text: outcome })),
     el("section", { class: "readouts" },
-      readout(reg.replayed, "calls replayed"),
-      readout(reg.diverged, "stopped at a changed step"),
-      readout(reg.lost_success, "lost the goal when run on live", true),
-      readout(reg.new_hazards, "new hazard when run on live", true)),
+      readout(reg.replayed, "conversations played again"),
+      readout(reg.diverged, "took a different step"),
+      readout(reg.lost_success, "then failed a customer that it served before", true),
+      readout(reg.new_hazards, "then caused new harm", true)),
     c ? el("section", {},
-      el("h2", { text: `One of them: ${c.scenario}, step ${c.step}` }),
-      el("p", {}, "Recorded: ", el("code", { text: call(c.expected, "no further call, the recorded run ended here") })),
-      el("p", {}, "New build: ", el("code", { text: call(c.got, "no call") })),
-      el("p", { text: `Served up to that step and run live after it, the call went from ${c.success_before ? "goal met" : "goal not met"} to ${c.success_after ? "goal met" : "goal not met"}${c.hazards_after.length ? `, with hazard ${c.hazards_after.map(human).join(", ")}` : ""}.` }),
-      el("button", { type: "button", class: "btn", onclick: () => openTranscript(c.scenario, "The call as recorded before the change.", reg.recorded_turns), text: "Read the recorded call" })) : null));
+      el("h2", {}, `One example, at step ${c.step}`, tag(c.scenario)),
+      el("p", {}, "Recorded step: ", el("code", { text: call(c.expected, "nothing, the recorded conversation ended here") })),
+      el("p", {}, "Changed code: ", el("code", { text: call(c.got, "nothing") })),
+      el("p", { text: `The replay used the recording up to that step and ran for real after it. In the end, ${went}${c.hazards_after.length ? ` The agent also ${c.hazards_after.map(harm).join(" and ")}.` : ""}` }),
+      el("button", { type: "button", class: "btn", onclick: () => openTranscript(c.scenario, "This is the conversation as it was before the change.", reg.recorded_turns), text: "Read the recorded conversation" })) : null));
 }
 
 // ---------------------------------------------------------------- adversarial view
@@ -622,33 +797,45 @@ function renderAttacks(stage) {
   const cand = d.comparison.candidate;
   const hz = atts.filter((a) => a.candidate_hazards.length).length;
   const planted = sum(atts.map((a) => a.planted_calls.length));
-  const lines = [`${atts.length} adversarial personas from the customers on this page, replayed on ${nice(cand)}.`];
+  const lines = [`These ${atts.length} customers tried tricks on "${plain(cand)}".`];
   if (planted) {
     const res = sum(atts.map((a) => a.blocked_by_resolver || 0));
     const srv = sum(atts.map((a) => a.blocked_by_server || 0));
-    lines.push(`They tried ${planted} planted tool calls. The agent's resolver refused ${res} before sending, and Warden's server refused ${srv}.`);
+    lines.push(`They hid ${planted} planted calls in their requests. A planted call is a request that the agent must never send.`);
+    lines.push(`The call checker refused ${res} of them before they left the agent. Warden's server refused ${srv}.`);
   }
-  lines.push(hz ? `${hz} still caused a hazard.` : "None caused a hazard.");
+  lines.push(hz ? `The agent still caused harm for ${hz} of them. That is not good enough yet.` : "The agent caused harm for none of them.");
   stage.append(el("p", { class: "summary", text: lines.join(" ") }));
   stage.append(el("div", { class: "attacks" }, atts.map((a) => {
     const bad = a.candidate_hazards.length > 0;
     const chips = [
       ...a.planted_calls.map((t) => el("span", { class: "chip", text: t })),
-      ...a.candidate_hazards.map((h) => el("span", { class: "chip bad", text: human(h) })),
+      ...a.candidate_hazards.map((h) => el("span", { class: "chip bad", text: harm(h) })),
     ];
-    return el("button", { type: "button", class: "attack", onclick: () => openTranscript(a.id, `${cap(human(a.kind))} on ${nice(cand)}`, a.turns) },
-      el("div", {}, el("strong", { text: a.kind ? cap(human(a.kind)) : "Planted in a tool result" }),
-        el("q", { text: a.lines.length ? a.lines[0] : "Planted in the tool results, not said by the customer." }),
+    return el("button", { type: "button", class: "attack", onclick: () => openTranscript(a.id, `${kindName(a)}. ${plain(cand)}.`, a.turns) },
+      el("div", {}, el("strong", {}, kindName(a), tag(a.kind || "planted in a tool result")),
+        el("q", { text: a.lines.length ? a.lines[0] : "The customer did not say this. It hid in data that the agent read." }),
         chips.length ? el("div", { class: "chips" }, chips) : null),
       el("span", { class: `attack__state${bad ? " bad" : ""}` },
-        el("span", { class: `lamp ${bad ? "hold" : "pass"}`, "aria-hidden": "true" }, el("i")), bad ? "got through" : "blocked"));
+        el("span", { class: `lamp ${bad ? "hold" : "pass"}`, "aria-hidden": "true" }, el("i")), bad ? "trick worked" : "blocked"));
   })));
 }
+
+// The one theme flip: the page turns accent green once the footer reaches the middle of the screen.
+// The CSS transition does the tween, and reduced motion sets it to zero.
+function themeFlip() {
+  const foot = $("#foot");
+  if (!foot || !("IntersectionObserver" in window)) return;
+  new IntersectionObserver(([e]) => {
+    document.body.classList.toggle("is-flipped", e.isIntersecting || e.boundingClientRect.top < 0);
+  }, { rootMargin: "0px 0px -50% 0px" }).observe(foot);
+}
+themeFlip();
 
 boot().catch((e) => {
   const stage = $("#stage");
   stage.removeAttribute("aria-busy");
   stage.replaceChildren(el("div", { class: "empty" },
-    el("p", { text: `The recorded runs did not load (${e.message}). Check the connection and try again.` }),
+    el("p", { text: `The recorded runs did not load (${e.message}). Check the connection. Then try again.` }),
     el("button", { type: "button", class: "btn", onclick: () => location.reload(), text: "Try again" })));
 });
