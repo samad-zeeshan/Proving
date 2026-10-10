@@ -2,14 +2,14 @@
 
 Proving tests an AI agent on thousands of made-up customers before the agent meets a real one. Each customer has a goal, some details that it gives only when asked, and patience that runs out. Proving records or fakes the agent's tools, so the test touches nothing real. At the end, Proving gives one answer, ship or hold, with the numbers behind it. The two test agents are Warden, which approves changes to live software, and Parley, which books property viewings by phone.
 
-**Demo:** [samad-zeeshan.github.io/Proving](https://samad-zeeshan.github.io/Proving/) replays recorded test runs. Pick an agent and two versions. Watch both grids of customers run at their recorded speed. Then watch the range, the checks and the ship or hold stamp appear. The last button shows customers who try tricks and which tricks worked. A longer recording is in [docs/demo.mp4](docs/demo.mp4).
+**Demo:** [samad-zeeshan.github.io/Proving](https://samad-zeeshan.github.io/Proving/) replays recorded test runs. Pick an agent and two versions. Watch both grids of customers run at their recorded speed. Then watch the range, the checks and the ship or hold stamp appear. The last button shows customers who try tricks and which tricks worked. A longer video is in [docs/demo.mp4](docs/demo.mp4).
 
 ![Made-up customers test two versions of Warden side by side, and the page gives a ship verdict](docs/demo.gif)
 
 ## How it works
 
 ![From a template to a scored customer](docs/diagrams/scenario-model.png)
-Proving turns a template and a random seed into a scenario file. The file holds a persona, the starting tool state, and the checks for success and harm. The persona gives some facts only when the agent asks.
+Proving turns a template and a random seed into a scenario file. The file holds a persona, the tool state at the start, and the checks for success and harm. The persona gives some facts only when the agent asks.
 
 ![One boundary through the proxy that records calls](docs/diagrams/proxy-modes.png)
 Every tool call, model call and customer line goes through one proxy. The proxy can record each call, answer it from rules, or replay it. A replay stops at the first step where new code asks for something different.
@@ -22,12 +22,12 @@ A paired range decides each claim. A set of checks then gives one verdict. The a
 
 ## Decisions
 
-- A scenario is a YAML file. It holds a persona, the starting tool state, checks for success and harm, and a claim tag. The persona has a goal, gated facts, patience, a language and a style. The checks test the final tool state. Proving never takes the agent's words as proof.
+- A scenario is a YAML file. It holds a persona, the tool state at the start, checks for success and harm, and a claim tag. The persona has a goal, gated facts, patience, a language and a style. The checks test the final tool state. Proving never takes the agent's words as proof.
 - A customer gives a fact only when the agent asks for it. Some facts need two questions. This follows the disclosure gate in arXiv 2609.00982. The optional model customer only rewords lines that the rules customer chose. So it cannot leak a gated fact.
 - Tools run in three modes. Record mode calls the agent's own in-memory service. Simulate mode answers from the scenario's tool state. Replay mode gives the recorded answers again. Model calls and speech also go through the proxy. So a run with a local model can replay in CI with no model.
-- Each range is a paired bootstrap range. A claim proves true when its whole range favours the change. It proves false when the range excludes the smallest gain that is worth shipping. Otherwise the test is too small to decide. Proving never decides from a bare average.
+- Each range comes from a paired bootstrap. A claim proves true when its whole range favours the change. It proves false when the range excludes the smallest gain that is big enough to ship. Otherwise the test is too small to decide. Proving never decides from a bare average.
 - The evidence bar follows EnterpriseVal. The agent's freedom to act alone and the cost of its mistakes pick a tier. The tier sets how sure the test must be, how many customers it needs, and how much harm it allows. It also sets how far success may fall.
-- Proving scores the judges against the final tool state. That state gives a trusted label for every call. So Proving measures calibration, the cheap-first cascade and judge error correlation instead of assuming them.
+- Proving scores the judges against the final tool state. That state gives a trusted label for every call. So Proving measures calibration, the cheap-first cascade and judge error correlation instead of guessing them.
 - Warden does not talk with the customer. The customer's words become the description of a change request, and Warden decides once. So Warden never asks for gated facts. A scripted planner makes the calls for customers who try tricks. The planner obeys the planted text, which is the same worst case that Warden's own attack tests use.
 - Parley's small AI model returns only text, so its token use is not visible from outside. The adapter sends the same request itself to read the token use. It also runs the second count without the added listing details. Parley makes random booking ids. So a replay that stops in the middle of a call needs the tool simulator, which makes ids from a hash.
 
@@ -87,7 +87,7 @@ Warden's call checker does what it claims. Its ship verdict comes from fewer bad
 
 The same harm shows in both versions of Parley. If a caller says a second phone number, Parley books the viewing under that number. Parley also repeats listing text word for word. Judges that see only the transcript do barely better than a coin toss. Half of the sample calls failed. A booking under the wrong number sounds like a success, so the judges miss it.
 
-These numbers have limits. Every customer and every voice is made up. The text noise is Proving's own, and it is harsher than Parley's own tests. The audio runs use one voice per language. The judges' labels measure task success, not human ratings of helpfulness.
+These numbers have limits. None of the customers or voices are real. The text noise is Proving's own, and it is harsher than Parley's own tests. The audio runs use one voice per language. The judges' labels measure task success, not human ratings of helpfulness.
 
 ## Run it
 
