@@ -93,3 +93,21 @@ def test_copy_has_no_filler_words():
 def test_copy_has_no_em_dash_or_semicolon():
     bad = [s for s in _readme_prose() + _page_strings() if "—" in s or ";" in s]
     assert bad == []
+
+
+# A form of "be", then at most one word, then a past participle. Hyphenated words like made-up are adjectives.
+PASSIVE = re.compile(
+    r"\b(?:is|are|was|were|be|been|being)\s+(?:\w+\s+)?"
+    r"(?:\w+ed|made|done|found|given|held|kept|left|run|seen|sent|shown|taken|written|built|caught)\b(?!-)",
+    re.I,
+)
+PASSIVE_OK = {
+    # "Not settled yet" is the fixed name of the third verdict. Here "settled" is a state, not an action.
+    "The claim is not settled yet.",
+    "is not settled yet",
+}
+
+
+def test_copy_has_no_passive_voice():
+    hits = [s for s in _sentences(_readme_prose() + _page_strings()) if PASSIVE.search(s) and s not in PASSIVE_OK]
+    assert hits == []
