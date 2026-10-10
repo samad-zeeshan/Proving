@@ -92,7 +92,7 @@ These numbers have limits. Every customer and every voice is made up. The text n
 ## Run it
 
 ```bash
-pip install -e ".[dev]" && pytest -q                        # needs ../Change-Gate and ../Majlis, see clients.json
+pip install -e ".[dev]" && pytest -q                        # needs ../Warden and ../Parley, see clients.json
 python -m proving.cli simulate parley --version rules --set smoke
 python -m proving.cli report warden --md
 ```
