@@ -2,7 +2,7 @@
 
 Proving tests an AI agent on thousands of made-up customers before the agent meets a real one. Each customer has a goal, some details that it gives only when asked, and patience that runs out. Proving records or fakes the agent's tools, so the test touches nothing real. At the end, Proving gives one answer, ship or hold, with the numbers behind it. The two test agents are Warden, which approves changes to live software, and Parley, which books property viewings by phone.
 
-**Demo:** [samad-zeeshan.github.io/Proving](https://samad-zeeshan.github.io/Proving/) replays recorded test runs. Pick an agent and two versions. Watch both grids of customers run at their recorded speed. Then watch the range, the checks and the ship or hold stamp appear. The last button shows customers who try tricks and which tricks worked. A longer video is in [docs/demo.mp4](docs/demo.mp4).
+**Demo:** [samad-zeeshan.github.io/Proving](https://samad-zeeshan.github.io/Proving/) replays recorded test runs. Pick an agent and two versions. Watch both grids of customers run at their recorded speed. Then watch the range, the checks and the ship or hold stamp appear. The last button shows customers who try tricks and which tricks worked. A longer video is in [docs/demo.mp4](docs/demo.mp4). A short explainer video is in [docs/explainer.mp4](docs/explainer.mp4).
 
 ![Made-up customers test two versions of Warden side by side, and the page gives a ship verdict](docs/demo.gif)
 
